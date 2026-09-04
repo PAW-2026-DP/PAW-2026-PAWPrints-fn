@@ -1,0 +1,16 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencias (por si en TPs futuros se agrega npm)
+node_modules/
+
+# Generados
+dist/
+build/
