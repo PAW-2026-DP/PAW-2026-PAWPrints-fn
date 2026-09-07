@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar compra — PAWPrints</title>
+  <meta name="description" content="Completá tus datos de envío, facturación y método de pago para finalizar tu compra en PAWPrints.">
+</head>
+<body>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main>
+
+    <nav aria-label="Ubicación en el sitio">
+      <ol>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><span aria-current="page">Finalizar compra</span></li>
+      </ol>
+    </nav>
+
+    <h1>Finalizar compra</h1>
+
+    <!--
+      Layout semántico del Figma (checkout Desktop y Mobile):
+      form de envío/facturación + método de pago a un lado,
+      resumen del pedido al otro.
+      Para HTML puro sin CSS se presenta linealmente:
+        1. Envío y Facturación
+        2. Método de pago
+        3. Resumen del pedido
+    -->
+
+    <section aria-labelledby="envio-facturacion-h">
+      <h2 id="envio-facturacion-h">Envío y Facturación</h2>
+
+      <form action="/pages/confirmacion.html" method="post" id="checkout-form">
+
+        <fieldset>
+          <legend>Datos personales</legend>
+
+          <p>
+            <label for="nombre">Nombre *</label><br>
+            <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
+          </p>
+
+          <p>
+            <label for="apellido">Apellido *</label><br>
+            <input type="text" id="apellido" name="apellido" required autocomplete="family-name">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dirección de facturación</legend>
+
+          <p>
+            <label for="pais">País / Región *</label><br>
+            <select id="pais" name="pais" autocomplete="country">
+              <option value="AR">Argentina</option>
+              <option value="CL">Chile</option>
+              <option value="UY">Uruguay</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="direccion">Calle / Dirección *</label><br>
+            <input type="text" id="direccion" name="direccion" required autocomplete="address-line1">
+          </p>
+
+          <p>
+            <label for="piso">Piso / Depto (opcional)</label><br>
+            <input type="text" id="piso" name="piso" autocomplete="address-line2">
+          </p>
+
+          <p>
+            <label for="localidad">Localidad *</label><br>
+            <input type="text" id="localidad" name="localidad" required autocomplete="address-level2">
+          </p>
+
+          <p>
+            <label for="provincia">Región / Provincia *</label><br>
+            <select id="provincia" name="provincia" autocomplete="address-level1">
+              <option value="BA">Buenos Aires</option>
+              <option value="CBA">Córdoba</option>
+              <option value="SF">Santa Fe</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="cp">Código postal (opcional)</label><br>
+            <input type="text" id="cp" name="cp" autocomplete="postal-code">
+          </p>
+
+          <p>
+            <label for="telefono">Teléfono (opcional)</label><br>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Documento</legend>
+
+          <p>
+            <label for="tipo-doc">Tipo de documento *</label><br>
+            <select id="tipo-doc" name="tipo_doc">
+              <option value="dni">DNI</option>
+              <option value="pasaporte">Pasaporte</option>
+              <option value="cuit">CUIT</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="num-doc">Número de documento *</label><br>
+            <input type="text" id="num-doc" name="num_doc" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Notas del pedido</legend>
+          <p>
+            <label for="notas">Notas (opcional)</label><br>
+            <textarea id="notas" name="notas" rows="4" placeholder="Notas sobre tu pedido, ej. horario de entrega."></textarea>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>¿Enviar a otra dirección?</legend>
+          <p>
+            <input type="radio" id="envio-si" name="envio_otra" value="si">
+            <label for="envio-si">Sí</label>
+            <input type="radio" id="envio-no" name="envio_otra" value="no" checked>
+            <label for="envio-no">No</label>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Datos de envío (si es distinto a facturación)</legend>
+          <p>
+            <label for="dest-nombre">Nombre y apellido del destinatario</label><br>
+            <input type="text" id="dest-nombre" name="dest_nombre">
+          </p>
+          <p>
+            <label for="dest-direccion">Dirección de envío</label><br>
+            <input type="text" id="dest-direccion" name="dest_direccion">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Método de pago</legend>
+          <p>
+            <input type="radio" id="pago-mp" name="pago" value="mercado-pago" checked>
+            <label for="pago-mp">
+              <strong>Mercado Pago</strong><br>
+              Tarjeta, dinero en cuenta o efectivo, todo gestionado por Mercado Pago.
+            </label>
+          </p>
+        </fieldset>
+
+      </form>
+    </section>
+
+    <section aria-labelledby="resumen-h">
+      <h2 id="resumen-h">Resumen del pedido</h2>
+
+      <table border="1" cellpadding="6" cellspacing="0">
+        <caption>Detalle del pedido</caption>
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>El nombre del viento × 1</td>
+            <td><data value="450">$450,00</data></td>
+          </tr>
+          <tr>
+            <td>Envío</td>
+            <td>Gratis</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">Total</th>
+            <td><data value="450"><strong>$450,00</strong></data></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p>
+        <button type="submit" form="checkout-form">Confirmar y pagar</button>
+      </p>
+
+      <p>
+        <small>
+          Tus datos personales se usarán para procesar tu pedido y conforme a nuestra
+          <a href="/pages/privacidad.html">política de privacidad</a>.
+        </small>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>
