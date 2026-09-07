@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cien Años de Soledad, de Gabriel García Márquez — PAWPrints</title>
+  <meta name="description" content="Cien Años de Soledad, de Gabriel García Márquez. Editorial Sudamericana. Comprá online o reservá tu ejemplar en PAWPrints.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/detalle-libro-cien-anios-de-soledad.html" aria-current="page">Cien Años de Soledad</a></li>
+      </ol>
+    </nav>
+
+    <article>
+
+      <section aria-labelledby="ficha">
+        <h1 id="ficha">Cien Años de Soledad</h1>
+        <p>de <a href="#autor">Gabriel García Márquez</a></p>
+
+        <figure>
+          <img src="/img/portada-placeholder.svg" width="240" height="360"
+               alt="Portada de Cien Años de Soledad, edición de Editorial Sudamericana">
+          <figcaption>Tapa blanda — Editorial Sudamericana</figcaption>
+        </figure>
+
+        <ul aria-label="Más imágenes del libro">
+          <li><img src="/img/portada-placeholder.svg" width="80" height="120" alt="Contratapa de Cien Años de Soledad"></li>
+          <li><img src="/img/portada-placeholder.svg" width="80" height="120" alt="Páginas interiores de Cien Años de Soledad"></li>
+          <li><img src="/img/portada-placeholder.svg" width="80" height="120" alt="Lomo de Cien Años de Soledad"></li>
+        </ul>
+
+        <p><b>Precio: AR$ 520</b></p>
+        <p>Disponibilidad: <strong>En stock</strong> en tienda online y en Sucursal Norte.</p>
+
+        <form action="../carrito.html" method="post">
+          <input type="hidden" name="isbn" value="978-950-0000-02-8">
+
+          <p>
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad"
+                   value="1" min="1" max="10" step="1" required inputmode="numeric">
+          </p>
+
+          <p>
+            <button type="submit" name="accion" value="agregar-carrito">Agregar al carrito</button>
+            <button type="submit" name="accion" value="agregar-favoritos" formaction="../favoritos.html">
+              Agregar a favoritos
+            </button>
+          </p>
+        </form>
+
+        <p><a href="/pages/reserva.html?libro=cien-anios-de-soledad">Reservar este libro para retirar en el local</a></p>
+      </section>
+
+      <section aria-labelledby="descripcion">
+        <h3 id="descripcion">Descripción</h3>
+        <p>
+          En el pueblo de Macondo, fundado por José Arcadio Buendía y Úrsula Iguarán, se suceden
+          siete generaciones de una misma familia. Guerras civiles, compañías bananeras, amores
+          imposibles y una lluvia que dura casi cuatro años atraviesan una historia donde lo
+          extraordinario convive con lo cotidiano.
+        </p>
+        <p>
+          Publicada en <time datetime="1967">1967</time>, es la obra más conocida del realismo
+          mágico latinoamericano y uno de los libros más traducidos en lengua castellana.
+        </p>
+      </section>
+
+      <section id="autor" aria-labelledby="sobre-autor">
+        <h3 id="sobre-autor">Sobre el autor</h3>
+        <p>
+          <strong>Gabriel García Márquez</strong>
+          (<time datetime="1927">1927</time> – <time datetime="2014">2014</time>) fue un
+          escritor y periodista colombiano, Premio Nobel de Literatura en
+          <time datetime="1982">1982</time>. Entre sus obras se cuentan
+          <cite>El coronel no tiene quien le escriba</cite>,
+          <cite>El amor en los tiempos del cólera</cite> y
+          <cite>Crónica de una muerte anunciada</cite>.
+        </p>
+        <p><a href="/pages/catalogo.html?autor=garcia-marquez">Ver todos los libros de Gabriel García Márquez</a></p>
+      </section>
+
+      <section aria-labelledby="especificaciones">
+        <h3 id="especificaciones">Especificaciones</h3>
+        <table>
+          <caption>Ficha técnica del ejemplar</caption>
+          <tbody>
+            <tr><th scope="row">ISBN</th><td>978-950-0000-02-8</td></tr>
+            <tr><th scope="row">Editorial</th><td>Sudamericana</td></tr>
+            <tr><th scope="row">Año de edición</th><td><time datetime="2022">2022</time></td></tr>
+            <tr><th scope="row">Idioma</th><td>Español</td></tr>
+            <tr><th scope="row">Encuadernación</th><td>Tapa blanda</td></tr>
+            <tr><th scope="row">Páginas</th><td>496</td></tr>
+            <tr><th scope="row">Dimensiones</th><td>14 × 21 cm</td></tr>
+            <tr><th scope="row">Peso</th><td>520 g</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="resenas">
+        <h3 id="resenas">Reseñas de lectores</h3>
+
+        <article>
+          <h4>Imprescindible</h4>
+          <p>
+            <strong>Sofía L.</strong> ·
+            <time datetime="2026-08-03">3 de agosto de 2026</time> ·
+            <data value="5">5 de 5 estrellas</data>
+          </p>
+          <blockquote>
+            <p>El árbol genealógico del principio salva la vida cuando se repiten los nombres.</p>
+          </blockquote>
+        </article>
+
+        <article>
+          <h4>Muy buena edición</h4>
+          <p>
+            <strong>Diego F.</strong> ·
+            <time datetime="2026-07-19">19 de julio de 2026</time> ·
+            <data value="4">4 de 5 estrellas</data>
+          </p>
+          <blockquote>
+            <p>Letra grande y papel liviano. Ideal para leer en el colectivo.</p>
+          </blockquote>
+        </article>
+      </section>
+
+    </article>
+
+    <aside aria-labelledby="relacionados">
+      <h3 id="relacionados">Te podría gustar</h3>
+      <ul>
+        <li>
+          <article>
+            <h4><a href="/pages/detalle-libro.html">El Quijote</a></h4>
+            <p>Miguel de Cervantes</p>
+            <p><b>AR$ 450</b></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h4><a href="/pages/detalle-libro-la-odisea.html">La Odisea</a></h4>
+            <p>Homero</p>
+            <p><b>AR$ 380</b></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h4><a href="/pages/catalogo.html?autor=cortazar">Rayuela</a></h4>
+            <p>Julio Cortázar</p>
+            <p><b>AR$ 610</b></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h4><a href="/pages/catalogo.html?q=pedro-paramo">Pedro Páramo</a></h4>
+            <p>Juan Rulfo</p>
+            <p><b>AR$ 410</b></p>
+          </article>
+        </li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

@@ -16,42 +16,39 @@ Las páginas demuestran el uso correcto de las etiquetas semánticas de HTML5 y 
 │   ├── README.md            # Guía de uso de componentes compartidos
 │   ├── header.html          # Fragmento canónico del <header>
 │   └── footer.html          # Fragmento canónico del <footer>
+├── img/
+│   └── portada-placeholder.svg  # Portada de relleno para las fichas de libro
 ├── pages/
-│   ├── categorias.html      # Listado de categorías (jbrodi99)
-│   ├── catalogo.html        # Catálogo de libros (jbrodi99)
-│   ├── detalle-libro.html   # Detalle de un libro (jbrodi99)
-│   └── nosotros.html        # Sobre nosotros (jbrodi99)
+│   ├── inicio.html          # Página de inicio
+│   ├── catalogo.html        # Catálogo de libros
+│   ├── categorias.html      # Listado de categorías y subcategorías
+│   ├── detalle-libro.html   # Detalle de un libro
+│   ├── detalle-libro-cien-anios-de-soledad.html
+│   ├── detalle-libro-la-odisea.html
+│   ├── promociones.html     # Promociones, novedades y eventos
+│   ├── nosotros.html        # Sobre nosotros
+│   ├── reserva.html         # Formulario de reserva de libro
+│   ├── contacto.html        # Sucursales, redes y atención al cliente
+│   ├── recomendaciones.html # Recomendaciones por categoría
+│   ├── carrito.html         # Carrito de compras
+│   ├── resumen.html         # Resumen del pedido (checkout)
+│   ├── favoritos.html       # Lista de deseados
+│   ├── mi-cuenta.html       # Datos de la cuenta y pedidos
+│   ├── login.html           # Iniciar sesión
+│   ├── registro.html        # Crear cuenta (paso 1)
+│   ├── registro-paso-2.html # Datos de envío (paso 2)
+│   └── registro-paso-3.html # Confirmación (paso 3)
 └── docs/
     └── sitemap.md           # Mapa del sitio con todas las páginas
 ```
 
-## Páginas y responsables
-
-| Página | Archivo | Responsable |
-|---|---|---|
-| Inicio | `pages/inicio.html` | compañero |
-| Catálogo | `pages/catalogo.html` | jbrodi99 |
-| Categorías | `pages/categorias.html` | jbrodi99 |
-| Detalle de libro | `pages/detalle-libro.html` | jbrodi99 |
-| Sobre Nosotros | `pages/nosotros.html` | jbrodi99 |
-| Formulario de reserva | `pages/reserva.html` | compañero |
-| Promociones | `pages/promociones.html` | compañero |
-| Contacto | `pages/contacto.html` | compañero |
-| Login / Registro | `pages/login.html` / `pages/registro.html` | compañero |
-| Carrito | `pages/carrito.html` | compañero |
-| Mi cuenta | `pages/mi-cuenta.html` | compañero |
-| Favoritos | `pages/favoritos.html` | compañero |
-
 ## Ramas
 
 ```
-main        → base estable del proyecto
-dev         → integración continua del equipo
-test        → rama de validación previa a main
-feature/categorias
-feature/catalogo
-feature/detalle-libro
-feature/nosotros
+main              → base estable del proyecto
+dev               → integración continua del equipo
+test              → rama de validación previa a main
+feature/<tarea>   → una rama por tarea, se integra a dev
 ```
 
 ## Diseño de referencia

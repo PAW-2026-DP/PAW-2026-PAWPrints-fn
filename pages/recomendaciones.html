@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recomendado para vos — PAWPrints</title>
+  <meta name="description" content="Elegí tus categorías favoritas y descubrí los libros más comprados por lectores con gustos parecidos a los tuyos.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/recomendaciones.html" aria-current="page">Recomendaciones</a></li>
+      </ol>
+    </nav>
+
+    <hgroup>
+      <h1>Recomendado para vos</h1>
+      <p>Basado en lectores que también eligieron Novela, Ciencia Ficción y Fantasía.</p>
+    </hgroup>
+
+    <section aria-labelledby="elegir">
+      <h3 id="elegir">¿Qué querés leer hoy?</h3>
+      <p>
+        <label for="avance-recom">Paso 1 de 2</label>
+        <progress id="avance-recom" max="2" value="1">Paso 1 de 2</progress>
+      </p>
+
+      <form action="recomendaciones.html" method="get" name="preferencias">
+        <fieldset>
+          <legend>Elegí una o más categorías para recibir recomendaciones</legend>
+
+          <p><label><input type="checkbox" name="categoria" value="novela" checked> Novela</label></p>
+          <p><label><input type="checkbox" name="categoria" value="ciencia-ficcion" checked> Ciencia Ficción</label></p>
+          <p><label><input type="checkbox" name="categoria" value="fantasia" checked> Fantasía</label></p>
+          <p><label><input type="checkbox" name="categoria" value="autoayuda"> Autoayuda</label></p>
+          <p><label><input type="checkbox" name="categoria" value="historia"> Historia</label></p>
+          <p><label><input type="checkbox" name="categoria" value="infantil"> Infantil</label></p>
+          <p><label><input type="checkbox" name="categoria" value="terror"> Terror</label></p>
+        </fieldset>
+
+        <p><output name="seleccionadas">3 categorías seleccionadas</output></p>
+
+        <p>
+          <button type="submit">Siguiente</button>
+          <a href="/pages/inicio.html">Cancelar</a>
+        </p>
+      </form>
+    </section>
+
+    <section aria-labelledby="resultados">
+      <h3 id="resultados">Tus recomendaciones</h3>
+      <p><a href="/pages/recomendaciones.html">Volver a elegir categorías</a></p>
+
+      <ul>
+        <li>
+          <article>
+            <p><strong><mark>Más comprado en Ciencia Ficción</mark></strong></p>
+            <figure>
+              <img src="/img/portada-placeholder.svg" width="240" height="360"
+                   alt="Portada de Fahrenheit 451, de Ray Bradbury">
+            </figure>
+            <h4><a href="/pages/catalogo.html?q=fahrenheit-451">Fahrenheit 451</a></h4>
+            <p>Ray Bradbury</p>
+            <p><b>AR$ 560,00</b></p>
+            <form action="carrito.html" method="post">
+              <input type="hidden" name="isbn" value="978-950-0000-07-3">
+              <button type="submit">Agregar al carrito</button>
+            </form>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <p><strong><mark>Más comprado en Fantasía</mark></strong></p>
+            <figure>
+              <img src="/img/portada-placeholder.svg" width="240" height="360"
+                   alt="Portada de El nombre de la rosa, de Umberto Eco">
+            </figure>
+            <h4><a href="/pages/catalogo.html?q=el-nombre-de-la-rosa">El nombre de la rosa</a></h4>
+            <p>Umberto Eco</p>
+            <p><b>AR$ 720,00</b></p>
+            <form action="carrito.html" method="post">
+              <input type="hidden" name="isbn" value="978-950-0000-09-7">
+              <button type="submit">Agregar al carrito</button>
+            </form>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <p><strong><mark>Más comprado en Novela</mark></strong></p>
+            <figure>
+              <img src="/img/portada-placeholder.svg" width="240" height="360"
+                   alt="Portada de Cien Años de Soledad, de Gabriel García Márquez">
+            </figure>
+            <h4><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a></h4>
+            <p>Gabriel García Márquez</p>
+            <p><b>AR$ 520,00</b></p>
+            <form action="carrito.html" method="post">
+              <input type="hidden" name="isbn" value="978-950-0000-02-8">
+              <button type="submit">Agregar al carrito</button>
+            </form>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <p><strong><mark>Recomendado por la librería</mark></strong></p>
+            <figure>
+              <img src="/img/portada-placeholder.svg" width="240" height="360"
+                   alt="Portada de Rayuela, de Julio Cortázar">
+            </figure>
+            <h4><a href="/pages/catalogo.html?q=rayuela">Rayuela</a></h4>
+            <p>Julio Cortázar</p>
+            <p><b>AR$ 610,00</b></p>
+            <form action="carrito.html" method="post">
+              <input type="hidden" name="isbn" value="978-950-0000-05-9">
+              <button type="submit">Agregar al carrito</button>
+            </form>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

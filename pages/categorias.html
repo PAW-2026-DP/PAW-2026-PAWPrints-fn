@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorías — PAWPrints</title>
+  <meta name="description" content="Explorá las categorías y subcategorías del catálogo de PAWPrints y encontrá tu próxima lectura.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/categorias.html" aria-current="page">Categorías</a></li>
+      </ol>
+    </nav>
+
+    <hgroup>
+      <h1>Categorías</h1>
+      <p>Explorá nuestras categorías y encontrá tu próxima lectura.</p>
+    </hgroup>
+
+    <search>
+      <form action="categorias.html" method="get" role="search">
+        <label for="buscar-categoria">Buscar categoría</label>
+        <input type="search" id="buscar-categoria" name="categoria"
+               placeholder="Ej.: Ciencia Ficción" list="listado-categorias">
+        <datalist id="listado-categorias">
+          <option value="Novela"></option>
+          <option value="Ciencia Ficción"></option>
+          <option value="Fantasía"></option>
+          <option value="Historia"></option>
+          <option value="Infantil"></option>
+        </datalist>
+        <button type="submit">Buscar</button>
+      </form>
+    </search>
+
+    <!--
+      Cada categoría se maqueta con <details>/<summary>: es el elemento nativo de
+      HTML5 para un contenido plegable (acordeón), tal como muestra el wireframe,
+      y no necesita CSS ni JavaScript para funcionar.
+    -->
+    <section aria-labelledby="todas">
+      <h3 id="todas">Todas las categorías</h3>
+
+      <ul>
+        <li>
+          <details>
+            <summary>Novela</summary>
+            <nav aria-label="Subcategorías de Novela">
+              <ul>
+                <li><a href="/pages/catalogo.html?categoria=novela&amp;sub=contemporanea">Novela contemporánea</a></li>
+                <li><a href="/pages/catalogo.html?categoria=novela&amp;sub=historica">Novela histórica</a></li>
+                <li><a href="/pages/catalogo.html?categoria=novela&amp;sub=clasicos">Clásicos</a></li>
+              </ul>
+            </nav>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>Ciencia Ficción</summary>
+            <nav aria-label="Subcategorías de Ciencia Ficción">
+              <ul>
+                <li><a href="/pages/catalogo.html?categoria=ciencia-ficcion&amp;sub=distopias">Distopías</a></li>
+                <li><a href="/pages/catalogo.html?categoria=ciencia-ficcion&amp;sub=space-opera">Space opera</a></li>
+                <li><a href="/pages/catalogo.html?categoria=ciencia-ficcion&amp;sub=ciberpunk">Ciberpunk</a></li>
+              </ul>
+            </nav>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>Fantasía</summary>
+            <nav aria-label="Subcategorías de Fantasía">
+              <ul>
+                <li><a href="/pages/catalogo.html?categoria=fantasia&amp;sub=epica">Fantasía épica</a></li>
+                <li><a href="/pages/catalogo.html?categoria=fantasia&amp;sub=urbana">Fantasía urbana</a></li>
+                <li><a href="/pages/catalogo.html?categoria=fantasia&amp;sub=juvenil">Fantasía juvenil</a></li>
+              </ul>
+            </nav>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>Historia</summary>
+            <nav aria-label="Subcategorías de Historia">
+              <ul>
+                <li><a href="/pages/catalogo.html?categoria=historia&amp;sub=argentina">Historia argentina</a></li>
+                <li><a href="/pages/catalogo.html?categoria=historia&amp;sub=universal">Historia universal</a></li>
+              </ul>
+            </nav>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>Infantil</summary>
+            <nav aria-label="Subcategorías de Infantil">
+              <ul>
+                <li><a href="/pages/catalogo.html?categoria=infantil&amp;sub=primeros-lectores">Primeros lectores</a></li>
+                <li><a href="/pages/catalogo.html?categoria=infantil&amp;sub=ilustrados">Libros ilustrados</a></li>
+                <li><a href="/pages/catalogo.html?categoria=infantil&amp;sub=cuentos">Cuentos clásicos</a></li>
+              </ul>
+            </nav>
+          </details>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

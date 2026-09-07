@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Odisea, de Homero — PAWPrints</title>
+  <meta name="description" content="La Odisea, de Homero. Editorial Gredos. Comprá online o reservá tu ejemplar en PAWPrints.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/detalle-libro-la-odisea.html" aria-current="page">La Odisea</a></li>
+      </ol>
+    </nav>
+
+    <article>
+
+      <section aria-labelledby="ficha">
+        <h1 id="ficha">La Odisea</h1>
+        <p>de <a href="#autor">Homero</a></p>
+
+        <figure>
+          <img src="/img/portada-placeholder.svg" width="240" height="360"
+               alt="Portada de La Odisea, edición de Editorial Gredos">
+          <figcaption>Tapa dura — Editorial Gredos</figcaption>
+        </figure>
+
+        <ul aria-label="Más imágenes del libro">
+          <li><img src="/img/portada-placeholder.svg" width="80" height="120" alt="Contratapa de La Odisea"></li>
+          <li><img src="/img/portada-placeholder.svg" width="80" height="120" alt="Páginas interiores de La Odisea"></li>
+          <li><img src="/img/portada-placeholder.svg" width="80" height="120" alt="Lomo de La Odisea"></li>
+        </ul>
+
+        <p><b>Precio: AR$ 380</b></p>
+        <p>Disponibilidad: <strong>Últimas unidades</strong> en tienda online.</p>
+
+        <form action="../carrito.html" method="post">
+          <input type="hidden" name="isbn" value="978-950-0000-03-5">
+
+          <p>
+            <label for="cantidad">Cantidad</label>
+            <input type="number" id="cantidad" name="cantidad"
+                   value="1" min="1" max="5" step="1" required inputmode="numeric">
+          </p>
+
+          <p>
+            <button type="submit" name="accion" value="agregar-carrito">Agregar al carrito</button>
+            <button type="submit" name="accion" value="agregar-favoritos" formaction="../favoritos.html">
+              Agregar a favoritos
+            </button>
+          </p>
+        </form>
+
+        <p><a href="/pages/reserva.html?libro=la-odisea">Reservar este libro para retirar en el local</a></p>
+      </section>
+
+      <section aria-labelledby="descripcion">
+        <h3 id="descripcion">Descripción</h3>
+        <p>
+          Terminada la guerra de Troya, Odiseo emprende el regreso a Ítaca. El viaje se estira
+          diez años entre tormentas, monstruos, hechiceras y dioses enfrentados, mientras en su
+          isla Penélope resiste a los pretendientes y Telémaco sale a buscar noticias de su padre.
+        </p>
+        <p>
+          Junto con <cite>La Ilíada</cite>, es uno de los dos poemas épicos griegos que están en
+          el origen de la literatura occidental.
+        </p>
+      </section>
+
+      <section id="autor" aria-labelledby="sobre-autor">
+        <h3 id="sobre-autor">Sobre el autor</h3>
+        <p>
+          <strong>Homero</strong> es el nombre con el que la tradición griega identifica al aedo
+          al que se atribuyen <cite>La Ilíada</cite> y <cite>La Odisea</cite>, compuestas hacia el
+          siglo VIII a. C. No se conservan datos biográficos confiables, y desde la Antigüedad se
+          discute si fue una persona o el resultado de una tradición oral colectiva.
+        </p>
+        <p><a href="/pages/catalogo.html?autor=homero">Ver todos los libros de Homero</a></p>
+      </section>
+
+      <section aria-labelledby="especificaciones">
+        <h3 id="especificaciones">Especificaciones</h3>
+        <table>
+          <caption>Ficha técnica del ejemplar</caption>
+          <tbody>
+            <tr><th scope="row">ISBN</th><td>978-950-0000-03-5</td></tr>
+            <tr><th scope="row">Editorial</th><td>Gredos</td></tr>
+            <tr><th scope="row">Año de edición</th><td><time datetime="2019">2019</time></td></tr>
+            <tr><th scope="row">Idioma</th><td>Español (traducción del griego antiguo)</td></tr>
+            <tr><th scope="row">Encuadernación</th><td>Tapa dura</td></tr>
+            <tr><th scope="row">Páginas</th><td>560</td></tr>
+            <tr><th scope="row">Dimensiones</th><td>15 × 22 cm</td></tr>
+            <tr><th scope="row">Peso</th><td>780 g</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section aria-labelledby="resenas">
+        <h3 id="resenas">Reseñas de lectores</h3>
+
+        <article>
+          <h4>Traducción muy clara</h4>
+          <p>
+            <strong>Camila S.</strong> ·
+            <time datetime="2026-08-21">21 de agosto de 2026</time> ·
+            <data value="5">5 de 5 estrellas</data>
+          </p>
+          <blockquote>
+            <p>Se entiende sin necesidad de saber nada de mitología griega. Las notas ayudan mucho.</p>
+          </blockquote>
+        </article>
+
+        <article>
+          <h4>Buena edición de tapa dura</h4>
+          <p>
+            <strong>Nicolás A.</strong> ·
+            <time datetime="2026-05-11">11 de mayo de 2026</time> ·
+            <data value="4">4 de 5 estrellas</data>
+          </p>
+          <blockquote>
+            <p>Pesa bastante, pero la encuadernación es muy sólida.</p>
+          </blockquote>
+        </article>
+      </section>
+
+    </article>
+
+    <aside aria-labelledby="relacionados">
+      <h3 id="relacionados">Te podría gustar</h3>
+      <ul>
+        <li>
+          <article>
+            <h4><a href="/pages/detalle-libro.html">El Quijote</a></h4>
+            <p>Miguel de Cervantes</p>
+            <p><b>AR$ 450</b></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h4><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a></h4>
+            <p>Gabriel García Márquez</p>
+            <p><b>AR$ 520</b></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h4><a href="/pages/catalogo.html?q=la-iliada">La Ilíada</a></h4>
+            <p>Homero</p>
+            <p><b>AR$ 395</b></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h4><a href="/pages/catalogo.html?autor=borges">El Aleph</a></h4>
+            <p>Jorge Luis Borges</p>
+            <p><b>AR$ 470</b></p>
+          </article>
+        </li>
+      </ul>
+    </aside>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

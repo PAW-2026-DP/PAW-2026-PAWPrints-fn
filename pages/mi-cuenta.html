@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi cuenta — PAWPrints</title>
+  <meta name="description" content="Gestioná tus datos personales, direcciones y pedidos en PAWPrints.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/mi-cuenta.html" aria-current="page">Mi cuenta</a></li>
+      </ol>
+    </nav>
+
+    <hgroup>
+      <h1>Mi cuenta</h1>
+      <p>Gestioná tus datos personales y de contacto.</p>
+    </hgroup>
+
+    <!-- Menú lateral de la sección: es navegación secundaria dentro de la cuenta. -->
+    <nav aria-label="Secciones de mi cuenta">
+      <ul>
+        <li><a href="/pages/mi-cuenta.html" aria-current="page">Mis datos personales</a></li>
+        <li><a href="#direccion">Direcciones</a></li>
+        <li><a href="#">Métodos de pago</a></li>
+        <li><a href="#pedidos">Pedidos</a></li>
+        <li><a href="#">Seguridad</a></li>
+        <li><a href="/pages/inicio.html">Cerrar sesión</a></li>
+      </ul>
+    </nav>
+
+    <form action="mi-cuenta.html" method="post" name="datos-cuenta">
+
+      <fieldset>
+        <legend id="datos-personales">Datos personales</legend>
+
+        <p>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" value="Juan"
+                 autocomplete="given-name" required maxlength="60">
+        </p>
+
+        <p>
+          <label for="apellido">Apellido</label>
+          <input type="text" id="apellido" name="apellido" value="Pérez"
+                 autocomplete="family-name" required maxlength="60">
+        </p>
+
+        <p>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" value="juan.perez@email.com"
+                 autocomplete="email" required>
+        </p>
+
+        <p>
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" value="+54 9 2323 45-6789"
+                 autocomplete="tel" inputmode="tel" pattern="[+0-9()\s-]{8,20}" required>
+        </p>
+
+        <p>
+          <label for="tipo-doc">Tipo de documento</label>
+          <select id="tipo-doc" name="tipo_documento" required>
+            <option value="dni" selected>DNI</option>
+            <option value="cuit">CUIT</option>
+            <option value="cuil">CUIL</option>
+            <option value="pasaporte">Pasaporte</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="nro-doc">Número de documento</label>
+          <input type="text" id="nro-doc" name="numero_documento" value="30123456"
+                 inputmode="numeric" pattern="[0-9]{7,11}" required>
+        </p>
+      </fieldset>
+
+      <fieldset id="direccion">
+        <legend>Dirección</legend>
+
+        <p>
+          <label for="calle">Calle / Avenida</label>
+          <input type="text" id="calle" name="calle" value="Av. Rivadavia"
+                 autocomplete="address-line1" required maxlength="80">
+        </p>
+
+        <p>
+          <label for="altura">Altura / Nro</label>
+          <input type="text" id="altura" name="altura" value="1234"
+                 inputmode="numeric" required maxlength="10">
+        </p>
+
+        <p>
+          <label for="piso">Piso <small>(opcional)</small></label>
+          <input type="text" id="piso" name="piso" value="3" maxlength="5">
+        </p>
+
+        <p>
+          <label for="departamento">Departamento <small>(opcional)</small></label>
+          <input type="text" id="departamento" name="departamento" value="B" maxlength="5">
+        </p>
+
+        <p>
+          <label for="localidad">Localidad</label>
+          <input type="text" id="localidad" name="localidad" value="Luján"
+                 autocomplete="address-level2" required maxlength="60">
+        </p>
+
+        <p>
+          <label for="provincia">Región / Provincia</label>
+          <select id="provincia" name="provincia" autocomplete="address-level1" required>
+            <option value="buenos-aires" selected>Buenos Aires</option>
+            <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+            <option value="cordoba">Córdoba</option>
+            <option value="santa-fe">Santa Fe</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="cp">Código postal</label>
+          <input type="text" id="cp" name="codigo_postal" value="6700"
+                 autocomplete="postal-code" inputmode="numeric"
+                 pattern="[A-Za-z]?[0-9]{4}[A-Za-z]{0,3}" required>
+        </p>
+
+        <p>
+          <label for="pais">País</label>
+          <select id="pais" name="pais" autocomplete="country-name" required>
+            <option value="ar" selected>Argentina</option>
+            <option value="uy">Uruguay</option>
+            <option value="cl">Chile</option>
+          </select>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Guardar cambios</button>
+        <button type="reset">Cancelar</button>
+      </p>
+    </form>
+
+    <section id="pedidos" aria-labelledby="titulo-pedidos">
+      <h3 id="titulo-pedidos">Mis últimos pedidos</h3>
+      <table>
+        <caption>Historial de pedidos</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pedido</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">#10482</th>
+            <td><time datetime="2026-08-28">28/08/2026</time></td>
+            <td>Entregado</td>
+            <td>AR$ 970,00</td>
+          </tr>
+          <tr>
+            <th scope="row">#10391</th>
+            <td><time datetime="2026-07-15">15/07/2026</time></td>
+            <td>Entregado</td>
+            <td>AR$ 450,00</td>
+          </tr>
+          <tr>
+            <th scope="row">#10505</th>
+            <td><time datetime="2026-09-05">05/09/2026</time></td>
+            <td>En preparación</td>
+            <td>AR$ 380,00</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

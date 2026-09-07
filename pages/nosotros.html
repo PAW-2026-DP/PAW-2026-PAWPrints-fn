@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAWPrints — Librería online</title>
-  <meta name="description" content="PAWPrints, tu librería online y física. Explorá nuestro catálogo, descubrí novedades y reservá tus libros favoritos.">
+  <title>Sobre nosotros — PAWPrints</title>
+  <meta name="description" content="La historia, la misión y los servicios de PAWPrints, una librería de barrio con tienda online desde 2010.">
 </head>
 <body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
 
   <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
   <header>
@@ -47,43 +49,87 @@
   </header>
   <!-- #endregion components/header.html -->
 
-  <main>
-    <h1>PAWPrints — Librería</h1>
-    <p>
-      Bienvenido a <strong>PAWPrints</strong>, tu librería online y física.
-      Explorá nuestro catálogo, descubrí las últimas novedades y reservá tus próximas lecturas.
-    </p>
+  <main id="contenido-principal">
 
-    <nav aria-label="Accesos directos">
-      <h2>Páginas del sitio</h2>
-      <ul>
+    <nav aria-label="Migas de pan">
+      <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html">Catálogo de libros</a></li>
-        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/nosotros.html" aria-current="page">Nosotros</a></li>
+      </ol>
+    </nav>
+
+    <h1>Sobre nosotros</h1>
+
+    <section aria-labelledby="historia">
+      <h3 id="historia">Nuestra historia</h3>
+      <p>
+        PAWPrints nació en <time datetime="2010">2010</time> con la misión de acercar los mejores
+        libros a cada lector. Empezamos como una pequeña librería de barrio en Luján y hoy somos
+        una de las tiendas de libros en línea más reconocidas del país, con tres sucursales
+        físicas y envíos a toda la Argentina.
+      </p>
+      <p>
+        Seguimos siendo el mismo equipo que recomienda de memoria, arma mesas temáticas y guarda
+        el ejemplar que estabas buscando bajo el mostrador.
+      </p>
+    </section>
+
+    <section aria-labelledby="mision">
+      <h3 id="mision">Nuestra misión</h3>
+      <ul>
+        <li>Ofrecer la mayor variedad de títulos nacionales e internacionales.</li>
+        <li>Brindar atención personalizada y asesoramiento en cada compra.</li>
+        <li>Fomentar el hábito de la lectura en toda la comunidad.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="servicios">
+      <h3 id="servicios">Nuestros servicios a la comunidad</h3>
+      <ul>
         <li>
-          Detalle de libro:
-          <a href="/pages/detalle-libro.html">El Quijote</a> ·
-          <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a> ·
-          <a href="/pages/detalle-libro-la-odisea.html">La Odisea</a>
+          <strong>Club de lectura mensual</strong>: encuentros abiertos y gratuitos en la
+          Sucursal Centro.
         </li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Sobre Nosotros</a></li>
-        <li><a href="/pages/reserva.html">Formulario de reserva</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-        <li><a href="/pages/recomendaciones.html">Recomendaciones</a></li>
-        <li><a href="/pages/carrito.html">Carrito</a></li>
-        <li><a href="/pages/resumen.html">Resumen del pedido (checkout)</a></li>
-        <li><a href="/pages/favoritos.html">Favoritos</a></li>
-        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
-        <li><a href="/pages/login.html">Login</a></li>
         <li>
-          Registro:
-          <a href="/pages/registro.html">paso 1</a> ·
-          <a href="/pages/registro-paso-2.html">paso 2</a> ·
-          <a href="/pages/registro-paso-3.html">paso 3</a>
+          <strong>Presentaciones de autores locales</strong>: espacio para editoriales
+          independientes de la zona.
+        </li>
+        <li>
+          <strong>Reserva y retiro en sucursal</strong>: separás el libro online y lo retirás
+          cuando puedas. <a href="/pages/reserva.html">Reservar un libro</a>.
+        </li>
+        <li>
+          <strong>Donación de libros a escuelas</strong>: destinamos parte de cada venta a
+          bibliotecas escolares del partido.
         </li>
       </ul>
-    </nav>
+    </section>
+
+    <section aria-labelledby="numeros">
+      <h3 id="numeros">PAWPrints en números</h3>
+      <dl>
+        <dt>Años de trayectoria</dt>
+        <dd><time datetime="P16Y">16</time></dd>
+
+        <dt>Títulos en catálogo</dt>
+        <dd>Más de 12.000</dd>
+
+        <dt>Sucursales</dt>
+        <dd>3 (Luján, CABA y La Plata)</dd>
+
+        <dt>Envíos por mes</dt>
+        <dd>Alrededor de 2.500</dd>
+      </dl>
+    </section>
+
+    <aside aria-labelledby="visitanos">
+      <h3 id="visitanos">Visitanos</h3>
+      <p>
+        Podés pasar por cualquiera de nuestras sucursales de lunes a sábado.
+        Mirá las direcciones y horarios en <a href="/pages/contacto.html">Contacto</a>.
+      </p>
+    </aside>
+
   </main>
 
   <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
