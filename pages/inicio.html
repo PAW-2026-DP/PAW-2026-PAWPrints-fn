@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAWPrints — Tu librería de confianza desde 2010</title>
+  <meta name="description" content="PAWPrints es una librería con tienda online y sucursales físicas. Catálogo de libros, promociones, eventos y reserva de ejemplares.">
+  <meta name="author" content="Equipo PAWPrints — PAW (UNLu)">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <section aria-labelledby="hero">
+      <hgroup>
+        <h1 id="hero">PAWPrints</h1>
+        <p>Tu librería de confianza desde 2010.</p>
+      </hgroup>
+      <p>
+        Somos una librería con <strong>tienda en línea</strong> abierta las 24 horas y
+        <strong>tiendas físicas</strong> en Luján, CABA y La Plata. Comprá online y recibí
+        tu pedido en casa, o reservá un ejemplar y retiralo por el local.
+      </p>
+      <p><a href="/pages/catalogo.html">Ver catálogo</a></p>
+    </section>
+
+    <section aria-labelledby="servicios">
+      <h2 id="servicios">Nuestros servicios</h2>
+      <dl>
+        <dt>Tienda en línea</dt>
+        <dd>Catálogo completo, envíos a todo el país y seguimiento del pedido.</dd>
+
+        <dt>Tienda física</dt>
+        <dd>Tres sucursales con atención personalizada y stock para llevar en el momento.</dd>
+
+        <dt>Reserva de ejemplares</dt>
+        <dd>
+          Reservás online y retirás por la sucursal que elijas.
+          <a href="/pages/reserva.html">Reservar un libro</a>.
+        </dd>
+
+        <dt>Recomendaciones personalizadas</dt>
+        <dd>
+          Elegí tus géneros favoritos y armamos una lista para vos.
+          <a href="/pages/recomendaciones.html">Probar</a>.
+        </dd>
+      </dl>
+    </section>
+
+    <!--
+      Promociones y marketing local.
+      Se maqueta como <aside> (contenido tangencial y destacado respecto del flujo
+      principal) y se marca el título con <mark> para resaltarlo semánticamente,
+      ya que en este TP no se puede usar CSS.
+    -->
+    <aside aria-labelledby="promos">
+      <h2 id="promos"><mark>Promociones y Novedades</mark></h2>
+
+      <ul>
+        <li>
+          <article>
+            <h3>2×1 en Narrativa</h3>
+            <p>El segundo libro sin cargo.</p>
+            <p>Válida hasta el <time datetime="2026-09-30">30/09</time>.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>15% en Infantiles</h3>
+            <p>Toda la colección.</p>
+            <p>Pagando con Banco Provincia.</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>Envíos Gratis</h3>
+            <p>A todo el país.</p>
+            <p>En compras desde <b>AR$ 45.000</b>.</p>
+          </article>
+        </li>
+      </ul>
+
+      <p><a href="/pages/promociones.html">Ver todas las promociones</a></p>
+    </aside>
+
+    <section aria-labelledby="destacados">
+      <h2 id="destacados">Destacados del Mes</h2>
+
+      <ul>
+        <li>
+          <article>
+            <figure>
+              <a href="/pages/detalle-libro.html">
+                <img src="/img/portada-placeholder.svg" width="240" height="360"
+                     alt="Portada de El Quijote, de Miguel de Cervantes">
+              </a>
+              <figcaption>El Quijote</figcaption>
+            </figure>
+            <h3><a href="/pages/detalle-libro.html">El Quijote</a></h3>
+            <p>Miguel de Cervantes</p>
+            <p><small>Editorial Planeta · 1605</small></p>
+            <p>La historia del hidalgo que enloquece de tanto leer novelas de caballería.</p>
+            <p><b>AR$ 450</b></p>
+            <p><a href="/pages/detalle-libro.html">Ver detalle</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <figure>
+              <a href="/pages/detalle-libro-cien-anios-de-soledad.html">
+                <img src="/img/portada-placeholder.svg" width="240" height="360"
+                     alt="Portada de Cien Años de Soledad, de Gabriel García Márquez">
+              </a>
+              <figcaption>Cien Años de Soledad</figcaption>
+            </figure>
+            <h3><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a></h3>
+            <p>Gabriel García Márquez</p>
+            <p><small>Editorial Sudamericana · 1967</small></p>
+            <p>Siete generaciones de los Buendía en el pueblo de Macondo.</p>
+            <p><b>AR$ 520</b></p>
+            <p><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Ver detalle</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <figure>
+              <a href="/pages/detalle-libro-la-odisea.html">
+                <img src="/img/portada-placeholder.svg" width="240" height="360"
+                     alt="Portada de La Odisea, de Homero">
+              </a>
+              <figcaption>La Odisea</figcaption>
+            </figure>
+            <h3><a href="/pages/detalle-libro-la-odisea.html">La Odisea</a></h3>
+            <p>Homero</p>
+            <p><small>Editorial Gredos · VIII a. C.</small></p>
+            <p>El regreso de Odiseo a Ítaca después de la guerra de Troya.</p>
+            <p><b>AR$ 380</b></p>
+            <p><a href="/pages/detalle-libro-la-odisea.html">Ver detalle</a></p>
+          </article>
+        </li>
+      </ul>
+
+      <p><a href="/pages/catalogo.html">Ver todo el catálogo</a></p>
+    </section>
+
+    <section aria-labelledby="locales">
+      <h2 id="locales">Nuestros Locales</h2>
+      <ul>
+        <li>
+          <address>
+            <strong>Sucursal Centro</strong><br>
+            Av. San Martín 1234, Luján, Buenos Aires<br>
+            Tel: <a href="tel:+542323401234">(02323) 40-1234</a>
+          </address>
+        </li>
+        <li>
+          <address>
+            <strong>Sucursal Norte</strong><br>
+            Av. Rivadavia 567, CABA<br>
+            Tel: <a href="tel:+541147605678">(011) 4760-5678</a>
+          </address>
+        </li>
+      </ul>
+      <p><a href="/pages/contacto.html">Ver todas las sucursales y horarios</a></p>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

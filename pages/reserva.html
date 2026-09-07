@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservar un libro — PAWPrints</title>
+  <meta name="description" content="Formulario de reserva de libros de PAWPrints: elegí el título, la cantidad y la sucursal donde querés retirarlo.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/reserva.html" aria-current="page">Reserva de libro</a></li>
+      </ol>
+    </nav>
+
+    <hgroup>
+      <h1>Reservá tu libro</h1>
+      <p>Completá el formulario y te avisamos cuando el ejemplar esté separado para vos.</p>
+    </hgroup>
+
+    <p>
+      La reserva no tiene costo y se mantiene <strong>48 horas hábiles</strong> desde la
+      confirmación. El pago se realiza al retirar el libro en la sucursal.
+    </p>
+
+    <!--
+      Formulario de reserva.
+      Se agrupa en <fieldset>/<legend> por bloque temático, cada control tiene su <label>
+      asociado por "for"/"id", y se eligen los tipos e atributos de HTML5 que mejor describen
+      el dato (email, tel, number, date, radio, checkbox) para que el navegador valide
+      del lado del cliente sin necesidad de JavaScript.
+      El method="post" es el adecuado porque el envío tiene efectos (crea una reserva).
+    -->
+    <form action="resumen.html" method="post" name="reserva-libro">
+
+      <fieldset>
+        <legend>Datos de contacto</legend>
+
+        <p>
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre"
+                 placeholder="Tu nombre y apellido"
+                 autocomplete="name" required minlength="3" maxlength="80"
+                 aria-describedby="ayuda-nombre">
+          <small id="ayuda-nombre">Tal como figura en tu documento, para poder entregarte el libro.</small>
+        </p>
+
+        <p>
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email"
+                 placeholder="tu@email.com"
+                 autocomplete="email" required maxlength="120"
+                 aria-describedby="ayuda-email">
+          <small id="ayuda-email">Ahí te enviamos la confirmación de la reserva.</small>
+        </p>
+
+        <p>
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono"
+                 placeholder="+54 9 2323 45-6789"
+                 autocomplete="tel" required
+                 inputmode="tel"
+                 pattern="[+0-9()\s-]{8,20}"
+                 aria-describedby="ayuda-telefono">
+          <small id="ayuda-telefono">Incluí el código de área. Entre 8 y 20 caracteres.</small>
+        </p>
+
+        <p>
+          <label for="documento">Número de documento</label>
+          <input type="text" id="documento" name="documento"
+                 placeholder="30123456"
+                 inputmode="numeric" pattern="[0-9]{7,9}"
+                 aria-describedby="ayuda-documento">
+          <small id="ayuda-documento">Opcional. Sólo números, sin puntos.</small>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Libro a reservar</legend>
+
+        <!--
+          Para elegir el libro del catálogo se ofrecen dos caminos complementarios:
+          1) un <select> con <optgroup> por categoría, que es la lista cerrada y validable;
+          2) un <input list> con <datalist>, para quien prefiere escribir el título o el ISBN.
+        -->
+        <p>
+          <label for="libro">Título del libro</label>
+          <select id="libro" name="libro" required aria-describedby="ayuda-libro">
+            <option value="" selected disabled>Elegí un título del catálogo…</option>
+
+            <optgroup label="Clásicos">
+              <option value="el-quijote">El Quijote — Miguel de Cervantes (AR$ 450)</option>
+              <option value="la-odisea">La Odisea — Homero (AR$ 380)</option>
+              <option value="martin-fierro">Martín Fierro — José Hernández (AR$ 340)</option>
+            </optgroup>
+
+            <optgroup label="Narrativa latinoamericana">
+              <option value="cien-anios-de-soledad">Cien Años de Soledad — Gabriel García Márquez (AR$ 520)</option>
+              <option value="rayuela">Rayuela — Julio Cortázar (AR$ 610)</option>
+              <option value="ficciones">Ficciones — Jorge Luis Borges (AR$ 490)</option>
+              <option value="pedro-paramo">Pedro Páramo — Juan Rulfo (AR$ 410)</option>
+              <option value="la-casa-de-los-espiritus">La casa de los espíritus — Isabel Allende (AR$ 640)</option>
+            </optgroup>
+
+            <optgroup label="Ciencia ficción y fantasía">
+              <option value="fahrenheit-451">Fahrenheit 451 — Ray Bradbury (AR$ 560)</option>
+              <option value="el-nombre-de-la-rosa">El nombre de la rosa — Umberto Eco (AR$ 720)</option>
+            </optgroup>
+
+            <optgroup label="Infantil">
+              <option value="el-principito">El Principito — Antoine de Saint-Exupéry (AR$ 320)</option>
+            </optgroup>
+          </select>
+          <small id="ayuda-libro">
+            ¿No lo encontrás en la lista? <a href="/pages/catalogo.html">Buscalo en el catálogo</a>
+            y volvé con el ISBN.
+          </small>
+        </p>
+
+        <p>
+          <label for="isbn">Buscar por título o ISBN</label>
+          <input type="text" id="isbn" name="isbn" list="libros-catalogo"
+                 placeholder="Ej.: 978-950-0000-01-1"
+                 aria-describedby="ayuda-isbn">
+          <datalist id="libros-catalogo">
+            <option value="978-950-0000-01-1" label="El Quijote — Miguel de Cervantes"></option>
+            <option value="978-950-0000-02-8" label="Cien Años de Soledad — Gabriel García Márquez"></option>
+            <option value="978-950-0000-03-5" label="La Odisea — Homero"></option>
+            <option value="978-950-0000-04-2" label="Ficciones — Jorge Luis Borges"></option>
+            <option value="978-950-0000-05-9" label="Rayuela — Julio Cortázar"></option>
+            <option value="978-950-0000-06-6" label="El Principito — Antoine de Saint-Exupéry"></option>
+          </datalist>
+          <small id="ayuda-isbn">Opcional. Si completás el ISBN, tiene prioridad sobre la lista de arriba.</small>
+        </p>
+
+        <p>
+          <label for="cantidad">Cantidad de libros a reservar</label>
+          <input type="number" id="cantidad" name="cantidad"
+                 value="1" min="1" max="5" step="1" required
+                 inputmode="numeric" aria-describedby="ayuda-cantidad">
+          <small id="ayuda-cantidad">Hasta 5 ejemplares por reserva.</small>
+        </p>
+
+        <p>
+          <label for="formato">Formato preferido</label>
+          <select id="formato" name="formato">
+            <option value="indistinto" selected>Indistinto</option>
+            <option value="tapa-blanda">Tapa blanda</option>
+            <option value="tapa-dura">Tapa dura</option>
+          </select>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Retiro</legend>
+
+        <p>
+          <label for="sucursal">Sucursal de retiro</label>
+          <select id="sucursal" name="sucursal" required>
+            <option value="" selected disabled>Elegí una sucursal…</option>
+            <option value="centro">Sucursal Centro — Av. Rivadavia 1234, Luján</option>
+            <option value="norte">Sucursal Norte — Av. Cabildo 5450, CABA</option>
+            <option value="sur">Sucursal Sur — Calle 12 Nº 890, La Plata</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="fecha-retiro">Fecha estimada de retiro</label>
+          <input type="date" id="fecha-retiro" name="fecha_retiro"
+                 min="2026-09-08" max="2026-12-31" required
+                 aria-describedby="ayuda-fecha">
+          <small id="ayuda-fecha">Desde el día siguiente a la reserva.</small>
+        </p>
+
+        <p>
+          <label for="hora-retiro">Franja horaria preferida</label>
+          <input type="time" id="hora-retiro" name="hora_retiro"
+                 min="09:00" max="19:00" step="1800">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>¿Cómo querés que te avisemos?</legend>
+
+        <p>
+          <label>
+            <input type="radio" name="medio_aviso" value="email" checked required>
+            Por correo electrónico
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="radio" name="medio_aviso" value="whatsapp">
+            Por WhatsApp
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="radio" name="medio_aviso" value="telefono">
+            Por teléfono
+          </label>
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Comentarios y condiciones</legend>
+
+        <p>
+          <label for="comentarios">Comentarios para la librería</label>
+          <textarea id="comentarios" name="comentarios" rows="4" cols="40"
+                    maxlength="500"
+                    placeholder="Ej.: si no hay stock de tapa dura, reservame la tapa blanda."></textarea>
+          <small>Hasta 500 caracteres.</small>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="novedades" value="si">
+            Quiero recibir novedades y promociones por email
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="terminos" value="acepto" required>
+            Leí y acepto los <a href="#">términos y condiciones</a> de la reserva
+          </label>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Confirmar reserva</button>
+        <button type="reset">Borrar datos</button>
+      </p>
+
+      <p><small>Los campos sin la aclaración «Opcional» son obligatorios.</small></p>
+    </form>
+
+    <aside aria-labelledby="ayuda-reserva">
+      <h3 id="ayuda-reserva">¿Cómo funciona la reserva?</h3>
+      <ol>
+        <li>Completás el formulario con el título y la sucursal.</li>
+        <li>Verificamos el stock y te confirmamos por el medio que elegiste.</li>
+        <li>Retirás y pagás en el local dentro de las 48 horas hábiles siguientes.</li>
+      </ol>
+      <p>
+        ¿Dudas? Escribinos a
+        <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        o entrá a <a href="/pages/contacto.html">Contacto</a>.
+      </p>
+    </aside>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

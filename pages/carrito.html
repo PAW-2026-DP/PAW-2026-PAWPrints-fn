@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAWPrints — Librería online</title>
-  <meta name="description" content="PAWPrints, tu librería online y física. Explorá nuestro catálogo, descubrí novedades y reservá tus libros favoritos.">
+  <title>Carrito de compras — PAWPrints</title>
+  <meta name="description" content="Revisá los libros que agregaste al carrito antes de finalizar tu compra en PAWPrints.">
 </head>
 <body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
 
   <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
   <header>
@@ -47,43 +49,85 @@
   </header>
   <!-- #endregion components/header.html -->
 
-  <main>
-    <h1>PAWPrints — Librería</h1>
-    <p>
-      Bienvenido a <strong>PAWPrints</strong>, tu librería online y física.
-      Explorá nuestro catálogo, descubrí las últimas novedades y reservá tus próximas lecturas.
-    </p>
+  <main id="contenido-principal">
 
-    <nav aria-label="Accesos directos">
-      <h2>Páginas del sitio</h2>
-      <ul>
+    <nav aria-label="Migas de pan">
+      <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html">Catálogo de libros</a></li>
-        <li><a href="/pages/categorias.html">Categorías</a></li>
-        <li>
-          Detalle de libro:
-          <a href="/pages/detalle-libro.html">El Quijote</a> ·
-          <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a> ·
-          <a href="/pages/detalle-libro-la-odisea.html">La Odisea</a>
-        </li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Sobre Nosotros</a></li>
-        <li><a href="/pages/reserva.html">Formulario de reserva</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-        <li><a href="/pages/recomendaciones.html">Recomendaciones</a></li>
-        <li><a href="/pages/carrito.html">Carrito</a></li>
-        <li><a href="/pages/resumen.html">Resumen del pedido (checkout)</a></li>
-        <li><a href="/pages/favoritos.html">Favoritos</a></li>
-        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
-        <li><a href="/pages/login.html">Login</a></li>
-        <li>
-          Registro:
-          <a href="/pages/registro.html">paso 1</a> ·
-          <a href="/pages/registro-paso-2.html">paso 2</a> ·
-          <a href="/pages/registro-paso-3.html">paso 3</a>
-        </li>
-      </ul>
+        <li><a href="/pages/carrito.html" aria-current="page">Carrito</a></li>
+      </ol>
     </nav>
+
+    <h1>Tu carrito</h1>
+
+    <!--
+      El listado de productos es una tabla de datos real (producto × precio × cantidad ×
+      subtotal), por eso se usa <table> con <thead>, <tbody>, <tfoot> y <th scope>.
+    -->
+    <form action="resumen.html" method="post">
+      <table>
+        <caption>Productos en el carrito</caption>
+        <thead>
+          <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+            <th scope="col">Quitar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+              <figure>
+                <img src="/img/portada-placeholder.svg" width="80" height="120"
+                     alt="Portada de Cien Años de Soledad">
+                <figcaption>
+                  <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a>
+                </figcaption>
+              </figure>
+            </th>
+            <td>AR$ 520,00</td>
+            <td>
+              <label for="cantidad-1">Cantidad de «Cien Años de Soledad»</label>
+              <input type="number" id="cantidad-1" name="cantidad_1"
+                     value="1" min="1" max="10" step="1" inputmode="numeric">
+            </td>
+            <td>AR$ 520,00</td>
+            <td>
+              <button type="submit" name="quitar" value="1">Quitar del carrito</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="3">Total de productos</th>
+            <td colspan="2">AR$ 520,00</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p>
+        <button type="submit" name="accion" value="actualizar">Actualizar cantidades</button>
+        <a href="/pages/catalogo.html">&larr; Seguir comprando</a>
+      </p>
+    </form>
+
+    <aside aria-labelledby="total">
+      <h3 id="total">Total del carrito</h3>
+      <dl>
+        <dt>Subtotal</dt>
+        <dd>AR$ 520,00</dd>
+
+        <dt>Envío</dt>
+        <dd>Se calcula en el siguiente paso.</dd>
+
+        <dt>Total</dt>
+        <dd><strong>AR$ 520,00</strong></dd>
+      </dl>
+      <p><a href="/pages/resumen.html">Finalizar compra</a></p>
+    </aside>
+
   </main>
 
   <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->

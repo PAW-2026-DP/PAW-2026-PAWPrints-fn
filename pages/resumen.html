@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumen del pedido — PAWPrints</title>
+  <meta name="description" content="Completá los datos de envío y facturación, elegí el método de pago y confirmá tu pedido en PAWPrints.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/resumen.html" aria-current="page">Resumen del pedido</a></li>
+      </ol>
+    </nav>
+
+    <h1>Finalizar compra</h1>
+
+    <form action="#" method="post" name="checkout">
+
+      <section aria-labelledby="envio-facturacion">
+        <h3 id="envio-facturacion">Envío y facturación</h3>
+
+        <fieldset>
+          <legend>Datos personales</legend>
+
+          <p>
+            <label for="nombre">Nombre/s</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                   autocomplete="given-name" required maxlength="60">
+          </p>
+
+          <p>
+            <label for="apellido">Apellido/s</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Tu apellido/s"
+                   autocomplete="family-name" required maxlength="60">
+          </p>
+
+          <p>
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com"
+                   autocomplete="email" required>
+          </p>
+
+          <p>
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+54 9 2323 45-6789"
+                   autocomplete="tel" inputmode="tel" pattern="[+0-9()\s-]{8,20}" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dirección de envío</legend>
+
+          <p>
+            <label for="pais">País / Región</label>
+            <select id="pais" name="pais" autocomplete="country-name" required>
+              <option value="ar" selected>Argentina</option>
+              <option value="uy">Uruguay</option>
+              <option value="cl">Chile</option>
+              <option value="py">Paraguay</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="calle">Calle / Avenida (sin número)</label>
+            <input type="text" id="calle" name="calle" placeholder="Av. Rivadavia"
+                   autocomplete="address-line1" required maxlength="80">
+          </p>
+
+          <p>
+            <label for="altura">Altura / Nro</label>
+            <input type="text" id="altura" name="altura" placeholder="1234"
+                   inputmode="numeric" required maxlength="10">
+          </p>
+
+          <p>
+            <label for="piso">Piso <small>(opcional)</small></label>
+            <input type="text" id="piso" name="piso" placeholder="3" maxlength="5">
+          </p>
+
+          <p>
+            <label for="departamento">Departamento <small>(opcional)</small></label>
+            <input type="text" id="departamento" name="departamento" placeholder="B" maxlength="5">
+          </p>
+
+          <p>
+            <label for="localidad">Localidad</label>
+            <input type="text" id="localidad" name="localidad" placeholder="Luján"
+                   autocomplete="address-level2" required maxlength="60">
+          </p>
+
+          <p>
+            <label for="provincia">Región / Provincia</label>
+            <select id="provincia" name="provincia" autocomplete="address-level1" required>
+              <option value="" selected disabled>Elegí una provincia…</option>
+              <option value="buenos-aires">Buenos Aires</option>
+              <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+              <option value="cordoba">Córdoba</option>
+              <option value="santa-fe">Santa Fe</option>
+              <option value="mendoza">Mendoza</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="cp">Código postal</label>
+            <input type="text" id="cp" name="codigo_postal" placeholder="6700"
+                   autocomplete="postal-code" inputmode="numeric"
+                   pattern="[A-Za-z]?[0-9]{4}[A-Za-z]{0,3}" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Datos de facturación</legend>
+
+          <p>
+            <label for="tipo-doc">Tipo de documento</label>
+            <select id="tipo-doc" name="tipo_documento" required>
+              <option value="dni" selected>DNI</option>
+              <option value="cuit">CUIT</option>
+              <option value="cuil">CUIL</option>
+              <option value="pasaporte">Pasaporte</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="nro-doc">Número de documento</label>
+            <input type="text" id="nro-doc" name="numero_documento" placeholder="30123456"
+                   inputmode="numeric" pattern="[0-9]{7,11}" required>
+          </p>
+
+          <p>
+            <label for="razon-social">Razón social <small>(opcional)</small></label>
+            <input type="text" id="razon-social" name="razon_social"
+                   placeholder="Sólo si necesitás factura A" maxlength="120">
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>¿Querés que lo envolvamos para regalo?</legend>
+          <p>
+            <label><input type="radio" name="papel_regalo" value="si"> Sí</label>
+          </p>
+          <p>
+            <label><input type="radio" name="papel_regalo" value="no" checked> No</label>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Comentarios</legend>
+
+          <p>
+            <label for="como-nos-conociste">¿Cómo conociste PAWPrints? <small>(opcional)</small></label>
+            <textarea id="como-nos-conociste" name="como_nos_conociste"
+                      rows="3" cols="40" maxlength="300"
+                      placeholder="Escribí tu mensaje acá…"></textarea>
+          </p>
+
+          <p>
+            <label for="notas">Notas del pedido <small>(opcional)</small></label>
+            <textarea id="notas" name="notas" rows="3" cols="40" maxlength="300"
+                      placeholder="Ej.: dejar en portería."></textarea>
+          </p>
+        </fieldset>
+      </section>
+
+      <section aria-labelledby="metodo-pago">
+        <h3 id="metodo-pago">Método de pago</h3>
+
+        <fieldset>
+          <legend>Elegí cómo querés pagar</legend>
+
+          <p>
+            <label>
+              <input type="radio" name="metodo_pago" value="tarjeta-credito" checked required>
+              Tarjeta de crédito
+            </label>
+            <small>Hasta 6 cuotas sin interés con bancos adheridos.</small>
+          </p>
+
+          <p>
+            <label>
+              <input type="radio" name="metodo_pago" value="tarjeta-debito">
+              Tarjeta de débito
+            </label>
+            <small>20&nbsp;% de descuento los martes.</small>
+          </p>
+
+          <p>
+            <label>
+              <input type="radio" name="metodo_pago" value="transferencia">
+              Transferencia bancaria
+            </label>
+            <small>Te enviamos el CBU por email al confirmar.</small>
+          </p>
+
+          <p>
+            <label>
+              <input type="radio" name="metodo_pago" value="efectivo-local">
+              Efectivo al retirar en el local
+            </label>
+            <small>Sólo para pedidos con retiro en sucursal.</small>
+          </p>
+        </fieldset>
+      </section>
+
+      <aside aria-labelledby="resumen-pedido">
+        <h3 id="resumen-pedido">Resumen del pedido</h3>
+
+        <table>
+          <caption>Productos del pedido</caption>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">El Quijote — Miguel de Cervantes × 1</th>
+              <td>AR$ 450,00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Subtotal</th>
+              <td>AR$ 450,00</td>
+            </tr>
+            <tr>
+              <th scope="row">Envío</th>
+              <td>Gratis</td>
+            </tr>
+            <tr>
+              <th scope="row">Total</th>
+              <td><strong>AR$ 450,00</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <p>
+          <label>
+            <input type="checkbox" name="terminos" value="acepto" required>
+            Leí y acepto los <a href="#">términos y condiciones</a> y la
+            <a href="#">política de privacidad</a>
+          </label>
+        </p>
+
+        <p>
+          <button type="submit">Confirmar y pagar</button>
+          <a href="/pages/carrito.html">Volver al carrito</a>
+        </p>
+
+        <p>
+          <small>
+            Tus datos personales se usan para procesar el pedido y para otros fines descriptos
+            en la política de privacidad.
+          </small>
+        </p>
+      </aside>
+
+    </form>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

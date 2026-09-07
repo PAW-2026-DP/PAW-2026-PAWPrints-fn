@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PAWPrints — Librería online</title>
-  <meta name="description" content="PAWPrints, tu librería online y física. Explorá nuestro catálogo, descubrí novedades y reservá tus libros favoritos.">
+  <title>Datos de envío y logística (paso 2 de 3) — PAWPrints</title>
+  <meta name="description" content="Segundo paso del registro en PAWPrints: cargá tu dirección de envío.">
 </head>
 <body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
 
   <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
   <header>
@@ -47,43 +49,89 @@
   </header>
   <!-- #endregion components/header.html -->
 
-  <main>
-    <h1>PAWPrints — Librería</h1>
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/registro.html">Crear cuenta</a></li>
+        <li><a href="/pages/registro-paso-2.html" aria-current="page">Datos de envío</a></li>
+      </ol>
+    </nav>
+
     <p>
-      Bienvenido a <strong>PAWPrints</strong>, tu librería online y física.
-      Explorá nuestro catálogo, descubrí las últimas novedades y reservá tus próximas lecturas.
+      <label for="avance">Paso 2 de 3</label>
+      <progress id="avance" max="3" value="2">Paso 2 de 3</progress>
     </p>
 
-    <nav aria-label="Accesos directos">
-      <h2>Páginas del sitio</h2>
-      <ul>
-        <li><a href="/pages/inicio.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html">Catálogo de libros</a></li>
-        <li><a href="/pages/categorias.html">Categorías</a></li>
-        <li>
-          Detalle de libro:
-          <a href="/pages/detalle-libro.html">El Quijote</a> ·
-          <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a> ·
-          <a href="/pages/detalle-libro-la-odisea.html">La Odisea</a>
-        </li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Sobre Nosotros</a></li>
-        <li><a href="/pages/reserva.html">Formulario de reserva</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-        <li><a href="/pages/recomendaciones.html">Recomendaciones</a></li>
-        <li><a href="/pages/carrito.html">Carrito</a></li>
-        <li><a href="/pages/resumen.html">Resumen del pedido (checkout)</a></li>
-        <li><a href="/pages/favoritos.html">Favoritos</a></li>
-        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
-        <li><a href="/pages/login.html">Login</a></li>
-        <li>
-          Registro:
-          <a href="/pages/registro.html">paso 1</a> ·
-          <a href="/pages/registro-paso-2.html">paso 2</a> ·
-          <a href="/pages/registro-paso-3.html">paso 3</a>
-        </li>
-      </ul>
-    </nav>
+    <hgroup>
+      <h1>Datos de envío y logística</h1>
+      <p>Necesitamos estos datos para poder enviarte tus pedidos.</p>
+    </hgroup>
+
+    <form action="registro-paso-3.html" method="post" name="registro-paso-2">
+      <fieldset>
+        <legend>Dirección</legend>
+
+        <p>
+          <label for="calle">Calle / Avenida</label>
+          <input type="text" id="calle" name="calle" placeholder="Av. Rivadavia"
+                 autocomplete="address-line1" required maxlength="80" autofocus>
+        </p>
+
+        <p>
+          <label for="altura">Altura</label>
+          <input type="text" id="altura" name="altura" placeholder="1234"
+                 inputmode="numeric" required maxlength="10">
+        </p>
+
+        <p>
+          <label for="piso">Piso <small>(opcional)</small></label>
+          <input type="text" id="piso" name="piso" placeholder="3" maxlength="5">
+        </p>
+
+        <p>
+          <label for="departamento">Departamento <small>(opcional)</small></label>
+          <input type="text" id="departamento" name="departamento" placeholder="B" maxlength="5">
+        </p>
+
+        <p>
+          <label for="localidad">Localidad</label>
+          <input type="text" id="localidad" name="localidad" placeholder="Luján"
+                 autocomplete="address-level2" required maxlength="60">
+        </p>
+
+        <p>
+          <label for="cp">Código Postal</label>
+          <input type="text" id="cp" name="codigo_postal" placeholder="6700"
+                 autocomplete="postal-code" inputmode="numeric"
+                 pattern="[A-Za-z]?[0-9]{4}[A-Za-z]{0,3}" required>
+        </p>
+
+        <p>
+          <label for="provincia">Provincia</label>
+          <select id="provincia" name="provincia" autocomplete="address-level1" required>
+            <option value="buenos-aires" selected>Buenos Aires</option>
+            <option value="caba">Ciudad Autónoma de Buenos Aires</option>
+            <option value="cordoba">Córdoba</option>
+            <option value="santa-fe">Santa Fe</option>
+            <option value="mendoza">Mendoza</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+54 9 2323..."
+                 autocomplete="tel" inputmode="tel" pattern="[+0-9()\s-]{8,20}" required>
+        </p>
+      </fieldset>
+
+      <p>
+        <a href="/pages/registro.html">Atrás</a>
+        <button type="submit">Continuar</button>
+      </p>
+    </form>
+
   </main>
 
   <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo — PAWPrints</title>
+  <meta name="description" content="Catálogo completo de libros de PAWPrints. Filtrá por género, autor, editorial y precio.">
+</head>
+<body>
+
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main id="contenido-principal">
+
+    <nav aria-label="Migas de pan">
+      <ol>
+        <li><a href="/pages/inicio.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html" aria-current="page">Catálogo</a></li>
+      </ol>
+    </nav>
+
+    <h1>Catálogo</h1>
+
+    <!--
+      Los filtros son contenido complementario al listado, por eso van en <aside>.
+      Se maquetan como un <form> GET con <fieldset>/<legend> agrupando cada criterio.
+    -->
+    <aside aria-labelledby="filtros">
+      <h3 id="filtros">Ordenar y filtrar</h3>
+
+      <form action="catalogo.html" method="get">
+        <fieldset>
+          <legend>Ordenar por</legend>
+          <label for="orden">Criterio de ordenamiento</label>
+          <select id="orden" name="orden">
+            <option value="relevancia" selected>Relevancia</option>
+            <option value="precio-asc">Precio: de menor a mayor</option>
+            <option value="precio-desc">Precio: de mayor a menor</option>
+            <option value="novedades">Novedades</option>
+            <option value="titulo">Título (A-Z)</option>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Filtrar por</legend>
+
+          <p>
+            <label for="genero">Género</label>
+            <select id="genero" name="genero">
+              <option value="" selected>Todos los géneros</option>
+              <option value="novela">Novela</option>
+              <option value="ciencia-ficcion">Ciencia Ficción</option>
+              <option value="fantasia">Fantasía</option>
+              <option value="historia">Historia</option>
+              <option value="infantil">Infantil</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="autor">Autor</label>
+            <select id="autor" name="autor">
+              <option value="" selected>Todos los autores</option>
+              <option value="cervantes">Miguel de Cervantes</option>
+              <option value="garcia-marquez">Gabriel García Márquez</option>
+              <option value="homero">Homero</option>
+              <option value="borges">Jorge Luis Borges</option>
+              <option value="cortazar">Julio Cortázar</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="editorial">Editorial</label>
+            <select id="editorial" name="editorial">
+              <option value="" selected>Todas las editoriales</option>
+              <option value="planeta">Planeta</option>
+              <option value="sudamericana">Sudamericana</option>
+              <option value="gredos">Gredos</option>
+              <option value="alfaguara">Alfaguara</option>
+            </select>
+          </p>
+
+          <fieldset>
+            <legend>Precio (AR$)</legend>
+            <label for="precio-min">Mínimo</label>
+            <input type="number" id="precio-min" name="precio_min"
+                   min="0" max="100000" step="50" placeholder="0" inputmode="numeric">
+
+            <label for="precio-max">Máximo</label>
+            <input type="number" id="precio-max" name="precio_max"
+                   min="0" max="100000" step="50" placeholder="100000" inputmode="numeric">
+            <p><small>Mín. AR$ 0 — Máx. AR$ 100.000</small></p>
+          </fieldset>
+
+          <p>
+            <label>
+              <input type="checkbox" name="disponibilidad" value="en-stock">
+              Sólo con stock disponible
+            </label>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Aplicar filtros</button>
+          <button type="reset">Limpiar</button>
+        </p>
+      </form>
+    </aside>
+
+    <section aria-labelledby="resultados">
+      <h3 id="resultados">Resultados</h3>
+      <p>Mostrando <output name="desde">1</output>–<output name="hasta">5</output>
+         de <output name="total">14</output> resultados.</p>
+
+      <ul>
+        <li>
+          <article>
+            <figure>
+              <a href="/pages/detalle-libro.html">
+                <img src="/img/portada-placeholder.svg" width="240" height="360"
+                     alt="Portada de El Quijote, de Miguel de Cervantes">
+              </a>
+              <figcaption>El Quijote</figcaption>
+            </figure>
+            <h4><a href="/pages/detalle-libro.html">El Quijote</a></h4>
+            <p>Miguel de Cervantes</p>
+            <p><small>Editorial Planeta · 1605</small></p>
+            <p>Un hidalgo manchego enloquece leyendo libros de caballería y sale al camino.</p>
+            <p><b>AR$ 450</b></p>
+            <p><a href="/pages/detalle-libro.html">Ver detalle</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <figure>
+              <a href="/pages/detalle-libro-cien-anios-de-soledad.html">
+                <img src="/img/portada-placeholder.svg" width="240" height="360"
+                     alt="Portada de Cien Años de Soledad, de Gabriel García Márquez">
+              </a>
+              <figcaption>Cien Años de Soledad</figcaption>
+            </figure>
+            <h4><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a></h4>
+            <p>Gabriel García Márquez</p>
+            <p><small>Editorial Sudamericana · 1967</small></p>
+            <p>La saga de la familia Buendía en el pueblo mítico de Macondo.</p>
+            <p><b>AR$ 520</b></p>
+            <p><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Ver detalle</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <figure>
+              <a href="/pages/detalle-libro-la-odisea.html">
+                <img src="/img/portada-placeholder.svg" width="240" height="360"
+                     alt="Portada de La Odisea, de Homero">
+              </a>
+              <figcaption>La Odisea</figcaption>
+            </figure>
+            <h4><a href="/pages/detalle-libro-la-odisea.html">La Odisea</a></h4>
+            <p>Homero</p>
+            <p><small>Editorial Gredos · VIII a. C.</small></p>
+            <p>El largo regreso de Odiseo a Ítaca tras la caída de Troya.</p>
+            <p><b>AR$ 380</b></p>
+            <p><a href="/pages/detalle-libro-la-odisea.html">Ver detalle</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <figure>
+              <img src="/img/portada-placeholder.svg" width="240" height="360"
+                   alt="Portada de Ficciones, de Jorge Luis Borges">
+              <figcaption>Ficciones</figcaption>
+            </figure>
+            <h4>Ficciones</h4>
+            <p>Jorge Luis Borges</p>
+            <p><small>Editorial Sur · 1944</small></p>
+            <p>Relatos de laberintos, bibliotecas infinitas y mundos imposibles.</p>
+            <p><b>AR$ 490</b></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <figure>
+              <img src="/img/portada-placeholder.svg" width="240" height="360"
+                   alt="Portada de Rayuela, de Julio Cortázar">
+              <figcaption>Rayuela</figcaption>
+            </figure>
+            <h4>Rayuela</h4>
+            <p>Julio Cortázar</p>
+            <p><small>Editorial Sudamericana · 1963</small></p>
+            <p>Una novela que puede leerse en más de un orden.</p>
+            <p><b>AR$ 610</b></p>
+          </article>
+        </li>
+      </ul>
+
+      <nav aria-label="Paginación del catálogo">
+        <ol>
+          <li><a href="/pages/catalogo.html?pagina=1" aria-current="page">1</a></li>
+          <li><a href="/pages/catalogo.html?pagina=2">2</a></li>
+          <li><a href="/pages/catalogo.html?pagina=3">3</a></li>
+          <li><a href="/pages/catalogo.html?pagina=2" rel="next">Siguiente</a></li>
+        </ol>
+      </nav>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>
