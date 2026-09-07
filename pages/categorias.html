@@ -1,54 +1,391 @@
-# SiteMap — PAWPrints
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Categorías — PAWPrints</title>
+  <meta name="description" content="Explorá todas las categorías de libros disponibles en PAWPrints: narrativa, ciencia, historia, arte y mucho más.">
+</head>
+<body>
 
-## Jerarquía del sitio
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
 
-```
-PAWPrints (/)
-│
-├── Inicio                      pages/inicio.html
-│
-├── Catálogo                    pages/catalogo.html
-│   └── Detalle de libro        pages/detalle-libro.html
-│       └── Formulario reserva  pages/reserva.html
-│
-├── Categorías                  pages/categorias.html
-│   └── → redirige a Catálogo filtrado
-│
-├── Promociones                 pages/promociones.html
-│
-├── Sobre Nosotros              pages/nosotros.html
-│
-├── Contacto                    pages/contacto.html
-│
-└── Área de usuario
-    ├── Login                   pages/login.html
-    ├── Registro                pages/registro.html
-    ├── Mi cuenta               pages/mi-cuenta.html
-    ├── Carrito                 pages/carrito.html
-    └── Favoritos               pages/favoritos.html
-```
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html" aria-current="page">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
 
-## Páginas — referencia Figma
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
 
-| Página | Figma Desktop | Figma Mobile | Responsable |
-|---|---|---|---|
-| Inicio | `43:169` | `39:3` | compañero |
-| Promociones | `59:3` | `45:277` | compañero |
-| Categorías | `168:1526` | `1:2`, `2:77` | jbrodi99 |
-| Catálogo | `19:2` | `1:5` | jbrodi99 |
-| Detalle de libro | `19:3` | `1:6` | jbrodi99 |
-| Sobre Nosotros | `19:4` | `13:2` | jbrodi99 |
-| Formulario de reserva | `133:41` | `78:5` | compañero |
-| Login | `175:1110`† | `175:1110` | compañero |
-| Registro (3 pasos) | `147:1441`, `147:1372`, `147:1498` | `147:1412`, `147:1332`, `147:1470` | compañero |
-| Carrito | `175:1336` | `171:1710` | compañero |
-| Contacto | `208:1459` | `208:1913` | compañero |
-| Mi cuenta | `208:1351` | `215:1990` | compañero |
-| Favoritos | `218:2182` | `218:2279` | compañero |
-| Recomendaciones | `218:2613` | `218:2676` | compañero |
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
 
-† El diseño Login Desktop no aparece en el Figma: se usa el Mobile como referencia.
+  <main>
 
-## Archivo Figma de referencia
+    <nav aria-label="Ubicación en el sitio">
+      <ol>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><span aria-current="page">Categorías</span></li>
+      </ol>
+    </nav>
 
-`OVQUC7OFmjIB2e0KPmntXe` — https://www.figma.com/design/OVQUC7OFmjIB2e0KPmntXe/PAWPrints
+    <h1>Categorías</h1>
+    <p>Explorá nuestras categorías y encontrá tu próxima lectura.</p>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="buscar-categoria">Buscar categoría</label>
+      <input
+        type="search"
+        id="buscar-categoria"
+        name="categoria"
+        placeholder="Buscar categoría…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <section aria-labelledby="todas-categorias-h">
+      <h2 id="todas-categorias-h">Todas las categorías</h2>
+
+      <!--
+        Cada <li> es una categoría principal con enlace al catálogo filtrado.
+        Se usa <details>/<summary> para mostrar subcategorías sin JS,
+        como equivalente semántico del acordeón mobile del diseño Figma (1:2 / 2:77).
+      -->
+      <ul>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=narrativa">Narrativa</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=narrativa&sub=novela">Novela</a></li>
+              <li><a href="/pages/catalogo.html?categoria=narrativa&sub=cuento">Cuento</a></li>
+              <li><a href="/pages/catalogo.html?categoria=narrativa&sub=novela-grafica">Novela gráfica</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=ciencia-ficcion">Ciencia ficción</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=ciencia-ficcion&sub=distopia">Distopía</a></li>
+              <li><a href="/pages/catalogo.html?categoria=ciencia-ficcion&sub=space-opera">Space opera</a></li>
+              <li><a href="/pages/catalogo.html?categoria=ciencia-ficcion&sub=cyberpunk">Cyberpunk</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=fantasia">Fantasía</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=fantasia&sub=alta-fantasia">Alta fantasía</a></li>
+              <li><a href="/pages/catalogo.html?categoria=fantasia&sub=fantasia-urbana">Fantasía urbana</a></li>
+              <li><a href="/pages/catalogo.html?categoria=fantasia&sub=terror">Terror</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=historia">Historia</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=historia&sub=argentina">Historia argentina</a></li>
+              <li><a href="/pages/catalogo.html?categoria=historia&sub=universal">Historia universal</a></li>
+              <li><a href="/pages/catalogo.html?categoria=historia&sub=biograf%C3%ADas">Biografías</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=ciencia">Ciencia y tecnología</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=ciencia&sub=matematica">Matemática</a></li>
+              <li><a href="/pages/catalogo.html?categoria=ciencia&sub=fisica">Física</a></li>
+              <li><a href="/pages/catalogo.html?categoria=ciencia&sub=biologia">Biología</a></li>
+              <li><a href="/pages/catalogo.html?categoria=ciencia&sub=informatica">Informática</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=arte">Arte y diseño</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=arte&sub=pintura">Pintura</a></li>
+              <li><a href="/pages/catalogo.html?categoria=arte&sub=fotografia">Fotografía</a></li>
+              <li><a href="/pages/catalogo.html?categoria=arte&sub=arquitectura">Arquitectura</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=filosofia">Filosofía</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=filosofia&sub=etica">Ética</a></li>
+              <li><a href="/pages/catalogo.html?categoria=filosofia&sub=epistemologia">Epistemología</a></li>
+              <li><a href="/pages/catalogo.html?categoria=filosofia&sub=logica">Lógica</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=psicologia">Psicología</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=psicologia&sub=autoayuda">Autoayuda</a></li>
+              <li><a href="/pages/catalogo.html?categoria=psicologia&sub=psicoanal%C3%ADsis">Psicoanálisis</a></li>
+              <li><a href="/pages/catalogo.html?categoria=psicologia&sub=neurociencia">Neurociencia</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=economia">Economía y negocios</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=economia&sub=finanzas">Finanzas personales</a></li>
+              <li><a href="/pages/catalogo.html?categoria=economia&sub=emprendimiento">Emprendimiento</a></li>
+              <li><a href="/pages/catalogo.html?categoria=economia&sub=marketing">Marketing</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=gastronomia">Gastronomía</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=gastronomia&sub=cocina-argentina">Cocina argentina</a></li>
+              <li><a href="/pages/catalogo.html?categoria=gastronomia&sub=reposteria">Repostería</a></li>
+              <li><a href="/pages/catalogo.html?categoria=gastronomia&sub=cocina-saludable">Cocina saludable</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=viajes">Viajes y geografía</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=viajes&sub=gu%C3%ADas">Guías de viaje</a></li>
+              <li><a href="/pages/catalogo.html?categoria=viajes&sub=mapas">Mapas y atlas</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=idiomas">Idiomas</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=idiomas&sub=ingles">Inglés</a></li>
+              <li><a href="/pages/catalogo.html?categoria=idiomas&sub=portugues">Portugués</a></li>
+              <li><a href="/pages/catalogo.html?categoria=idiomas&sub=frances">Francés</a></li>
+              <li><a href="/pages/catalogo.html?categoria=idiomas&sub=aleman">Alemán</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=educacion">Educación y pedagogía</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=educacion&sub=textos-universitarios">Textos universitarios</a></li>
+              <li><a href="/pages/catalogo.html?categoria=educacion&sub=nivel-inicial">Nivel inicial</a></li>
+              <li><a href="/pages/catalogo.html?categoria=educacion&sub=secundaria">Secundaria</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=religion">Religión y espiritualidad</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=religion&sub=catolicismo">Catolicismo</a></li>
+              <li><a href="/pages/catalogo.html?categoria=religion&sub=budismo">Budismo</a></li>
+              <li><a href="/pages/catalogo.html?categoria=religion&sub=misticismo">Misticismo</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=derecho">Derecho</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=derecho&sub=civil">Derecho civil</a></li>
+              <li><a href="/pages/catalogo.html?categoria=derecho&sub=penal">Derecho penal</a></li>
+              <li><a href="/pages/catalogo.html?categoria=derecho&sub=laboral">Derecho laboral</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=salud">Salud y bienestar</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=salud&sub=medicina">Medicina</a></li>
+              <li><a href="/pages/catalogo.html?categoria=salud&sub=nutricion">Nutrición</a></li>
+              <li><a href="/pages/catalogo.html?categoria=salud&sub=deporte">Deporte y actividad física</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=politica">Política y sociedad</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=politica&sub=ciencia-politica">Ciencia política</a></li>
+              <li><a href="/pages/catalogo.html?categoria=politica&sub=sociologia">Sociología</a></li>
+              <li><a href="/pages/catalogo.html?categoria=politica&sub=periodismo">Periodismo</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=musica">Música</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=musica&sub=teoria">Teoría musical</a></li>
+              <li><a href="/pages/catalogo.html?categoria=musica&sub=biograf%C3%ADas-art%C3%ADsticas">Biografías artísticas</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <a href="/pages/catalogo.html?categoria=infantil">Infantil y juvenil</a>
+            </summary>
+            <ul>
+              <li><a href="/pages/catalogo.html?categoria=infantil&sub=album-ilustrado">Álbum ilustrado</a></li>
+              <li><a href="/pages/catalogo.html?categoria=infantil&sub=jovenes-adultos">Jóvenes adultos (YA)</a></li>
+              <li><a href="/pages/catalogo.html?categoria=infantil&sub=cuentos-clasicos">Cuentos clásicos</a></li>
+            </ul>
+          </details>
+        </li>
+
+        <li>
+          <a href="/pages/catalogo.html?categoria=novedades">Novedades del mes</a>
+        </li>
+
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>

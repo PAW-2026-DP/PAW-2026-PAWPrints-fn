@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de libros — PAWPrints</title>
-  <meta name="description" content="Explorá el catálogo completo de PAWPrints. Filtrá por género, autor, editorial y precio. Más de 50 000 títulos disponibles.">
+  <title>Sobre Nosotros — PAWPrints</title>
+  <meta name="description" content="Conocé la historia, misión y el equipo de PAWPrints. Una librería con corazón, nacida en Buenos Aires en 2010.">
 </head>
 <body>
 
@@ -17,10 +17,10 @@
     <nav aria-label="Navegación principal">
       <ul>
         <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html" aria-current="page">Catálogo</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
         <li><a href="/pages/categorias.html">Categorías</a></li>
         <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/nosotros.html" aria-current="page">Nosotros</a></li>
         <li><a href="/pages/contacto.html">Contacto</a></li>
       </ul>
     </nav>
@@ -52,440 +52,252 @@
     <nav aria-label="Ubicación en el sitio">
       <ol>
         <li><a href="/index.html">Inicio</a></li>
-        <li><span aria-current="page">Catálogo</span></li>
+        <li><span aria-current="page">Sobre Nosotros</span></li>
       </ol>
     </nav>
 
-    <h1>Catálogo</h1>
+    <h1>Sobre Nosotros</h1>
 
-    <!--
-      Layout semántico del Figma Desktop (19:2):
-      aside con filtros a la izquierda + div main-content a la derecha.
-      Para HTML puro sin CSS se presenta linealmente:
-        1. Aside de filtros (primero en el orden lógico)
-        2. Contenido principal con resultados y paginación
-    -->
+    <!-- Historia — texto real del wireframe Figma (Desktop - Sobre Nosotros 19:4) -->
+    <section aria-labelledby="historia-h">
+      <h2 id="historia-h">Nuestra historia</h2>
+      <p>
+        PAWPrints nació en 2010 con la misión de acercar los mejores libros a cada lector.
+        Comenzamos como una pequeña librería de barrio y hoy somos una de las tiendas de
+        libros en línea más reconocidas del país.
+      </p>
+      <p>
+        A lo largo de los años fuimos creciendo de la mano de nuestra comunidad lectora.
+        Incorporamos primero la venta telefónica, luego el sitio web, y hoy contamos con
+        varias sucursales en el Área Metropolitana de Buenos Aires. Nuestro catálogo supera
+        los 50&nbsp;000 títulos entre novedades, clásicos, libros académicos y ediciones
+        especiales de colección.
+      </p>
+      <p>
+        Creemos que cada libro es una puerta a un nuevo mundo, y que esa puerta debe estar
+        al alcance de todos. Por eso mantenemos precios accesibles, programas de descuento
+        para estudiantes y un servicio de reserva gratuito en todas nuestras sucursales.
+      </p>
+    </section>
 
-    <aside aria-labelledby="filtros-h">
-      <h2 id="filtros-h">Filtrar y ordenar</h2>
+    <!-- Misión — textos reales del Figma (Mobile - Sobre Nosotros 13:2 / Desktop 19:4) -->
+    <section aria-labelledby="mision-h">
+      <h2 id="mision-h">Nuestra misión</h2>
+      <ul>
+        <li>Ofrecer la mayor variedad de títulos nacionales e internacionales.</li>
+        <li>Brindar atención personalizada y asesoramiento en cada compra.</li>
+        <li>Fomentar el hábito de la lectura en toda la comunidad.</li>
+        <li>Promover a los autores argentinos y la literatura latinoamericana.</li>
+        <li>Garantizar la accesibilidad al libro como bien cultural.</li>
+      </ul>
+    </section>
 
-      <form action="/pages/catalogo.html" method="get" id="filtros-form">
+    <!-- Equipo — Ana García, Martín López, Sofía Ruiz (del wireframe Mobile 13:2) -->
+    <section aria-labelledby="equipo-h">
+      <h2 id="equipo-h">Nuestro equipo</h2>
+      <p>Somos un grupo apasionado por los libros y por las personas que los leen.</p>
 
-        <fieldset>
-          <legend>Ordenar por</legend>
-          <p>
-            <label for="ordenar">Criterio</label>
-            <select id="ordenar" name="orden">
-              <option value="relevancia">Relevancia</option>
-              <option value="precio-asc">Precio: menor a mayor</option>
-              <option value="precio-desc">Precio: mayor a menor</option>
-              <option value="titulo-asc">Título: A–Z</option>
-              <option value="titulo-desc">Título: Z–A</option>
-              <option value="novedades">Novedades</option>
-              <option value="valoracion">Mejor valorados</option>
-            </select>
-          </p>
-        </fieldset>
+      <article aria-labelledby="miembro-ana-h">
+        <figure>
+          <img
+            src="/assets/img/equipo/ana-garcia.jpg"
+            alt="Foto de Ana García, directora general de PAWPrints"
+            width="200"
+            height="200"
+          >
+          <figcaption>
+            <h3 id="miembro-ana-h">Ana García</h3>
+            <p>Directora general</p>
+          </figcaption>
+        </figure>
+        <p>
+          Licenciada en Letras (UBA). Fundó PAWPrints con la convicción de que toda
+          persona merece encontrar el libro que cambie su vida.
+        </p>
+      </article>
 
-        <fieldset>
-          <legend>Filtrar</legend>
+      <article aria-labelledby="miembro-martin-h">
+        <figure>
+          <img
+            src="/assets/img/equipo/martin-lopez.jpg"
+            alt="Foto de Martín López, jefe de compras de PAWPrints"
+            width="200"
+            height="200"
+          >
+          <figcaption>
+            <h3 id="miembro-martin-h">Martín López</h3>
+            <p>Jefe de compras y relación con editoriales</p>
+          </figcaption>
+        </figure>
+        <p>
+          Lleva más de 15 años en el sector editorial. Su olfato para detectar títulos
+          destacados mantiene nuestro catálogo siempre actualizado y relevante.
+        </p>
+      </article>
 
-          <p>
-            <label for="filtro-genero">Género</label>
-            <select id="filtro-genero" name="categoria">
-              <option value="">Todos los géneros</option>
-              <option value="narrativa">Narrativa</option>
-              <option value="ciencia-ficcion">Ciencia ficción</option>
-              <option value="fantasia">Fantasía</option>
-              <option value="historia">Historia</option>
-              <option value="ciencia">Ciencia y tecnología</option>
-              <option value="arte">Arte y diseño</option>
-              <option value="filosofia">Filosofía</option>
-              <option value="psicologia">Psicología</option>
-              <option value="economia">Economía y negocios</option>
-              <option value="gastronomia">Gastronomía</option>
-              <option value="infantil">Infantil y juvenil</option>
-            </select>
-          </p>
+      <article aria-labelledby="miembro-sofia-h">
+        <figure>
+          <img
+            src="/assets/img/equipo/sofia-ruiz.jpg"
+            alt="Foto de Sofía Ruiz, encargada de atención al cliente de PAWPrints"
+            width="200"
+            height="200"
+          >
+          <figcaption>
+            <h3 id="miembro-sofia-h">Sofía Ruiz</h3>
+            <p>Encargada de atención al cliente</p>
+          </figcaption>
+        </figure>
+        <p>
+          Especialista en experiencia del usuario. Se asegura de que cada consulta,
+          pedido o reclamo se resuelva con rapidez y calidez humana.
+        </p>
+      </article>
+    </section>
 
-          <p>
-            <label for="filtro-autor">Autor</label>
-            <select id="filtro-autor" name="autor">
-              <option value="">Todos los autores</option>
-              <option value="cervantes">Miguel de Cervantes</option>
-              <option value="garcia-marquez">Gabriel García Márquez</option>
-              <option value="zorrilla">José Zorrilla</option>
-              <option value="borges">Jorge Luis Borges</option>
-              <option value="cortazar">Julio Cortázar</option>
-              <option value="tolkien">J.R.R. Tolkien</option>
-              <option value="rowling">J.K. Rowling</option>
-              <option value="orwell">George Orwell</option>
-            </select>
-          </p>
+    <!-- Sucursales — estructura list + address + time del wireframe Mobile 13:2 -->
+    <section aria-labelledby="sucursales-h">
+      <h2 id="sucursales-h">Nuestras sucursales</h2>
+      <ul>
 
-          <p>
-            <label for="filtro-editorial">Editorial</label>
-            <select id="filtro-editorial" name="editorial">
-              <option value="">Todas las editoriales</option>
-              <option value="planeta">Planeta</option>
-              <option value="sudamericana">Sudamericana</option>
-              <option value="anagrama">Anagrama</option>
-              <option value="alfaguara">Alfaguara</option>
-              <option value="emece">Emecé</option>
-              <option value="paidos">Paidós</option>
-            </select>
-          </p>
-
-          <fieldset>
-            <legend>Rango de precio</legend>
+        <li>
+          <article aria-labelledby="sucursal-palermo-h">
+            <h3 id="sucursal-palermo-h">Palermo</h3>
+            <address>
+              <p>Av. Santa Fe 3654, Palermo, Buenos Aires</p>
+              <p><a href="tel:+541145781234">+54 11 4578-1234</a></p>
+            </address>
             <p>
-              <label for="precio-min">Precio mínimo ($)</label>
-              <input
-                type="number"
-                id="precio-min"
-                name="precio_min"
-                min="0"
-                max="999999"
-                step="100"
-                placeholder="0"
-              >
+              Horario:
+              <time datetime="Mo-Fr 09:00-21:00">Lunes a Viernes 9&nbsp;h–21&nbsp;h</time>
+              |
+              <time datetime="Sa 10:00-20:00">Sábados 10&nbsp;h–20&nbsp;h</time>
+              |
+              <time datetime="Su 11:00-18:00">Domingos 11&nbsp;h–18&nbsp;h</time>
             </p>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="sucursal-caballito-h">
+            <h3 id="sucursal-caballito-h">Caballito</h3>
+            <address>
+              <p>Av. Rivadavia 5800, Caballito, Buenos Aires</p>
+              <p><a href="tel:+541145671890">+54 11 4567-1890</a></p>
+            </address>
             <p>
-              <label for="precio-max">Precio máximo ($)</label>
-              <input
-                type="number"
-                id="precio-max"
-                name="precio_max"
-                min="0"
-                max="999999"
-                step="100"
-                placeholder="999999"
-              >
+              Horario:
+              <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes 9&nbsp;h–20&nbsp;h</time>
+              |
+              <time datetime="Sa 10:00-19:00">Sábados 10&nbsp;h–19&nbsp;h</time>
             </p>
-          </fieldset>
-
-          <p>
-            <button type="submit">Aplicar filtros</button>
-            <a href="/pages/catalogo.html">Limpiar filtros</a>
-          </p>
-        </fieldset>
-
-      </form>
-    </aside>
-
-    <section aria-labelledby="resultados-h">
-      <h2 id="resultados-h">
-        <output form="filtros-form">Mostrando 12 de 248 resultados</output>
-      </h2>
-
-      <!--
-        Grilla de book-cards según Figma Desktop (19:2) y Mobile (1:5).
-        Cada libro es un <article> con su portada, h2, autor, editorial, precio y enlace.
-        El nombre del tag de heading respeta la jerarquía h1 > h2 (listado) > sin h3 interno
-        porque el título del libro ya lleva el enlace y hace de heading implícito.
-      -->
-      <ul aria-label="Libros">
-
-        <li>
-          <article aria-labelledby="libro-quijote-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8491050490">
-              <img
-                src="/assets/img/libros/el-quijote.jpg"
-                alt="Portada de El ingenioso hidalgo don Quijote de la Mancha"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-quijote-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8491050490">El Quijote</a>
-              </h2>
-              <p>Miguel de Cervantes</p>
-              <p>Editorial Planeta · <time datetime="1605">1605</time></p>
-              <p><data value="4590">$4.590</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8491050490">Ver detalle</a>
-            </div>
           </article>
         </li>
 
         <li>
-          <article aria-labelledby="libro-cien-anos-h">
-            <a href="/pages/detalle-libro.html?isbn=978-0307474728">
-              <img
-                src="/assets/img/libros/cien-anos-de-soledad.jpg"
-                alt="Portada de Cien años de soledad"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-cien-anos-h">
-                <a href="/pages/detalle-libro.html?isbn=978-0307474728">Cien años de soledad</a>
-              </h2>
-              <p>Gabriel García Márquez</p>
-              <p>Sudamericana · <time datetime="1967">1967</time></p>
-              <p><data value="5200">$5.200</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-0307474728">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-don-juan-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8467020571">
-              <img
-                src="/assets/img/libros/don-juan-tenorio.jpg"
-                alt="Portada de Don Juan Tenorio"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-don-juan-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8467020571">Don Juan Tenorio</a>
-              </h2>
-              <p>José Zorrilla</p>
-              <p>Anagrama · <time datetime="1844">1844</time></p>
-              <p><data value="3800">$3.800</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8467020571">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-ficciones-h">
-            <a href="/pages/detalle-libro.html?isbn=978-9500301695">
-              <img
-                src="/assets/img/libros/ficciones.jpg"
-                alt="Portada de Ficciones de Jorge Luis Borges"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-ficciones-h">
-                <a href="/pages/detalle-libro.html?isbn=978-9500301695">Ficciones</a>
-              </h2>
-              <p>Jorge Luis Borges</p>
-              <p>Emecé · <time datetime="1944">1944</time></p>
-              <p><data value="4100">$4.100</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-9500301695">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-rayuela-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8420471402">
-              <img
-                src="/assets/img/libros/rayuela.jpg"
-                alt="Portada de Rayuela de Julio Cortázar"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-rayuela-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8420471402">Rayuela</a>
-              </h2>
-              <p>Julio Cortázar</p>
-              <p>Alfaguara · <time datetime="1963">1963</time></p>
-              <p><data value="4750">$4.750</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8420471402">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-shire-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8445004951">
-              <img
-                src="/assets/img/libros/el-senor-de-los-anillos.jpg"
-                alt="Portada de El Señor de los Anillos de J.R.R. Tolkien"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-shire-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8445004951">El Señor de los Anillos</a>
-              </h2>
-              <p>J.R.R. Tolkien</p>
-              <p>Planeta · <time datetime="1954">1954</time></p>
-              <p><data value="6900">$6.900</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8445004951">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-1984-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8499088860">
-              <img
-                src="/assets/img/libros/1984.jpg"
-                alt="Portada de 1984 de George Orwell"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-1984-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8499088860">1984</a>
-              </h2>
-              <p>George Orwell</p>
-              <p>Paidós · <time datetime="1949">1949</time></p>
-              <p><data value="3950">$3.950</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8499088860">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-hp1-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8478887361">
-              <img
-                src="/assets/img/libros/harry-potter-piedra-filosofal.jpg"
-                alt="Portada de Harry Potter y la piedra filosofal de J.K. Rowling"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-hp1-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8478887361">Harry Potter y la piedra filosofal</a>
-              </h2>
-              <p>J.K. Rowling</p>
-              <p>Salamandra · <time datetime="1997">1997</time></p>
-              <p><data value="5100">$5.100</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8478887361">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-beso-mujer-arana-h">
-            <a href="/pages/detalle-libro.html?isbn=978-9871320400">
-              <img
-                src="/assets/img/libros/el-beso-de-la-mujer-arana.jpg"
-                alt="Portada de El beso de la mujer araña de Manuel Puig"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-beso-mujer-arana-h">
-                <a href="/pages/detalle-libro.html?isbn=978-9871320400">El beso de la mujer araña</a>
-              </h2>
-              <p>Manuel Puig</p>
-              <p>Sudamericana · <time datetime="1976">1976</time></p>
-              <p><data value="4200">$4.200</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-9871320400">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-cronica-muerte-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8497592413">
-              <img
-                src="/assets/img/libros/cronica-de-una-muerte-anunciada.jpg"
-                alt="Portada de Crónica de una muerte anunciada de Gabriel García Márquez"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-cronica-muerte-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8497592413">Crónica de una muerte anunciada</a>
-              </h2>
-              <p>Gabriel García Márquez</p>
-              <p>Sudamericana · <time datetime="1981">1981</time></p>
-              <p><data value="3600">$3.600</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8497592413">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-brave-new-world-h">
-            <a href="/pages/detalle-libro.html?isbn=978-8498386660">
-              <img
-                src="/assets/img/libros/un-mundo-feliz.jpg"
-                alt="Portada de Un mundo feliz de Aldous Huxley"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-brave-new-world-h">
-                <a href="/pages/detalle-libro.html?isbn=978-8498386660">Un mundo feliz</a>
-              </h2>
-              <p>Aldous Huxley</p>
-              <p>Paidós · <time datetime="1932">1932</time></p>
-              <p><data value="3800">$3.800</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-8498386660">Ver detalle</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article aria-labelledby="libro-martin-fierro-h">
-            <a href="/pages/detalle-libro.html?isbn=978-9505811489">
-              <img
-                src="/assets/img/libros/martin-fierro.jpg"
-                alt="Portada de Martín Fierro de José Hernández"
-                width="120"
-                height="180"
-              >
-            </a>
-            <div>
-              <h2 id="libro-martin-fierro-h">
-                <a href="/pages/detalle-libro.html?isbn=978-9505811489">Martín Fierro</a>
-              </h2>
-              <p>José Hernández</p>
-              <p>Colihue · <time datetime="1872">1872</time></p>
-              <p><data value="2900">$2.900</data></p>
-              <a href="/pages/detalle-libro.html?isbn=978-9505811489">Ver detalle</a>
-            </div>
+          <article aria-labelledby="sucursal-belgrano-h">
+            <h3 id="sucursal-belgrano-h">Belgrano</h3>
+            <address>
+              <p>Cabildo 2098, Belgrano, Buenos Aires</p>
+              <p><a href="tel:+541147832100">+54 11 4783-2100</a></p>
+            </address>
+            <p>
+              Horario:
+              <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes 9&nbsp;h–20&nbsp;h</time>
+              |
+              <time datetime="Sa 10:00-18:00">Sábados 10&nbsp;h–18&nbsp;h</time>
+            </p>
           </article>
         </li>
 
       </ul>
+    </section>
 
-      <!-- Paginación — basada en nav de Figma Desktop (Frame 18/19) y Mobile -->
-      <nav aria-label="Paginación del catálogo">
-        <ul>
-          <li>
-            <a href="/pages/catalogo.html?pagina=1" rel="prev" aria-label="Página anterior">&#8249;</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=1" aria-label="Página 1" aria-current="page">1</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=2" aria-label="Página 2">2</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=3" aria-label="Página 3">3</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=4" aria-label="Página 4">4</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=5" aria-label="Página 5">5</a>
-          </li>
-          <li><span aria-hidden="true">…</span></li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=20" aria-label="Página 20">20</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=21" aria-label="Página 21">21</a>
-          </li>
-          <li>
-            <a href="/pages/catalogo.html?pagina=2" rel="next" aria-label="Página siguiente">&#8250;</a>
-          </li>
-        </ul>
-      </nav>
+    <!-- Formulario de contacto — fieldset + legend + tipos de input (wireframe Mobile 13:2, sección Contacto) -->
+    <section aria-labelledby="contacto-h">
+      <h2 id="contacto-h">Contacto</h2>
+      <p>¿Tenés alguna consulta, sugerencia o simplemente querés saludarnos? Escribinos.</p>
 
+      <form action="/pages/contacto.html" method="post" novalidate>
+
+        <fieldset>
+          <legend>Datos de contacto</legend>
+
+          <p>
+            <label for="contacto-nombre">Nombre completo <abbr title="campo obligatorio">*</abbr></label>
+            <input
+              type="text"
+              id="contacto-nombre"
+              name="nombre"
+              autocomplete="name"
+              required
+              placeholder="Tu nombre"
+              minlength="2"
+              maxlength="80"
+            >
+          </p>
+
+          <p>
+            <label for="contacto-email">Correo electrónico <abbr title="campo obligatorio">*</abbr></label>
+            <input
+              type="email"
+              id="contacto-email"
+              name="email"
+              autocomplete="email"
+              required
+              placeholder="tu@correo.com"
+            >
+          </p>
+
+          <p>
+            <label for="contacto-telefono">Teléfono</label>
+            <input
+              type="tel"
+              id="contacto-telefono"
+              name="telefono"
+              autocomplete="tel"
+              placeholder="+54 11 XXXX-XXXX"
+              pattern="[+0-9\s\-()]+"
+            >
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Mensaje</legend>
+
+          <p>
+            <label for="contacto-asunto">Asunto <abbr title="campo obligatorio">*</abbr></label>
+            <select id="contacto-asunto" name="asunto" required>
+              <option value="">— Seleccioná un asunto —</option>
+              <option value="consulta-general">Consulta general</option>
+              <option value="pedido">Estado de un pedido</option>
+              <option value="reserva">Reserva de libro</option>
+              <option value="sugerencia">Sugerencia o queja</option>
+              <option value="prensa">Prensa / institucional</option>
+              <option value="otro">Otro</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="contacto-mensaje">Mensaje <abbr title="campo obligatorio">*</abbr></label>
+            <textarea
+              id="contacto-mensaje"
+              name="mensaje"
+              required
+              rows="6"
+              minlength="20"
+              maxlength="2000"
+              placeholder="Escribí tu mensaje aquí…"
+            ></textarea>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Enviar mensaje</button>
+          <button type="reset">Limpiar</button>
+        </p>
+
+      </form>
     </section>
 
   </main>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Quijote — Detalle del libro — PAWPrints</title>
+  <meta name="description" content="El ingenioso hidalgo don Quijote de la Mancha, de Miguel de Cervantes. Editorial Planeta, 1605. Comprá o reservá en PAWPrints.">
+</head>
+<body>
+
+  <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
+  <header>
+    <a href="/index.html" aria-label="PAWPrints — Inicio">
+      <strong>PAWPrints</strong>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <form role="search" action="/pages/catalogo.html" method="get">
+      <label for="header-busqueda">Buscar libros</label>
+      <input
+        type="search"
+        id="header-busqueda"
+        name="q"
+        placeholder="Título, autor, ISBN…"
+        autocomplete="off"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+
+    <nav aria-label="Área de usuario">
+      <ul>
+        <li><a href="/pages/favoritos.html">Favoritos</a></li>
+        <li><a href="/pages/carrito.html">Carrito</a></li>
+        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- #endregion components/header.html -->
+
+  <main>
+
+    <nav aria-label="Ubicación en el sitio">
+      <ol>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><span aria-current="page">El Quijote</span></li>
+      </ol>
+    </nav>
+
+    <!--
+      Ficha del libro — Figma Desktop 19:3 / Mobile 1:6.
+      Uso <article> porque es contenido autónomo y reutilizable fuera de contexto
+      (podría aparecer como embed en otra página o RSS).
+    -->
+    <article aria-labelledby="libro-titulo-h">
+
+      <!-- Portada con miniaturas (Desktop Figma muestra galería: Frame 42/43/44/45) -->
+      <figure>
+        <img
+          src="/assets/img/libros/el-quijote-grande.jpg"
+          alt="Portada completa de El ingenioso hidalgo don Quijote de la Mancha, edición Planeta"
+          width="400"
+          height="600"
+        >
+        <figcaption>El ingenioso hidalgo don Quijote de la Mancha — Edición ilustrada, Planeta 2020</figcaption>
+      </figure>
+
+      <!-- Miniaturas adicionales del libro (vistas del libro, contraportada, etc.) -->
+      <ul aria-label="Imágenes adicionales del libro">
+        <li>
+          <a href="/assets/img/libros/el-quijote-contraportada.jpg">
+            <img
+              src="/assets/img/libros/el-quijote-contraportada-thumb.jpg"
+              alt="Contraportada de El Quijote"
+              width="80"
+              height="120"
+            >
+          </a>
+        </li>
+        <li>
+          <a href="/assets/img/libros/el-quijote-pagina-interior.jpg">
+            <img
+              src="/assets/img/libros/el-quijote-pagina-interior-thumb.jpg"
+              alt="Página interior de El Quijote con ilustración"
+              width="80"
+              height="120"
+            >
+          </a>
+        </li>
+        <li>
+          <a href="/assets/img/libros/el-quijote-lomo.jpg">
+            <img
+              src="/assets/img/libros/el-quijote-lomo-thumb.jpg"
+              alt="Lomo de El Quijote"
+              width="80"
+              height="120"
+            >
+          </a>
+        </li>
+      </ul>
+
+      <!-- Datos principales -->
+      <h1 id="libro-titulo-h">El Quijote</h1>
+      <p>
+        <em>El ingenioso hidalgo don Quijote de la Mancha</em>
+      </p>
+
+      <p>
+        Autor:
+        <a href="/pages/catalogo.html?autor=cervantes">Miguel de Cervantes</a>
+      </p>
+
+      <!--
+        Uso <dl> para los datos bibliográficos (Editorial, Año, ISBN, etc.)
+        siguiendo el patrón dt+dd del Figma Mobile 1:6 y Desktop 19:3.
+      -->
+      <dl>
+        <dt>Editorial</dt>
+        <dd>Editorial Planeta</dd>
+
+        <dt>Año de publicación</dt>
+        <dd><time datetime="1605">1605</time> (primera edición) · <time datetime="2020">2020</time> (esta edición)</dd>
+
+        <dt>ISBN</dt>
+        <dd>978-8491050490</dd>
+
+        <dt>Páginas</dt>
+        <dd>1376</dd>
+
+        <dt>Idioma</dt>
+        <dd>Español</dd>
+
+        <dt>Formato</dt>
+        <dd>Tapa dura</dd>
+
+        <dt>Dimensiones</dt>
+        <dd>24 × 17 × 5,5 cm</dd>
+
+        <dt>Género</dt>
+        <dd><a href="/pages/catalogo.html?categoria=narrativa">Narrativa</a></dd>
+      </dl>
+
+      <p>
+        Precio: <strong><data value="4590">$&nbsp;4.590</data></strong>
+      </p>
+
+      <!--
+        Formulario de compra — <form> con input type="number" y botones de acción.
+        Incluye enlace al formulario de reserva del compañero.
+      -->
+      <form action="/pages/carrito.html" method="post">
+        <input type="hidden" name="isbn" value="978-8491050490">
+        <input type="hidden" name="titulo" value="El Quijote">
+
+        <fieldset>
+          <legend>Opciones de compra</legend>
+
+          <p>
+            <label for="cantidad">Cantidad</label>
+            <input
+              type="number"
+              id="cantidad"
+              name="cantidad"
+              min="1"
+              max="10"
+              value="1"
+              required
+            >
+          </p>
+
+          <p>
+            <button type="submit" name="accion" value="carrito">Agregar al carrito</button>
+          </p>
+
+          <p>
+            <button type="submit" name="accion" value="favoritos" formaction="/pages/favoritos.html">
+              Agregar a favoritos
+            </button>
+          </p>
+
+          <p>
+            ¿Preferís reservarlo en sucursal?
+            <a href="/pages/reserva.html?isbn=978-8491050490">Formulario de reserva</a>
+          </p>
+        </fieldset>
+      </form>
+
+      <!-- Descripción / Sinopsis — section Descripción del Figma Mobile 1:6 / Desktop Frame 43 -->
+      <section aria-labelledby="sinopsis-h">
+        <h2 id="sinopsis-h">Sinopsis</h2>
+        <p>
+          Considerada la primera novela moderna de la literatura occidental, <cite>El Quijote</cite>
+          narra las aventuras de Alonso Quijano, un hidalgo manchego que, enloquecido por la
+          lectura de libros de caballería, decide convertirse en caballero andante bajo el
+          nombre de don Quijote de la Mancha.
+        </p>
+        <p>
+          Acompañado de su fiel escudero Sancho Panza, recorre los campos de España en busca
+          de aventuras, enfrentándose a molinos de viento que confunde con gigantes, a rebaños
+          que toma por ejércitos, y a posadas que transforma en castillos encantados.
+        </p>
+        <p>
+          La novela, publicada en dos partes en <time datetime="1605">1605</time> y
+          <time datetime="1615">1615</time>, constituye una sátira del mundo caballeresco
+          medieval pero también una profunda reflexión sobre la realidad y la ficción,
+          la locura y la cordura, el idealismo y el pragmatismo.
+        </p>
+      </section>
+
+      <!-- Sobre el autor — section Autor del Figma Mobile 1:6 -->
+      <section aria-labelledby="autor-h">
+        <h2 id="autor-h">Sobre el autor</h2>
+        <p>
+          <strong>Miguel de Cervantes Saavedra</strong>
+          (<time datetime="1547">1547</time>–<time datetime="1616">1616</time>) fue un escritor
+          español del Siglo de Oro. Soldado, esclavo en Argel y recaudador de impuestos, llevó
+          una vida marcada por las dificultades económicas y el reconocimiento tardío.
+        </p>
+        <p>
+          Además de <cite>Don Quijote de la Mancha</cite>, obra con la que revolucionó la
+          narrativa occidental, escribió teatro, poesía y las <cite>Novelas ejemplares</cite>.
+          Es considerado el mayor exponente de la literatura en lengua española.
+        </p>
+        <p>
+          <a href="/pages/catalogo.html?autor=cervantes">Ver todos los libros de Miguel de Cervantes</a>
+        </p>
+      </section>
+
+      <!-- Especificaciones técnicas completas (Desktop Figma Frame 41 / Especificaciones) -->
+      <section aria-labelledby="especificaciones-h">
+        <h2 id="especificaciones-h">Especificaciones</h2>
+        <dl>
+          <dt>Título completo</dt>
+          <dd>El ingenioso hidalgo don Quijote de la Mancha</dd>
+
+          <dt>Autor</dt>
+          <dd>Miguel de Cervantes Saavedra</dd>
+
+          <dt>ISBN-13</dt>
+          <dd>978-8491050490</dd>
+
+          <dt>Editorial</dt>
+          <dd>Editorial Planeta</dd>
+
+          <dt>Año de esta edición</dt>
+          <dd><time datetime="2020">2020</time></dd>
+
+          <dt>Primera publicación</dt>
+          <dd><time datetime="1605">1605</time> (Parte I) · <time datetime="1615">1615</time> (Parte II)</dd>
+
+          <dt>Páginas</dt>
+          <dd>1376</dd>
+
+          <dt>Encuadernación</dt>
+          <dd>Tapa dura con sobrecubierta</dd>
+
+          <dt>Papel</dt>
+          <dd>Offset 80 g/m²</dd>
+
+          <dt>Idioma</dt>
+          <dd>Español castellano</dd>
+
+          <dt>Género</dt>
+          <dd>Narrativa · Novela de caballería (parodia)</dd>
+
+          <dt>Peso</dt>
+          <dd>1.2 kg</dd>
+
+          <dt>Dimensiones</dt>
+          <dd>24 × 17 × 5,5 cm</dd>
+        </dl>
+      </section>
+
+      <!-- Valoraciones de usuarios — Desktop Figma Frame 42 / Valoraciones -->
+      <section aria-labelledby="valoraciones-h">
+        <h2 id="valoraciones-h">Valoraciones <span>(3)</span></h2>
+
+        <article aria-label="Valoración de User NN1">
+          <header>
+            <p><strong>MargaritaR</strong></p>
+            <p>
+              <meter
+                value="5"
+                min="0"
+                max="5"
+                low="2"
+                high="4"
+                optimum="5"
+                aria-label="Puntuación: 5 de 5 estrellas"
+              >5 de 5 estrellas</meter>
+            </p>
+            <p><time datetime="2025-03-14">14 de marzo de 2025</time></p>
+          </header>
+          <p>
+            Una obra maestra que nunca pasa de moda. Esta edición de Planeta es de una
+            calidad excepcional, con notas al pie que ayudan a comprender las referencias
+            históricas. Imprescindible en cualquier biblioteca personal.
+          </p>
+        </article>
+
+        <article aria-label="Valoración de User NN2">
+          <header>
+            <p><strong>LectorAsiduo42</strong></p>
+            <p>
+              <meter
+                value="4"
+                min="0"
+                max="5"
+                low="2"
+                high="4"
+                optimum="5"
+                aria-label="Puntuación: 4 de 5 estrellas"
+              >4 de 5 estrellas</meter>
+            </p>
+            <p><time datetime="2024-11-08">8 de noviembre de 2024</time></p>
+          </header>
+          <p>
+            Lo había intentado antes y no podía terminarlo. Esta edición, con su introducción
+            contextual, me ayudó a entenderlo y apreciarlo de verdad. Le quito una estrella
+            solo porque el papel es algo amarillento para mi gusto.
+          </p>
+        </article>
+
+        <article aria-label="Valoración de User NN3">
+          <header>
+            <p><strong>Sofía_Palermo</strong></p>
+            <p>
+              <meter
+                value="5"
+                min="0"
+                max="5"
+                low="2"
+                high="4"
+                optimum="5"
+                aria-label="Puntuación: 5 de 5 estrellas"
+              >5 de 5 estrellas</meter>
+            </p>
+            <p><time datetime="2024-06-22">22 de junio de 2024</time></p>
+          </header>
+          <p>
+            Regalo perfecto. Lo compré para mi papá y quedó encantado con la calidad de la
+            edición. Llegó en perfectas condiciones y antes de lo esperado. Muy recomendado.
+          </p>
+        </article>
+
+      </section>
+
+    </article>
+
+    <!-- Libros relacionados — aside con ul de mini-cards (Figma Desktop 19:3 / Frame section Relacionados) -->
+    <aside aria-labelledby="relacionados-h">
+      <h2 id="relacionados-h">También te puede interesar</h2>
+      <ul>
+
+        <li>
+          <article aria-labelledby="mini-cien-anos-h">
+            <a href="/pages/detalle-libro.html?isbn=978-0307474728">
+              <img
+                src="/assets/img/libros/cien-anos-de-soledad-thumb.jpg"
+                alt="Portada de Cien años de soledad"
+                width="80"
+                height="120"
+              >
+            </a>
+            <div>
+              <h3 id="mini-cien-anos-h">
+                <a href="/pages/detalle-libro.html?isbn=978-0307474728">Cien años de soledad</a>
+              </h3>
+              <p>Gabriel García Márquez</p>
+              <p><data value="5200">$5.200</data></p>
+              <form action="/pages/carrito.html" method="post">
+                <input type="hidden" name="isbn" value="978-0307474728">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit">Agregar al carrito</button>
+              </form>
+              <form action="/pages/favoritos.html" method="post">
+                <input type="hidden" name="isbn" value="978-0307474728">
+                <button type="submit">Agregar a favoritos</button>
+              </form>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="mini-don-juan-h">
+            <a href="/pages/detalle-libro.html?isbn=978-8467020571">
+              <img
+                src="/assets/img/libros/don-juan-tenorio-thumb.jpg"
+                alt="Portada de Don Juan Tenorio"
+                width="80"
+                height="120"
+              >
+            </a>
+            <div>
+              <h3 id="mini-don-juan-h">
+                <a href="/pages/detalle-libro.html?isbn=978-8467020571">Don Juan Tenorio</a>
+              </h3>
+              <p>José Zorrilla</p>
+              <p><data value="3800">$3.800</data></p>
+              <form action="/pages/carrito.html" method="post">
+                <input type="hidden" name="isbn" value="978-8467020571">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit">Agregar al carrito</button>
+              </form>
+              <form action="/pages/favoritos.html" method="post">
+                <input type="hidden" name="isbn" value="978-8467020571">
+                <button type="submit">Agregar a favoritos</button>
+              </form>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="mini-ficciones-h">
+            <a href="/pages/detalle-libro.html?isbn=978-9500301695">
+              <img
+                src="/assets/img/libros/ficciones-thumb.jpg"
+                alt="Portada de Ficciones de Borges"
+                width="80"
+                height="120"
+              >
+            </a>
+            <div>
+              <h3 id="mini-ficciones-h">
+                <a href="/pages/detalle-libro.html?isbn=978-9500301695">Ficciones</a>
+              </h3>
+              <p>Jorge Luis Borges</p>
+              <p><data value="4100">$4.100</data></p>
+              <form action="/pages/carrito.html" method="post">
+                <input type="hidden" name="isbn" value="978-9500301695">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit">Agregar al carrito</button>
+              </form>
+              <form action="/pages/favoritos.html" method="post">
+                <input type="hidden" name="isbn" value="978-9500301695">
+                <button type="submit">Agregar a favoritos</button>
+              </form>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article aria-labelledby="mini-rayuela-h">
+            <a href="/pages/detalle-libro.html?isbn=978-8420471402">
+              <img
+                src="/assets/img/libros/rayuela-thumb.jpg"
+                alt="Portada de Rayuela de Cortázar"
+                width="80"
+                height="120"
+              >
+            </a>
+            <div>
+              <h3 id="mini-rayuela-h">
+                <a href="/pages/detalle-libro.html?isbn=978-8420471402">Rayuela</a>
+              </h3>
+              <p>Julio Cortázar</p>
+              <p><data value="4750">$4.750</data></p>
+              <form action="/pages/carrito.html" method="post">
+                <input type="hidden" name="isbn" value="978-8420471402">
+                <input type="hidden" name="cantidad" value="1">
+                <button type="submit">Agregar al carrito</button>
+              </form>
+              <form action="/pages/favoritos.html" method="post">
+                <input type="hidden" name="isbn" value="978-8420471402">
+                <button type="submit">Agregar a favoritos</button>
+              </form>
+            </div>
+          </article>
+        </li>
+
+      </ul>
+    </aside>
+
+  </main>
+
+  <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
+  <footer>
+    <section aria-labelledby="footer-contacto-h">
+      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+      <address>
+        <p>PAWPrints Librería</p>
+        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+        <p>
+          <a href="tel:+541112345678">+54 11 1234-5678</a>
+        </p>
+        <p>
+          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+        </p>
+      </address>
+      <p>
+        Horario de atención:
+        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        —
+        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+      </p>
+    </section>
+
+    <nav aria-label="Redes sociales">
+      <h2>Seguinos</h2>
+      <ul>
+        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Mapa del sitio">
+      <h2>Páginas</h2>
+      <ul>
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/catalogo.html">Catálogo</a></li>
+        <li><a href="/pages/categorias.html">Categorías</a></li>
+        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/nosotros.html">Nosotros</a></li>
+        <li><a href="/pages/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <small>
+      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+    </small>
+  </footer>
+  <!-- #endregion components/footer.html -->
+
+</body>
+</html>
