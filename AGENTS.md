@@ -42,10 +42,15 @@ auto-hospedadas en `assets/fonts/`.
 Antes de cerrar cualquier tarea que toque HTML o CSS, correr y exigir salida vacía:
 
 ```bash
-rg -n 'https?://' --glob '*.html' --glob '*.css' . | rg -v 'rel="noopener|href="(tel|mailto):|schema.org'
-rg -n '<script|\.js"' --glob '*.html' .
+rg -n '(<link[^>]*href|<script[^>]*src|<img[^>]*src|<iframe[^>]*src|@import|url\()[^>]*https?://' \
+   --glob '*.html' --glob '*.css' .
+rg -n '<script|\son[a-z]+\s*=|\.js"' --glob '*.html' .
 fd -H '^(package|package-lock|yarn|bun|pnpm)' .
 ```
+
+El primer comando busca recursos **cargados**, no cualquier URL. Los
+`<a href="https://...">` a redes sociales son legítimos y los pide la consigna del TP1:
+un link de navegación no es una dependencia externa.
 
 ### R2 — Nada de JavaScript
 

@@ -36,17 +36,24 @@ Esto significa **permitido**:
 **Cómo se verifica antes de cada entrega:**
 
 ```bash
-# 1. No debe existir ningún recurso externo
-rg -n 'https?://' --glob '*.html' --glob '*.css' . | rg -v 'rel="noopener|href="(tel|mailto):|schema.org'
+# 1. Ningún recurso externo CARGADO (CSS, JS, fuentes, imágenes, @import, url())
+rg -n '(<link[^>]*href|<script[^>]*src|<img[^>]*src|<iframe[^>]*src|@import|url\()[^>]*https?://' \
+   --glob '*.html' --glob '*.css' .
 
-# 2. No debe existir JavaScript
-rg -n '<script|\.js"' --glob '*.html' .
+# 2. Ningún JavaScript
+rg -n '<script|\son[a-z]+\s*=|\.js"' --glob '*.html' .
 
-# 3. No debe existir ningún manifiesto de dependencias
+# 3. Ningún manifiesto de dependencias
 fd -H '^(package|package-lock|yarn|bun|pnpm)' .
 ```
 
 Los tres comandos deben devolver **vacío**.
+
+> **Ojo con el comando 1:** busca recursos *cargados*, no cualquier URL.
+> Los `<a href="https://...">` a redes sociales en `contacto.html` y el footer son
+> **legítimos y obligatorios** — el TP1 pide explícitamente dar peso a las redes de la
+> librería. Un link de navegación no es una dependencia. Un `<link rel="stylesheet">`
+> a un CDN sí.
 
 ---
 
