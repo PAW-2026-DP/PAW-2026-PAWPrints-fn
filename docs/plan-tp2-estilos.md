@@ -52,7 +52,9 @@ recién cuando el equipo validó.
 
 ## Fases
 
-Dependencias estrictas. Una fase no arranca hasta que la anterior está mergeada a `dev`.
+Dependencias estrictas. Una fase no arranca hasta que la anterior está cerrada y
+commiteada en `feature/estilados`. **Todas las fases viven en esa única rama**; a `dev`
+se llega una sola vez, por PR, al final.
 
 ```
 F0 Reconciliar ramas      ──┐
@@ -84,7 +86,7 @@ F0 Inventario de diseño   ──┘                                          �
 
 ### Fase 1 — Cimientos
 
-Sale de `feature/css-cimientos`. Es la fase que más condiciona al resto: acá se fija
+Es la fase que más condiciona al resto: acá se fija
 el vocabulario que van a usar todas las demás.
 
 | ID | Tarea | Archivos |
@@ -115,7 +117,7 @@ Montserrat. Nada más cambió todavía. Si la fuente no carga, se arregla acá y
 
 ### Fase 2 — Base
 
-`feature/css-base`. Todo por selector de elemento, **sin una sola clase**.
+Todo por selector de elemento, **sin una sola clase**.
 
 | ID | Tarea | Archivos |
 |---|---|---|
@@ -133,7 +135,7 @@ en cada parada.
 
 ### Fase 3 — Chrome del sitio (header y footer)
 
-`feature/css-chrome`. Primera fase que toca HTML.
+Primera fase que toca HTML.
 
 El header y el footer aparecen en las 21 páginas. Resolverlos una vez resuelve el 40%
 de la percepción visual del sitio. Y son la prueba de fuego del responsive, porque el
@@ -162,7 +164,7 @@ idénticos en las 21 páginas.
 
 ### Fase 4 — Componentes
 
-`feature/css-componentes`. Se construyen contra el Figma, no contra una página puntual.
+Se construyen contra el Figma, no contra una página puntual.
 
 | ID | Componente | Clase | Aparece en |
 |---|---|---|---|
@@ -192,8 +194,9 @@ aislados y dentro de una página real.
 
 ### Fase 5 — Layout por página
 
-`feature/css-<pagina>`, una rama por grupo. Acá se puede **paralelizar entre integrantes**:
-las fases anteriores ya dieron el vocabulario común, así que dos personas no chocan.
+Acá se puede **paralelizar entre integrantes** dentro de `feature/estilados`:
+las fases anteriores ya dieron el vocabulario común, así que dos personas no chocan
+mientras cada una tome grupos de páginas distintos y commitee seguido.
 
 | ID | Páginas | Layout principal |
 |---|---|---|
@@ -216,7 +219,7 @@ Ante la duda, componente.
 
 ### Fase 6 — Impresión
 
-`feature/css-print`. Fase corta pero **obligatoria por consigna** y la que todos los
+Fase corta pero **obligatoria por consigna** y la que todos los
 equipos se olvidan. Es puntaje regalado.
 
 | ID | Tarea |
@@ -234,7 +237,7 @@ elementos de interfaz.
 
 ### Fase 7 — QA y entrega
 
-`feature/css-qa` y luego `dev → test → main`.
+Cierre del TP2. Tras el PR a `dev`, sigue `dev → test → main`.
 
 | ID | Tarea |
 |---|---|
@@ -245,7 +248,8 @@ elementos de interfaz.
 | T-74 | Los 3 comandos de verificación de "CSS vanilla" (§0 lineamientos) devuelven vacío |
 | T-75 | Verificar que ningún valor quedó hardcodeado fuera de `tokens.css` |
 | T-76 | Actualizar `README.md`: stack, estructura de `assets/`, cómo levantar el sitio |
-| T-77 | Merge `dev → test → main` y crear el tag anotado `tp2` |
+| T-77 | Abrir el **PR de `feature/estilados` a `dev`** y esperar validación del equipo |
+| T-78 | Una vez mergeado: `dev → test → main` y crear el tag anotado `tp2` |
 
 **T-75, comando:**
 

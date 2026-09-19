@@ -505,10 +505,15 @@ dev                 → integración continua del equipo
 feature/<tema>      → trabajo individual, sale de dev y vuelve a dev
 ```
 
-Para el TP2: `feature/css-<area>`, por ejemplo `feature/css-tokens`,
-`feature/css-header`, `feature/css-catalogo`.
+**Para el TP2 la rama de trabajo es una sola: `feature/estilados`** (ver §1.2).
+Todas las fases del plan se implementan ahí y entran a `dev` por Pull Request.
+No se abre una rama por fase ni por área: multiplicar ramas sobre un mismo trabajo
+secuencial genera merges cruzados que nadie necesita.
 
-**Nunca se commitea directo a `main`.**
+El esquema `feature/<tema>` por área queda para los TP siguientes, cuando haya
+trabajo realmente paralelo.
+
+**Nunca se commitea directo a `main` ni a `dev`.**
 
 ### 8.2 Commits — Conventional Commits, obligatorio
 

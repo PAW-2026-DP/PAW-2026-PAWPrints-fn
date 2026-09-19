@@ -213,7 +213,7 @@ Formato obligatorio al cerrar una tarea:
 
 ```
 Tarea:      T-xx — <título>
-Rama:       feature/css-<area>
+Rama:       feature/estilados
 Commits:    <hash> <mensaje>
 Archivos:   <rutas>
 Verificado: <comando> → <resultado observado>
