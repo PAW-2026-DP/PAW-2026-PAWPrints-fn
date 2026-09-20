@@ -64,7 +64,7 @@
     <form action="#" method="post" name="checkout">
 
       <section aria-labelledby="envio-facturacion">
-        <h3 id="envio-facturacion">Envío y facturación</h3>
+        <h2 id="envio-facturacion">Envío y facturación</h2>
 
         <fieldset>
           <legend>Datos personales</legend>
@@ -100,6 +100,7 @@
           <p>
             <label for="pais">País / Región</label>
             <select id="pais" name="pais" autocomplete="country-name" required>
+              <option value="" disabled hidden>Seleccioná una opción</option>
               <option value="ar" selected>Argentina</option>
               <option value="uy">Uruguay</option>
               <option value="cl">Chile</option>
@@ -161,6 +162,7 @@
           <p>
             <label for="tipo-doc">Tipo de documento</label>
             <select id="tipo-doc" name="tipo_documento" required>
+              <option value="" disabled hidden>Seleccioná una opción</option>
               <option value="dni" selected>DNI</option>
               <option value="cuit">CUIT</option>
               <option value="cuil">CUIL</option>
@@ -323,9 +325,9 @@
       </address>
       <p>
         Horario de atención:
-        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        Lunes a Viernes, 9&nbsp;h a 20&nbsp;h
         —
-        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+        Sábados, 10&nbsp;h a 18&nbsp;h
       </p>
     </section>
 

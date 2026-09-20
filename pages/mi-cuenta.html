@@ -107,6 +107,7 @@
         <p>
           <label for="tipo-doc">Tipo de documento</label>
           <select id="tipo-doc" name="tipo_documento" required>
+            <option value="" disabled hidden>Seleccioná una opción</option>
             <option value="dni" selected>DNI</option>
             <option value="cuit">CUIT</option>
             <option value="cuil">CUIL</option>
@@ -155,6 +156,7 @@
         <p>
           <label for="provincia">Región / Provincia</label>
           <select id="provincia" name="provincia" autocomplete="address-level1" required>
+            <option value="" disabled hidden>Seleccioná una opción</option>
             <option value="buenos-aires" selected>Buenos Aires</option>
             <option value="caba">Ciudad Autónoma de Buenos Aires</option>
             <option value="cordoba">Córdoba</option>
@@ -172,6 +174,7 @@
         <p>
           <label for="pais">País</label>
           <select id="pais" name="pais" autocomplete="country-name" required>
+            <option value="" disabled hidden>Seleccioná una opción</option>
             <option value="ar" selected>Argentina</option>
             <option value="uy">Uruguay</option>
             <option value="cl">Chile</option>
@@ -186,7 +189,7 @@
     </form>
 
     <section id="pedidos" aria-labelledby="titulo-pedidos">
-      <h3 id="titulo-pedidos">Mis últimos pedidos</h3>
+      <h2 id="titulo-pedidos">Mis últimos pedidos</h2>
       <table>
         <caption>Historial de pedidos</caption>
         <thead>
@@ -238,9 +241,9 @@
       </address>
       <p>
         Horario de atención:
-        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
+        Lunes a Viernes, 9&nbsp;h a 20&nbsp;h
         —
-        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
+        Sábados, 10&nbsp;h a 18&nbsp;h
       </p>
     </section>
 
