@@ -1,0 +1,29 @@
+/* =========================================================================
+   01-settings/fonts.css — Tipografía corporativa
+   =========================================================================
+
+   El manual de identidad define Argentum Sans como tipografía corporativa y,
+   en su propia nota al pie, establece Montserrat como equivalente oficial
+   ("Argentum Sans es una evolución de la tipografía Montserrat").
+
+   Se usa la fuente VARIABLE: Google Fonts ya no distribuye Montserrat en
+   pesos estáticos separados. Un único archivo de 212 KB cubre todo el rango
+   100–900, lo que además evita cinco peticiones HTTP.
+
+   Auto-hospedada en assets/fonts/. NUNCA por <link> a Google Fonts: eso
+   sería una dependencia externa y viola la regla número 1 del proyecto.
+   Licencia SIL OFL 1.1 — el texto se redistribuye en assets/fonts/OFL.txt,
+   como la licencia exige.
+   ========================================================================= */
+
+@font-face {
+  font-family: "Montserrat";
+  /* Una sola declaración: no hay archivo estático de respaldo al que caer,
+     así que repetir la misma url con otro `format()` no aportaría nada.
+     `font-weight: 100 900` es lo que le dice al navegador que es variable. */
+  src: url("../../fonts/montserrat-variable.woff2") format("woff2");
+  /* Rango completo: los pesos corporativos (300/400/500/600/700) caen dentro */
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

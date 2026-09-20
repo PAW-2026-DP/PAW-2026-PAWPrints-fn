@@ -31,9 +31,9 @@ Del enunciado del TP2, textual:
 | Manual de identidad elegido | ✅ Violeta |
 | Ramas `dev` / `main` reconciliadas | ✅ **2026-09-19** — gana `main` |
 | Rama de trabajo | ✅ `feature/estilados` (desde el nuevo `dev`) |
-| CSS | ❌ Cero. El TP1 se entregó sin una sola regla |
+| CSS | 🔨 F1 cerrada: tokens y cascada listos; capas 02–06 pendientes |
 | Clases en el HTML | ❌ Cero. Semántica pura |
-| Tipografía auto-hospedada | ❌ No hay `assets/` |
+| Tipografía auto-hospedada | ✅ Montserrat variable en `assets/fonts/` |
 
 Un hecho condiciona todo el plan: **el HTML no tiene ni una `class`.**
 Estrategia definida en §3.4 de los lineamientos: se agregan clases, sin tocar
@@ -89,29 +89,37 @@ F0 Inventario de diseño   ──┘                                          �
 Es la fase que más condiciona al resto: acá se fija
 el vocabulario que van a usar todas las demás.
 
-| ID | Tarea | Archivos |
-|---|---|---|
-| T-10 | Crear el árbol `assets/css/` completo con archivos vacíos y `main.css` con los `@import` en orden | `assets/css/**` |
-| T-11 | Descargar Montserrat (OFL) 300/400/500/600/700 en `.woff2` y versionarla. **Auto-hospedada, nunca Google Fonts por `<link>`** | `assets/fonts/*.woff2` |
-| T-12 | Escribir `@font-face` con `font-display: swap` y stack de respaldo | `01-settings/fonts.css` |
-| T-13 | Volcar los design tokens de §4 de lineamientos, ajustados con los valores reales del Figma (T-05) | `01-settings/tokens.css` |
-| T-14 | Insertar `<link rel="stylesheet" href="/assets/css/main.css">` en el `<head>` de **las 21 páginas** | `index.html`, `pages/*.html` |
+| ID | Tarea | Archivos | Estado |
+|---|---|---|---|
+| T-10 | Crear el árbol `assets/css/` completo y `main.css` con los `@import` en orden | `assets/css/**` | ✅ |
+| T-11 | Montserrat (OFL) auto-hospedada. **Nunca Google Fonts por `<link>`** | `assets/fonts/` | ✅ |
+| T-12 | Escribir `@font-face` con `font-display: swap` y stack de respaldo | `01-settings/fonts.css` | ✅ |
+| T-13 | Volcar los design tokens de §4 de lineamientos | `01-settings/tokens.css` | ✅ |
+| T-14 | Insertar `<link rel="stylesheet" href="/assets/css/main.css">` en el `<head>` de **las 21 páginas** | `index.html`, `pages/*.html` | ✅ |
+
+**T-11 — se usa la fuente VARIABLE, no cinco estáticas.** Google Fonts ya no distribuye
+Montserrat en pesos separados: el repositorio OFL oficial solo publica el archivo
+variable. No es una concesión, es mejor: **un único `.woff2` de 212 KB** cubre todo el
+rango 100–900 (los cinco pesos corporativos incluidos) en **una sola petición HTTP**,
+contra las cinco que harían falta con archivos estáticos.
+
+La licencia SIL OFL 1.1 obliga a redistribuir su texto: está en `assets/fonts/OFL.txt`.
 
 **Detalle de T-12:**
 
 ```css
 @font-face {
   font-family: "Montserrat";
-  src: url("/assets/fonts/montserrat-600.woff2") format("woff2");
-  font-weight: 600;
+  src: url("../../fonts/montserrat-variable.woff2") format("woff2-variations"),
+       url("../../fonts/montserrat-variable.woff2") format("woff2");
+  font-weight: 100 900;   /* rango completo, no un peso fijo */
   font-style: normal;
   font-display: swap;
 }
-/* ...un bloque por peso: 300, 400, 500, 600, 700 */
 ```
 
 **Criterio de salida:** abrir cualquier página y ver que el texto ya renderiza en
-Montserrat. Nada más cambió todavía. Si la fuente no carga, se arregla acá y no se avanza.
+Montserrat. Nada más cambió todavía. ✅ **Fase cerrada.**
 
 ---
 
@@ -255,10 +263,10 @@ Cierre del TP2. Tras el PR a `dev`, sigue `dev → test → main`.
 
 ```bash
 # hex fuera de tokens.css  → debe devolver vacío
-rg -n '#[0-9a-fA-F]{3,8}\b' assets/css --glob '!01-settings/tokens.css'
+rg -n '#[0-9a-fA-F]{3,8}\b' assets/css --glob '!**/tokens.css'
 
 # !important fuera de print → debe devolver vacío
-rg -n '!important' assets/css --glob '!06-print/print.css'
+rg -n '!important\s*;' assets/css --glob '!**/print.css'
 
 # estilos por id → debe devolver vacío
 rg -n '^\s*#[a-zA-Z][\w-]*\s*[,{]' assets/css
