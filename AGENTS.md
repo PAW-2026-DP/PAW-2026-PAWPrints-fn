@@ -39,18 +39,22 @@ normalize.css, Font Awesome, Google Fonts por `<link>`, cualquier CDN, cualquier
 `@font-face`, `@layer`, `clamp()`, `:has()`, `:is()`, `:where()`) y tipografías
 auto-hospedadas en `assets/fonts/`.
 
-Antes de cerrar cualquier tarea que toque HTML o CSS, correr y exigir salida vacía:
+Antes de cerrar cualquier tarea que toque HTML o CSS:
 
 ```bash
-rg -n '(<link[^>]*href|<script[^>]*src|<img[^>]*src|<iframe[^>]*src|@import|url\()[^>]*https?://' \
-   --glob '*.html' --glob '*.css' .
-rg -n '<script|\son[a-z]+\s*=|\.js"' --glob '*.html' .
-fd -H '^(package|package-lock|yarn|bun|pnpm)' .
+./scripts/verificar.sh   # debe imprimir TODO OK y salir con 0
 ```
 
-El primer comando busca recursos **cargados**, no cualquier URL. Los
-`<a href="https://...">` a redes sociales son legítimos y los pide la consigna del TP1:
-un link de navegación no es una dependencia externa.
+Ese script es la verificación de record. Cubre las reglas R1, R2, R4, R5 y R6.
+Su fuente está documentada en la §0 de `docs/lineamientos-desarrollo.md`.
+
+**No lo reemplaces por comandos sueltos encadenados con `&&`/`||`:** esa forma dio
+falsos resultados tres veces (`fd` sale con 0 sin encontrar nada; los globs de `rg`
+se resuelven contra el cwd; `!important` aparece dentro de comentarios). Si tocás un
+chequeo, probalo antes contra un caso que **debe** fallar.
+
+Un `<a href="https://...">` a redes sociales es legítimo y lo pide la consigna del
+TP1: un link de navegación no es una dependencia externa. El script ya lo contempla.
 
 ### R2 — Nada de JavaScript
 
@@ -156,11 +160,14 @@ origin/main ──→ dev ──→ feature/estilados   ← rama de trabajo del 
 - **Prohibido** `git push --force`, `git reset --hard` sobre ramas compartidas, borrar
   ramas remotas, o borrar el tag de respaldo. Son decisiones humanas.
 
-### Fase 0 todavía abierta
+### Progreso
 
-T-00 y T-01 están cerradas, pero **T-02 (propagación de header/footer) y T-03
-(validación W3C) siguen siendo bloqueantes**. No se escribe CSS sobre HTML que no valida.
-Si se pide estilar con la Fase 0 abierta, el agente lo reporta y se detiene.
+- **Fase 0** cerrada en lo bloqueante: T-00 a T-03 ✅. Quedan T-04/T-05 (inventario
+  del Figma), que no bloquean el CSS pero sí afinan los tokens.
+- **Fase 1 (Cimientos)** cerrada: `assets/css/` con la cascada de 6 capas,
+  Montserrat variable auto-hospedada, `tokens.css`, y el `<link>` en las 21 páginas.
+- **Siguiente: Fase 2 (Base)** — reset, tipografía, elementos, foco. Todo por selector
+  de elemento, sin una sola clase.
 
 ---
 
@@ -195,9 +202,7 @@ Si se pide estilar con la Fase 0 abierta, el agente lo reporta y se detiene.
 Correr y exigir salida vacía:
 
 ```bash
-rg -n '#[0-9a-fA-F]{3,8}\b' assets/css --glob '!01-settings/tokens.css'   # R4
-rg -n '!important' assets/css --glob '!06-print/print.css'                 # R5
-rg -n '^\s*#[a-zA-Z][\w-]*\s*[,{]' assets/css                              # R6
+./scripts/verificar.sh
 ```
 
 Más el checklist de 12 puntos de §9 de lineamientos para las páginas tocadas.
