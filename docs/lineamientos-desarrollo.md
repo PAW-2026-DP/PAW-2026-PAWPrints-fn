@@ -480,14 +480,39 @@ Flujo obligatorio cuando se toca el header o el footer:
 3. Verificar que no quedó ninguna divergencia:
 
 ```bash
-for f in pages/*.html index.html; do
-  diff <(sed -n '/#region components\/header.html/,/#endregion components\/header.html/p' "$f") \
-       components/header.html >/dev/null && echo "$f OK" || echo "$f DIVERGE"
+# Extrae el bloque de una página: quita las líneas marcadoras (1d;$d)
+# y descuenta la sangría de 2 espacios que tiene dentro de <body>.
+extraer() {
+  sed -n "/#region components\/$2/,/#endregion components\/$2/p" "$1" \
+    | sed '1d;$d' \
+    | sed 's/^  //'
+}
+
+# HEADER — se normaliza aria-current="page", que legítimamente difiere por página
+for f in index.html pages/*.html; do
+  diff <(extraer "$f" header.html | sed 's/ aria-current="page"//') \
+       <(sed 's/ aria-current="page"//' components/header.html) >/dev/null \
+    && echo "OK      $f" || echo "DIVERGE $f"
+done
+
+# FOOTER — idéntico en todas, sin excepciones
+for f in index.html pages/*.html; do
+  diff <(extraer "$f" footer.html) components/footer.html >/dev/null \
+    && echo "OK      $f" || echo "DIVERGE $f"
 done
 ```
 
-Excepción conocida y aceptada: el atributo `aria-current="page"` difiere por página.
-Es intencional. Anotarlo si el diff lo marca.
+Las 21 páginas deben devolver `OK`. Un solo `DIVERGE` significa que alguien editó el
+bloque inline en vez de editar el componente y re-propagar.
+
+> **Por qué el `extraer()` hace esas dos limpiezas.** Un `sed -n '/#region/,/#endregion/p'`
+> a secas devuelve **también las líneas marcadoras**, y el bloque copiado dentro de
+> `<body>` lleva **2 espacios más de sangría** que el archivo canónico. Sin descontar
+> ambas cosas el `diff` da `DIVERGE` en las 21 páginas aunque estén perfectas —
+> un falso positivo que hace desconfiar de una verificación que en realidad está bien.
+>
+> El `aria-current="page"` se normaliza en vez de "anotarlo a mano": una excepción que
+> depende de que alguien la recuerde no es una verificación, es una ceremonia.
 
 Esta duplicación es deuda técnica asumida por la restricción del TP (sin includes,
 sin server-side). Se salda en el TP3 cuando entre backend.
