@@ -71,8 +71,8 @@ F0 Inventario de diseño   ──┘                                          �
 |---|---|---|---|
 | **T-00** | Decidir qué versión gana en las 5 páginas compartidas | **Gana `main`** — por cobertura: el sitio completo pesa más que 5 páginas más extensas | ✅ 2026-09-19 |
 | T-01 | Reconciliar ramas según T-00 | `dev` recreada desde `origin/main` (`841d627`); `dev` viejo respaldado en el tag `backup/dev-descartado-tp1`; `feature/estilados` creada desde el nuevo `dev` | ✅ 2026-09-19 |
-| T-02 | Verificar que `components/header.html` y `footer.html` están propagados sin divergencias en las 21 páginas (script §7 de lineamientos) | Salida `OK` en todas | ⬜ |
-| T-03 | Validar las 21 páginas en el validador W3C. Arreglar errores de HTML **antes** de estilar | 0 errores | ⬜ |
+| T-02 | Verificar que `components/header.html` y `footer.html` están propagados sin divergencias en las 21 páginas (script §7 de lineamientos) | Salida `OK` en todas | ✅ 2026-09-19 |
+| T-03 | Validar las 21 páginas en el validador W3C. Arreglar errores de HTML **antes** de estilar | 0 errores | ✅ 2026-09-19 |
 | T-04 | Inventario de diseño: recorrer el Figma y listar cada componente visual recurrente con su nombre de clase `c-*` | Tabla en este documento (§Inventario) | ⬜ |
 | T-05 | Extraer del Figma: espaciados reales, tamaños de fuente por breakpoint, radios de borde, anchos de columna | Valores volcados a `tokens.css` en F1 | ⬜ |
 
