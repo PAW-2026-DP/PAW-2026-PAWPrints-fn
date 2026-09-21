@@ -1,0 +1,37 @@
+/* =========================================================================
+   04-components/stats.css — Cifras destacadas (T-57)
+   =========================================================================
+
+   <dl class="c-stats"><dt>Sucursales</dt><dd>3</dd>...</dl> de nosotros.
+   En mobile se lee como lista; desde tablet cada par dt/dd es una columna
+   con la cifra grande en Light 300, el peso de display del manual.
+   ========================================================================= */
+
+.c-stats dd {
+  margin-block-end: var(--sp-4);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-light);
+  color: var(--color-brand);
+}
+
+.c-stats dt {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+  .c-stats {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto;
+    grid-auto-columns: minmax(0, 1fr);
+    column-gap: var(--sp-5);
+    padding: var(--sp-5);
+    border-block: var(--border-width) solid var(--color-border);
+  }
+
+  .c-stats dd {
+    margin-block-end: 0;
+  }
+}
