@@ -97,6 +97,9 @@
   --logo-height-lg: 3rem;
   --logo-height-footer: 2.5rem;
   --search-max: 36rem;
+  --form-max: 40rem;          /* formularios: una columna cómoda de leer */
+  --cover-ratio: 2 / 3;       /* proporción de las portadas (240×360) */
+  --field-short: 12rem;       /* campos numéricos cortos (precio, cantidad) */
 
   --radius-sm: 4px;
   --radius-md: 8px;

@@ -61,6 +61,9 @@ h6 {
 :where(* + h2) { margin-block-start: var(--sp-6); }
 :where(* + h3, * + h4) { margin-block-start: var(--sp-5); }
 
+/* Artículos seguidos (reseñas, noticias) no quedan pegados */
+:where(article + article) { margin-block-start: var(--sp-5); }
+
 /* El último hijo no empuja el borde inferior de su contenedor */
 :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, figure,
        table, address, hgroup, details, fieldset, form):last-child {

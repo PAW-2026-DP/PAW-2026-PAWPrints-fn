@@ -17,3 +17,51 @@
     padding-block: var(--sp-6) var(--sp-8);
   }
 }
+
+/* -------------------------------------------------------------------------
+   .l-grid — grilla de tarjetas
+   Va en la <ul> que agrupa tarjetas. La lista pierde viñetas y sangría:
+   es una grilla, pero sigue siendo una lista para el lector de pantalla
+   ("lista, 8 elementos").
+
+   .l-grid           bloques genéricos: 1 → 2 → 3 columnas
+   .l-grid--books    libros: 2 → 3 → 4 columnas, como el wireframe desktop
+   ------------------------------------------------------------------------- */
+
+.l-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--sp-4);
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.l-grid > li + li {
+  margin-block-start: 0;
+}
+
+.l-grid--books {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-3);
+}
+
+@media (min-width: 48rem) {
+  .l-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .l-grid--books {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--sp-5);
+  }
+}
+
+@media (min-width: 64rem) {
+  .l-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .l-grid--books {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
