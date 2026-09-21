@@ -43,6 +43,7 @@
 @import url("03-layout/footer.css");
 
 /* --- 04 · Componentes ------------------------------------------------- */
+@import url("04-components/skip-link.css");
 @import url("04-components/button.css");
 @import url("04-components/breadcrumb.css");
 @import url("04-components/card-book.css");
