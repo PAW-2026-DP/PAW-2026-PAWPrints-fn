@@ -99,9 +99,24 @@
      El foco SIEMPRE visible. Ver §6 de lineamientos.
      ----------------------------------------------------------------------- */
   --border-width: 1px;
+  --border-width-accent: 4px;    /* filete de blockquote y acentos */
   --focus-ring-width: 3px;
   --focus-ring-color: var(--color-brand-soft);
   --focus-offset: 2px;
+
+  /* Borde de campos de formulario: WCAG 1.4.11 pide 3:1 contra el fondo.
+     --color-border (#e3d8ec) no llega; --color-ink-muted da ~7.9:1. */
+  --input-border-color: var(--color-ink-muted);
+
+  /* Área táctil mínima de controles: 44×44px. Ver §5.2 de lineamientos. */
+  --tap-min: 2.75rem;
+
+  /* Subrayado de links: separado del texto para que no pise los descendentes */
+  --underline-offset: 0.18em;
+  --underline-thickness-hover: 2px;
+
+  /* Controles deshabilitados: atenuados, pero se siguen leyendo */
+  --opacity-disabled: 0.6;
 
   /* -----------------------------------------------------------------------
      TRANSICIONES
