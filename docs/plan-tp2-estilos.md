@@ -31,7 +31,7 @@ Del enunciado del TP2, textual:
 | Manual de identidad elegido | ✅ Violeta |
 | Ramas `dev` / `main` reconciliadas | ✅ **2026-09-19** — gana `main` |
 | Rama de trabajo | ✅ `feature/estilados` (desde el nuevo `dev`) |
-| CSS | 🔨 F1 a F4 y F6 cerradas; F5 (layout por página) y F7 (QA y entrega) pendientes |
+| CSS | ✅ F1 a F6 cerradas; queda F7 (QA y entrega) |
 | Clases en el HTML | ❌ Cero. Semántica pura |
 | Tipografía auto-hospedada | ✅ Montserrat variable en `assets/fonts/` |
 
@@ -225,6 +225,23 @@ Ante la duda, componente.
 
 ---
 
+**F5 — cómo quedó implementada.** Una clase modificadora en el `<main>` define la
+distribución y `.l-page__aside` marca la columna lateral:
+
+| Clase | Páginas | Desktop (`≥64rem`) |
+|---|---|---|
+| `.l-page--split` | carrito, reserva, form, resumen (en el `<form>`) | contenido + panel derecho fijo al scrollear |
+| `.l-page--sidebar` | catálogo, mi-cuenta | barra izquierda + contenido; 3 libros por fila |
+| `.l-detail` | detalle ×3 (sección ficha) | portada flotante a la izquierda desde `48rem` |
+| `.l-page--narrow` | login, registro ×3 | columna centrada, formulario como tarjeta |
+| `.c-hero` | inicio | bloque en negativo, título en Light 300 |
+| `.c-panel` / `.c-callout` | paneles laterales / destacados | tinte suave / negativo violeta |
+| `.c-stats` | nosotros | cifras en columnas |
+| `.c-subnav` | mi-cuenta | pestañas en mobile, lista vertical en desktop |
+
+Verificado: 21 páginas sin scroll horizontal a 320px y a 1440px, y ninguna tabla con
+scroll en desktop.
+
 ### Fase 6 — Impresión
 
 Fase corta pero **obligatoria por consigna** y la que todos los
@@ -347,7 +364,7 @@ Cambios respecto del plan original:
 ✅ F2    Reset, tipografía, elementos, foco
 ✅ F3    Header y footer (clases + propagación + responsive)
 ✅ F4    Los 9 componentes
-⬜ F5    Layout por página (paralelizable)
+✅ F5    Layout por página (paralelizable)
 ✅ F6    Impresión
 ⬜ F7    QA, validación W3C, PR a dev, merge a main, tag tp2
 ```

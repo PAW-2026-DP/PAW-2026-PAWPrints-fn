@@ -174,8 +174,9 @@ origin/main ──→ dev ──→ feature/estilados   ← rama de trabajo del 
   Las 21 páginas sin scroll horizontal a 320px.
 - **Fase 6 (Impresión)** cerrada, adelantada a F5 por la fecha de entrega. Verificada
   con PDFs de Chrome headless de detalle, resumen, reserva, nosotros y catálogo.
-- **Siguiente: Fase 5 (Layout por página)** — sidebar de filtros en catálogo, detalle en
-  dos columnas, hero de inicio, formularios con resumen lateral.
+- **Fase 5 (Layout por página)** cerrada: ver la tabla de F5 en `docs/plan-tp2-estilos.md`.
+- **Siguiente: Fase 7 (QA y entrega)** — validación W3C de HTML y CSS, PR de
+  `feature/estilados` a `dev` (lo abre y aprueba el equipo), `dev → test → main`, tag `tp2`.
 
 ---
 
