@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/catalogo.html">Catálogo</a></li>
@@ -83,7 +83,7 @@
         <p><b>Precio: AR$ 380</b></p>
         <p>Disponibilidad: <strong>Últimas unidades</strong> en tienda online.</p>
 
-        <form action="../carrito.html" method="post">
+        <form class="c-form" action="../carrito.html" method="post">
           <input type="hidden" name="isbn" value="978-950-0000-03-5">
 
           <p>
@@ -94,13 +94,13 @@
 
           <p>
             <button type="submit" name="accion" value="agregar-carrito">Agregar al carrito</button>
-            <button type="submit" name="accion" value="agregar-favoritos" formaction="../favoritos.html">
+            <button class="c-button c-button--secondary" type="submit" name="accion" value="agregar-favoritos" formaction="../favoritos.html">
               Agregar a favoritos
             </button>
           </p>
         </form>
 
-        <p><a href="/pages/reserva.html?libro=la-odisea">Reservar este libro para retirar en el local</a></p>
+        <p><a class="c-button" href="/pages/reserva.html?libro=la-odisea">Reservar este libro para retirar en el local</a></p>
       </section>
 
       <section aria-labelledby="descripcion">
@@ -129,19 +129,21 @@
 
       <section aria-labelledby="especificaciones">
         <h3 id="especificaciones">Especificaciones</h3>
-        <table>
-          <caption>Ficha técnica del ejemplar</caption>
-          <tbody>
-            <tr><th scope="row">ISBN</th><td>978-950-0000-03-5</td></tr>
-            <tr><th scope="row">Editorial</th><td>Gredos</td></tr>
-            <tr><th scope="row">Año de edición</th><td><time datetime="2019">2019</time></td></tr>
-            <tr><th scope="row">Idioma</th><td>Español (traducción del griego antiguo)</td></tr>
-            <tr><th scope="row">Encuadernación</th><td>Tapa dura</td></tr>
-            <tr><th scope="row">Páginas</th><td>560</td></tr>
-            <tr><th scope="row">Dimensiones</th><td>15 × 22 cm</td></tr>
-            <tr><th scope="row">Peso</th><td>780 g</td></tr>
-          </tbody>
-        </table>
+        <div class="c-table" role="region" aria-label="Ficha técnica del ejemplar" tabindex="0">
+          <table>
+            <caption>Ficha técnica del ejemplar</caption>
+            <tbody>
+              <tr><th scope="row">ISBN</th><td>978-950-0000-03-5</td></tr>
+              <tr><th scope="row">Editorial</th><td>Gredos</td></tr>
+              <tr><th scope="row">Año de edición</th><td><time datetime="2019">2019</time></td></tr>
+              <tr><th scope="row">Idioma</th><td>Español (traducción del griego antiguo)</td></tr>
+              <tr><th scope="row">Encuadernación</th><td>Tapa dura</td></tr>
+              <tr><th scope="row">Páginas</th><td>560</td></tr>
+              <tr><th scope="row">Dimensiones</th><td>15 × 22 cm</td></tr>
+              <tr><th scope="row">Peso</th><td>780 g</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section aria-labelledby="resenas">
@@ -152,7 +154,7 @@
           <p>
             <strong>Camila S.</strong> ·
             <time datetime="2026-08-21">21 de agosto de 2026</time> ·
-            <data value="5">5 de 5 estrellas</data>
+            <data class="c-rating" value="5">5 de 5 estrellas</data>
           </p>
           <blockquote>
             <p>Se entiende sin necesidad de saber nada de mitología griega. Las notas ayudan mucho.</p>
@@ -164,7 +166,7 @@
           <p>
             <strong>Nicolás A.</strong> ·
             <time datetime="2026-05-11">11 de mayo de 2026</time> ·
-            <data value="4">4 de 5 estrellas</data>
+            <data class="c-rating" value="4">4 de 5 estrellas</data>
           </p>
           <blockquote>
             <p>Pesa bastante, pero la encuadernación es muy sólida.</p>
@@ -176,30 +178,30 @@
 
     <aside aria-labelledby="relacionados">
       <h3 id="relacionados">Te podría gustar</h3>
-      <ul>
+      <ul class="l-grid l-grid--books">
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/detalle-libro.html">El Quijote</a></h4>
             <p>Miguel de Cervantes</p>
             <p><b>AR$ 450</b></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a></h4>
             <p>Gabriel García Márquez</p>
             <p><b>AR$ 520</b></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/catalogo.html?q=la-iliada">La Ilíada</a></h4>
             <p>Homero</p>
             <p><b>AR$ 395</b></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/catalogo.html?autor=borges">El Aleph</a></h4>
             <p>Jorge Luis Borges</p>
             <p><b>AR$ 470</b></p>

@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/reserva.html" aria-current="page">Reserva de libro</a></li>
@@ -79,7 +79,7 @@
       del lado del cliente sin necesidad de JavaScript.
       El method="post" es el adecuado porque el envío tiene efectos (crea una reserva).
     -->
-    <form action="resumen.html" method="post" name="reserva-libro">
+    <form class="c-form" action="resumen.html" method="post" name="reserva-libro">
 
       <fieldset>
         <legend>Datos de contacto</legend>
@@ -278,7 +278,7 @@
 
       <p>
         <button type="submit">Confirmar reserva</button>
-        <button type="reset">Borrar datos</button>
+        <button class="c-button c-button--secondary" type="reset">Borrar datos</button>
       </p>
 
       <p><small>Los campos sin la aclaración «Opcional» son obligatorios.</small></p>

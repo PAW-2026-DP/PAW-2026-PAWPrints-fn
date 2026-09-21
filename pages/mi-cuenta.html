@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/mi-cuenta.html" aria-current="page">Mi cuenta</a></li>
@@ -78,7 +78,7 @@
       </ul>
     </nav>
 
-    <form action="mi-cuenta.html" method="post" name="datos-cuenta">
+    <form class="c-form" action="mi-cuenta.html" method="post" name="datos-cuenta">
 
       <fieldset>
         <legend>Datos personales</legend>
@@ -187,43 +187,45 @@
 
       <p>
         <button type="submit">Guardar cambios</button>
-        <button type="reset">Cancelar</button>
+        <button class="c-button c-button--secondary" type="reset">Cancelar</button>
       </p>
     </form>
 
     <section id="pedidos" aria-labelledby="titulo-pedidos">
       <h2 id="titulo-pedidos">Mis últimos pedidos</h2>
-      <table>
-        <caption>Historial de pedidos</caption>
-        <thead>
-          <tr>
-            <th scope="col">Pedido</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Estado</th>
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">#10482</th>
-            <td><time datetime="2026-08-28">28/08/2026</time></td>
-            <td>Entregado</td>
-            <td>AR$ 970,00</td>
-          </tr>
-          <tr>
-            <th scope="row">#10391</th>
-            <td><time datetime="2026-07-15">15/07/2026</time></td>
-            <td>Entregado</td>
-            <td>AR$ 450,00</td>
-          </tr>
-          <tr>
-            <th scope="row">#10505</th>
-            <td><time datetime="2026-09-05">05/09/2026</time></td>
-            <td>En preparación</td>
-            <td>AR$ 380,00</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="c-table" role="region" aria-label="Historial de pedidos" tabindex="0">
+        <table>
+          <caption>Historial de pedidos</caption>
+          <thead>
+            <tr>
+              <th scope="col">Pedido</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">#10482</th>
+              <td><time datetime="2026-08-28">28/08/2026</time></td>
+              <td>Entregado</td>
+              <td>AR$ 970,00</td>
+            </tr>
+            <tr>
+              <th scope="row">#10391</th>
+              <td><time datetime="2026-07-15">15/07/2026</time></td>
+              <td>Entregado</td>
+              <td>AR$ 450,00</td>
+            </tr>
+            <tr>
+              <th scope="row">#10505</th>
+              <td><time datetime="2026-09-05">05/09/2026</time></td>
+              <td>En preparación</td>
+              <td>AR$ 380,00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
   </main>

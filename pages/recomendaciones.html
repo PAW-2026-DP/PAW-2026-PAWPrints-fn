@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/recomendaciones.html" aria-current="page">Recomendaciones</a></li>
@@ -73,7 +73,7 @@
         <progress id="avance-recom" max="2" value="1">Paso 1 de 2</progress>
       </p>
 
-      <form action="recomendaciones.html" method="get" name="preferencias">
+      <form class="c-form" action="recomendaciones.html" method="get" name="preferencias">
         <fieldset>
           <legend>Elegí una o más categorías para recibir recomendaciones</legend>
 
@@ -99,10 +99,10 @@
       <h3 id="resultados">Tus recomendaciones</h3>
       <p><a href="/pages/recomendaciones.html">Volver a elegir categorías</a></p>
 
-      <ul>
+      <ul class="l-grid l-grid--books">
         <li>
-          <article>
-            <p><strong><mark>Más comprado en Ciencia Ficción</mark></strong></p>
+          <article class="c-card-book">
+            <p><strong><mark class="c-badge">Más comprado en Ciencia Ficción</mark></strong></p>
             <figure>
               <img src="/img/portada-placeholder.svg" width="240" height="360"
                    alt="Portada de Fahrenheit 451, de Ray Bradbury">
@@ -118,8 +118,8 @@
         </li>
 
         <li>
-          <article>
-            <p><strong><mark>Más comprado en Fantasía</mark></strong></p>
+          <article class="c-card-book">
+            <p><strong><mark class="c-badge">Más comprado en Fantasía</mark></strong></p>
             <figure>
               <img src="/img/portada-placeholder.svg" width="240" height="360"
                    alt="Portada de El nombre de la rosa, de Umberto Eco">
@@ -135,8 +135,8 @@
         </li>
 
         <li>
-          <article>
-            <p><strong><mark>Más comprado en Novela</mark></strong></p>
+          <article class="c-card-book">
+            <p><strong><mark class="c-badge">Más comprado en Novela</mark></strong></p>
             <figure>
               <img src="/img/portada-placeholder.svg" width="240" height="360"
                    alt="Portada de Cien Años de Soledad, de Gabriel García Márquez">
@@ -152,8 +152,8 @@
         </li>
 
         <li>
-          <article>
-            <p><strong><mark>Recomendado por la librería</mark></strong></p>
+          <article class="c-card-book">
+            <p><strong><mark class="c-badge">Recomendado por la librería</mark></strong></p>
             <figure>
               <img src="/img/portada-placeholder.svg" width="240" height="360"
                    alt="Portada de Rayuela, de Julio Cortázar">

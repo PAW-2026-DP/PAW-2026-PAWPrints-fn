@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Ubicación en el sitio">
+    <nav class="c-breadcrumb" aria-label="Ubicación en el sitio">
       <ol>
         <li><a href="/index.html">Inicio</a></li>
         <li><a href="/pages/carrito.html">Carrito</a></li>
@@ -77,18 +77,18 @@
     <section aria-labelledby="envio-facturacion-h">
       <h2 id="envio-facturacion-h">Envío y Facturación</h2>
 
-      <form action="/pages/confirmacion.html" method="post" id="checkout-form">
+      <form class="c-form" action="/pages/confirmacion.html" method="post" id="checkout-form">
 
         <fieldset>
           <legend>Datos personales</legend>
 
           <p>
-            <label for="nombre">Nombre *</label><br>
+            <label for="nombre">Nombre</label><br>
             <input type="text" id="nombre" name="nombre" required autocomplete="given-name">
           </p>
 
           <p>
-            <label for="apellido">Apellido *</label><br>
+            <label for="apellido">Apellido</label><br>
             <input type="text" id="apellido" name="apellido" required autocomplete="family-name">
           </p>
         </fieldset>
@@ -97,7 +97,7 @@
           <legend>Dirección de facturación</legend>
 
           <p>
-            <label for="pais">País / Región *</label><br>
+            <label for="pais">País / Región</label><br>
             <select id="pais" name="pais" autocomplete="country">
               <option value="AR">Argentina</option>
               <option value="CL">Chile</option>
@@ -106,7 +106,7 @@
           </p>
 
           <p>
-            <label for="direccion">Calle / Dirección *</label><br>
+            <label for="direccion">Calle / Dirección</label><br>
             <input type="text" id="direccion" name="direccion" required autocomplete="address-line1">
           </p>
 
@@ -116,12 +116,12 @@
           </p>
 
           <p>
-            <label for="localidad">Localidad *</label><br>
+            <label for="localidad">Localidad</label><br>
             <input type="text" id="localidad" name="localidad" required autocomplete="address-level2">
           </p>
 
           <p>
-            <label for="provincia">Región / Provincia *</label><br>
+            <label for="provincia">Región / Provincia</label><br>
             <select id="provincia" name="provincia" autocomplete="address-level1">
               <option value="BA">Buenos Aires</option>
               <option value="CBA">Córdoba</option>
@@ -144,7 +144,7 @@
           <legend>Documento</legend>
 
           <p>
-            <label for="tipo-doc">Tipo de documento *</label><br>
+            <label for="tipo-doc">Tipo de documento</label><br>
             <select id="tipo-doc" name="tipo_doc">
               <option value="dni">DNI</option>
               <option value="pasaporte">Pasaporte</option>
@@ -153,7 +153,7 @@
           </p>
 
           <p>
-            <label for="num-doc">Número de documento *</label><br>
+            <label for="num-doc">Número de documento</label><br>
             <input type="text" id="num-doc" name="num_doc" required>
           </p>
         </fieldset>
@@ -205,31 +205,33 @@
     <section aria-labelledby="resumen-h">
       <h2 id="resumen-h">Resumen del pedido</h2>
 
-      <table>
-        <caption>Detalle del pedido</caption>
-        <thead>
-          <tr>
-            <th scope="col">Producto</th>
-            <th scope="col">Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>El nombre del viento × 1</td>
-            <td><data value="450">$450,00</data></td>
-          </tr>
-          <tr>
-            <td>Envío</td>
-            <td>Gratis</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th scope="row">Total</th>
-            <td><data value="450"><strong>$450,00</strong></data></td>
-          </tr>
-        </tfoot>
-      </table>
+      <div class="c-table" role="region" aria-label="Detalle del pedido" tabindex="0">
+        <table>
+          <caption>Detalle del pedido</caption>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>El nombre del viento × 1</td>
+              <td><data value="450">$450,00</data></td>
+            </tr>
+            <tr>
+              <td>Envío</td>
+              <td>Gratis</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Total</th>
+              <td><data value="450"><strong>$450,00</strong></data></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
 
       <p>
         <button type="submit" form="checkout-form">Confirmar y pagar</button>

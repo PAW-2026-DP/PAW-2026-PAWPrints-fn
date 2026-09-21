@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/catalogo.html" aria-current="page">Catálogo</a></li>
@@ -67,10 +67,10 @@
       Los filtros son contenido complementario al listado, por eso van en <aside>.
       Se maquetan como un <form> GET con <fieldset>/<legend> agrupando cada criterio.
     -->
-    <aside aria-labelledby="filtros">
+    <aside class="c-filters" aria-labelledby="filtros">
       <h2 id="filtros">Ordenar y filtrar</h2>
 
-      <form action="catalogo.html" method="get">
+      <form class="c-form" action="catalogo.html" method="get">
         <fieldset>
           <legend>Ordenar por</legend>
           <label for="orden">Criterio de ordenamiento</label>
@@ -143,7 +143,7 @@
 
         <p>
           <button type="submit">Aplicar filtros</button>
-          <button type="reset">Limpiar</button>
+          <button class="c-button c-button--secondary" type="reset">Limpiar</button>
         </p>
       </form>
     </aside>
@@ -153,9 +153,9 @@
       <p>Mostrando <output name="desde">1</output>–<output name="hasta">5</output>
          de <output name="total">14</output> resultados.</p>
 
-      <ul>
+      <ul class="l-grid l-grid--books">
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <a href="/pages/detalle-libro.html">
                 <img src="/img/portada-placeholder.svg" width="240" height="360"
@@ -168,12 +168,12 @@
             <p><small>Editorial Planeta · 1605</small></p>
             <p>Un hidalgo manchego enloquece leyendo libros de caballería y sale al camino.</p>
             <p><b>AR$ 450</b></p>
-            <p><a href="/pages/detalle-libro.html">Ver detalle</a></p>
+            <p><a class="c-button c-button--secondary" href="/pages/detalle-libro.html">Ver detalle</a></p>
           </article>
         </li>
 
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <a href="/pages/detalle-libro-cien-anios-de-soledad.html">
                 <img src="/img/portada-placeholder.svg" width="240" height="360"
@@ -186,12 +186,12 @@
             <p><small>Editorial Sudamericana · 1967</small></p>
             <p>La saga de la familia Buendía en el pueblo mítico de Macondo.</p>
             <p><b>AR$ 520</b></p>
-            <p><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Ver detalle</a></p>
+            <p><a class="c-button c-button--secondary" href="/pages/detalle-libro-cien-anios-de-soledad.html">Ver detalle</a></p>
           </article>
         </li>
 
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <a href="/pages/detalle-libro-la-odisea.html">
                 <img src="/img/portada-placeholder.svg" width="240" height="360"
@@ -204,12 +204,12 @@
             <p><small>Editorial Gredos · VIII a. C.</small></p>
             <p>El largo regreso de Odiseo a Ítaca tras la caída de Troya.</p>
             <p><b>AR$ 380</b></p>
-            <p><a href="/pages/detalle-libro-la-odisea.html">Ver detalle</a></p>
+            <p><a class="c-button c-button--secondary" href="/pages/detalle-libro-la-odisea.html">Ver detalle</a></p>
           </article>
         </li>
 
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <img src="/img/portada-placeholder.svg" width="240" height="360"
                    alt="Portada de Ficciones, de Jorge Luis Borges">
@@ -224,7 +224,7 @@
         </li>
 
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <img src="/img/portada-placeholder.svg" width="240" height="360"
                    alt="Portada de Rayuela, de Julio Cortázar">
@@ -239,7 +239,7 @@
         </li>
       </ul>
 
-      <nav aria-label="Paginación del catálogo">
+      <nav class="c-pagination" aria-label="Paginación del catálogo">
         <ol>
           <li><a href="/pages/catalogo.html?pagina=1" aria-current="page">1</a></li>
           <li><a href="/pages/catalogo.html?pagina=2">2</a></li>

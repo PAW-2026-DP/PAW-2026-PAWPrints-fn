@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/carrito.html">Carrito</a></li>
@@ -64,7 +64,7 @@
 
     <h1>Finalizar compra</h1>
 
-    <form action="#" method="post" name="checkout">
+    <form class="c-form" action="#" method="post" name="checkout">
 
       <section aria-labelledby="envio-facturacion">
         <h2 id="envio-facturacion">Envío y facturación</h2>
@@ -257,35 +257,37 @@
       <aside aria-labelledby="resumen-pedido">
         <h3 id="resumen-pedido">Resumen del pedido</h3>
 
-        <table>
-          <caption>Productos del pedido</caption>
-          <thead>
-            <tr>
-              <th scope="col">Producto</th>
-              <th scope="col">Precio</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">El Quijote — Miguel de Cervantes × 1</th>
-              <td>AR$ 450,00</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row">Subtotal</th>
-              <td>AR$ 450,00</td>
-            </tr>
-            <tr>
-              <th scope="row">Envío</th>
-              <td>Gratis</td>
-            </tr>
-            <tr>
-              <th scope="row">Total</th>
-              <td><strong>AR$ 450,00</strong></td>
-            </tr>
-          </tfoot>
-        </table>
+        <div class="c-table" role="region" aria-label="Productos del pedido" tabindex="0">
+          <table>
+            <caption>Productos del pedido</caption>
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">El Quijote — Miguel de Cervantes × 1</th>
+                <td>AR$ 450,00</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">Subtotal</th>
+                <td>AR$ 450,00</td>
+              </tr>
+              <tr>
+                <th scope="row">Envío</th>
+                <td>Gratis</td>
+              </tr>
+              <tr>
+                <th scope="row">Total</th>
+                <td><strong>AR$ 450,00</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
 
         <p>
           <label>

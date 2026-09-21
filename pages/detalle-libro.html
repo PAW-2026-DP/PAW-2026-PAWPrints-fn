@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/catalogo.html">Catálogo</a></li>
@@ -97,7 +97,7 @@
         <p><b>Precio: AR$ 450</b></p>
         <p>Disponibilidad: <strong>En stock</strong> en tienda online y en Sucursal Centro.</p>
 
-        <form action="../carrito.html" method="post">
+        <form class="c-form" action="../carrito.html" method="post">
           <input type="hidden" name="isbn" value="978-950-0000-01-1">
 
           <p>
@@ -108,13 +108,13 @@
 
           <p>
             <button type="submit" name="accion" value="agregar-carrito">Agregar al carrito</button>
-            <button type="submit" name="accion" value="agregar-favoritos" formaction="../favoritos.html">
+            <button class="c-button c-button--secondary" type="submit" name="accion" value="agregar-favoritos" formaction="../favoritos.html">
               Agregar a favoritos
             </button>
           </p>
         </form>
 
-        <p><a href="/pages/reserva.html?libro=el-quijote">Reservar este libro para retirar en el local</a></p>
+        <p><a class="c-button" href="/pages/reserva.html?libro=el-quijote">Reservar este libro para retirar en el local</a></p>
       </section>
 
       <section aria-labelledby="descripcion">
@@ -147,19 +147,21 @@
 
       <section aria-labelledby="especificaciones">
         <h3 id="especificaciones">Especificaciones</h3>
-        <table>
-          <caption>Ficha técnica del ejemplar</caption>
-          <tbody>
-            <tr><th scope="row">ISBN</th><td>978-950-0000-01-1</td></tr>
-            <tr><th scope="row">Editorial</th><td>Planeta</td></tr>
-            <tr><th scope="row">Año de edición</th><td><time datetime="2021">2021</time></td></tr>
-            <tr><th scope="row">Idioma</th><td>Español</td></tr>
-            <tr><th scope="row">Encuadernación</th><td>Tapa blanda</td></tr>
-            <tr><th scope="row">Páginas</th><td>1088</td></tr>
-            <tr><th scope="row">Dimensiones</th><td>15 × 23 cm</td></tr>
-            <tr><th scope="row">Peso</th><td>950 g</td></tr>
-          </tbody>
-        </table>
+        <div class="c-table" role="region" aria-label="Ficha técnica del ejemplar" tabindex="0">
+          <table>
+            <caption>Ficha técnica del ejemplar</caption>
+            <tbody>
+              <tr><th scope="row">ISBN</th><td>978-950-0000-01-1</td></tr>
+              <tr><th scope="row">Editorial</th><td>Planeta</td></tr>
+              <tr><th scope="row">Año de edición</th><td><time datetime="2021">2021</time></td></tr>
+              <tr><th scope="row">Idioma</th><td>Español</td></tr>
+              <tr><th scope="row">Encuadernación</th><td>Tapa blanda</td></tr>
+              <tr><th scope="row">Páginas</th><td>1088</td></tr>
+              <tr><th scope="row">Dimensiones</th><td>15 × 23 cm</td></tr>
+              <tr><th scope="row">Peso</th><td>950 g</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section aria-labelledby="resenas">
@@ -170,7 +172,7 @@
           <p>
             <strong>Ana G.</strong> ·
             <time datetime="2026-07-14">14 de julio de 2026</time> ·
-            <data value="5">5 de 5 estrellas</data>
+            <data class="c-rating" value="5">5 de 5 estrellas</data>
           </p>
           <blockquote>
             <p>Esta edición se lee muy cómoda y las notas al pie ayudan mucho con el castellano antiguo.</p>
@@ -182,7 +184,7 @@
           <p>
             <strong>Martín P.</strong> ·
             <time datetime="2026-06-30">30 de junio de 2026</time> ·
-            <data value="4">4 de 5 estrellas</data>
+            <data class="c-rating" value="4">4 de 5 estrellas</data>
           </p>
           <blockquote>
             <p>Buen papel y buena tipografía. Es un libro largo, pero la edición lo hace llevadero.</p>
@@ -194,7 +196,7 @@
           <p>
             <strong>Lucía R.</strong> ·
             <time datetime="2026-06-02">2 de junio de 2026</time> ·
-            <data value="5">5 de 5 estrellas</data>
+            <data class="c-rating" value="5">5 de 5 estrellas</data>
           </p>
           <blockquote>
             <p>Lo reservé por la web y lo retiré al día siguiente por la sucursal de Luján.</p>
@@ -206,30 +208,30 @@
 
     <aside aria-labelledby="relacionados">
       <h3 id="relacionados">Te podría gustar</h3>
-      <ul>
+      <ul class="l-grid l-grid--books">
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a></h4>
             <p>Gabriel García Márquez</p>
             <p><b>AR$ 520</b></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/detalle-libro-la-odisea.html">La Odisea</a></h4>
             <p>Homero</p>
             <p><b>AR$ 380</b></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/catalogo.html?autor=borges">Ficciones</a></h4>
             <p>Jorge Luis Borges</p>
             <p><b>AR$ 490</b></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <h4><a href="/pages/catalogo.html?autor=cortazar">Rayuela</a></h4>
             <p>Julio Cortázar</p>
             <p><b>AR$ 610</b></p>

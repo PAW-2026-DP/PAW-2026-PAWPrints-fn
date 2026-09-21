@@ -54,7 +54,7 @@
 
   <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/carrito.html" aria-current="page">Carrito</a></li>
@@ -67,48 +67,50 @@
       El listado de productos es una tabla de datos real (producto × precio × cantidad ×
       subtotal), por eso se usa <table> con <thead>, <tbody>, <tfoot> y <th scope>.
     -->
-    <form action="resumen.html" method="post">
-      <table>
-        <caption>Productos en el carrito</caption>
-        <thead>
-          <tr>
-            <th scope="col">Producto</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Quitar</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">
-              <figure>
-                <img src="/img/portada-placeholder.svg" width="80" height="120"
-                     alt="Portada de Cien Años de Soledad">
-                <figcaption>
-                  <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a>
-                </figcaption>
-              </figure>
-            </th>
-            <td>AR$ 520,00</td>
-            <td>
-              <label for="cantidad-1">Cantidad de «Cien Años de Soledad»</label>
-              <input type="number" id="cantidad-1" name="cantidad_1"
-                     value="1" min="1" max="10" step="1" inputmode="numeric">
-            </td>
-            <td>AR$ 520,00</td>
-            <td>
-              <button type="submit" name="quitar" value="1">Quitar del carrito</button>
-            </td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <th scope="row" colspan="3">Total de productos</th>
-            <td colspan="2">AR$ 520,00</td>
-          </tr>
-        </tfoot>
-      </table>
+    <form class="c-form" action="resumen.html" method="post">
+      <div class="c-table" role="region" aria-label="Productos en el carrito" tabindex="0">
+        <table>
+          <caption>Productos en el carrito</caption>
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Quitar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">
+                <figure>
+                  <img src="/img/portada-placeholder.svg" width="80" height="120"
+                       alt="Portada de Cien Años de Soledad">
+                  <figcaption>
+                    <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a>
+                  </figcaption>
+                </figure>
+              </th>
+              <td>AR$ 520,00</td>
+              <td>
+                <label for="cantidad-1">Cantidad de «Cien Años de Soledad»</label>
+                <input type="number" id="cantidad-1" name="cantidad_1"
+                       value="1" min="1" max="10" step="1" inputmode="numeric">
+              </td>
+              <td>AR$ 520,00</td>
+              <td>
+                <button class="c-button c-button--secondary" type="submit" name="quitar" value="1">Quitar del carrito</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="3">Total de productos</th>
+              <td colspan="2">AR$ 520,00</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
 
       <p>
         <button type="submit" name="accion" value="actualizar">Actualizar cantidades</button>
@@ -128,7 +130,7 @@
         <dt>Total</dt>
         <dd><strong>AR$ 520,00</strong></dd>
       </dl>
-      <p><a href="/pages/resumen.html">Finalizar compra</a></p>
+      <p><a class="c-button" href="/pages/resumen.html">Finalizar compra</a></p>
     </aside>
 
   </main>
