@@ -1,1 +1,27 @@
-/* 04-components/filters.css — pendiente: se completa en la F4 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   04-components/filters.css — Panel de filtros (T-44)
+   =========================================================================
+
+   <aside class="c-filters"> del catálogo. Panel con fondo de tinte suave
+   para separarlo del listado; en desktop pasa a ser la barra lateral
+   (la grilla de la página se arma en F5).
+   ========================================================================= */
+
+.c-filters {
+  padding: var(--sp-4);
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand-tint);
+}
+
+.c-filters h2 {
+  font-size: var(--fs-md);
+}
+
+.c-filters fieldset {
+  background-color: var(--surface);
+}
+
+/* Los rangos de precio no necesitan todo el ancho del panel */
+.c-filters input[type="number"] {
+  max-width: var(--field-short);
+}
