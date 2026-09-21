@@ -52,7 +52,7 @@
 @import url("04-components/pagination.css");
 @import url("04-components/badge.css");
 @import url("04-components/rating.css");
-@import url("04-components/summary.css");
+@import url("04-components/table.css");
 
 /* --- 05 · Utilidades -------------------------------------------------- */
 @import url("05-utilities/utilities.css");
