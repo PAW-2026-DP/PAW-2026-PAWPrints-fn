@@ -109,6 +109,7 @@
   --sidebar-w: 16rem;         /* barra lateral izquierda (filtros, secciones) */
   --cover-col: 15rem;         /* columna de la portada en el detalle */
   --thumb-w: 4rem;            /* miniaturas de la galería del detalle */
+  --thumb-col: 6rem;          /* portada de la tarjeta horizontal */
 
   --radius-sm: 4px;
   --radius-md: 8px;

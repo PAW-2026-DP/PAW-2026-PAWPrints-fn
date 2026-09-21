@@ -88,6 +88,31 @@
   width: 100%;
 }
 
+/* --- Variante horizontal ---------------------------------------------- */
+
+/* Portada chica a la izquierda y datos a la derecha, como los "Destacados
+   del Mes" del wireframe de inicio. La portada ocupa todas las filas de
+   la columna 1 y el resto del contenido fluye en la columna 2. */
+.c-card-book--horizontal {
+  display: grid;
+  grid-template-columns: var(--thumb-col) minmax(0, 1fr);
+  align-content: start;
+  gap: var(--sp-1) var(--sp-4);
+}
+
+.c-card-book--horizontal > figure {
+  grid-row: 1 / span 20;
+}
+
+.c-card-book--horizontal > :not(figure) {
+  grid-column: 2;
+}
+
+/* En grilla no hay "empujar al pie": la acción va a continuación del precio */
+.c-card-book--horizontal > :last-child {
+  margin-block-start: var(--sp-2);
+}
+
 /* --- Tarjeta genérica ------------------------------------------------- */
 
 .c-card {
