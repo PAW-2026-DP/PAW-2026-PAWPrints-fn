@@ -31,7 +31,7 @@ Del enunciado del TP2, textual:
 | Manual de identidad elegido | ✅ Violeta |
 | Ramas `dev` / `main` reconciliadas | ✅ **2026-09-19** — gana `main` |
 | Rama de trabajo | ✅ `feature/estilados` (desde el nuevo `dev`) |
-| CSS | 🔨 F1, F2 y F3 cerradas: tokens, cascada, base, header, footer y contenedores; capas 04 y 06 pendientes |
+| CSS | 🔨 F1 a F4 cerradas: tokens, base, header, footer, contenedores y componentes; F5 (layout por página) y F6 (impresión) pendientes |
 | Clases en el HTML | ❌ Cero. Semántica pura |
 | Tipografía auto-hospedada | ✅ Montserrat variable en `assets/fonts/` |
 
@@ -290,19 +290,36 @@ y la fase 5 paralelizada:
 
 ---
 
-## Inventario de componentes *(completar en T-04)*
+## Inventario de componentes *(F4 cerrada)*
 
-| Componente | Clase | Figma (nodo) | Páginas | Estado |
+Criterio aplicado: **la clase va solo en la raíz** del componente y los hijos se estilan
+por elemento dentro de su alcance (§3.3 de lineamientos). El marcado del TP1 varía entre
+páginas (títulos h2/h3/h4, acciones como link o como formulario) y así no hubo que
+reescribirlo. Las clases se agregaron con un script sobre el `<main>` de cada página;
+header y footer no se tocaron.
+
+| Componente | Clase | Dónde va | Instancias | Estado |
 |---|---|---|---|---|
-| Botón | `.c-button` | — | todas | ⬜ |
-| Breadcrumb | `.c-breadcrumb` | — | 20 | ⬜ |
-| Tarjeta de libro | `.c-card-book` | — | 5 | ⬜ |
-| Campo de formulario | `.c-field` | — | 8 | ⬜ |
-| Filtros | `.c-filters` | — | 2 | ⬜ |
-| Paginación | `.c-pagination` | — | 2 | ⬜ |
-| Badge | `.c-badge` | — | 3 | ⬜ |
-| Rating | `.c-rating` | — | 2 | ⬜ |
-| Resumen / tabla | `.c-summary` | — | 3 | ⬜ |
+| Botón | `.c-button`, `.c-button--secondary` | `<a>` de acción principal; `<button>` de quitar/limpiar/cancelar | 31 | ✅ |
+| Breadcrumb | `.c-breadcrumb` | `<nav aria-label="Migas de pan">` | 19 | ✅ |
+| Tarjeta de libro | `.c-card-book` | `<article>` con portada o link a detalle | 33 | ✅ |
+| Tarjeta genérica | `.c-card` | promociones y sucursales | 13 | ✅ |
+| Grilla | `.l-grid`, `.l-grid--books` | la `<ul>` que agrupa tarjetas | 12 | ✅ |
+| Formulario | `.c-form` | `<form>` con campos (no los de solo botones) | 14 | ✅ |
+| Filtros | `.c-filters` | `<aside>` de filtros del catálogo | 1 | ✅ |
+| Paginación | `.c-pagination` | `<nav>` de paginación | 1 | ✅ |
+| Badge | `.c-badge` | `<mark>` de etiqueta en recomendaciones | 4 | ✅ |
+| Rating | `.c-rating` | `<data value="N">N de 5 estrellas</data>` | 7 | ✅ |
+| Tabla | `.c-table` | `<div role="region" tabindex="0">` que envuelve cada `<table>` | 7 | ✅ |
+
+Cambios respecto del plan original:
+
+- **`.c-summary` pasó a ser `.c-table`**: el mismo contenedor con scroll sirve para
+  carrito, resumen, historial de pedidos y ficha técnica.
+- **`.c-field` no hizo falta**: los campos ya salen de la marca desde `02-base`, y
+  `.c-form` resuelve el ritmo y los estados.
+- **Campos obligatorios**: la marca "(obligatorio)" sale del atributo `required` por CSS.
+  Se quitaron los `*` escritos a mano en `form.html`.
 
 ---
 
@@ -329,7 +346,7 @@ y la fase 5 paralelizada:
 ✅ F1    Tokens + tipografía auto-hospedada + link en 21 páginas
 ✅ F2    Reset, tipografía, elementos, foco
 ✅ F3    Header y footer (clases + propagación + responsive)
-⬜ F4    Los 9 componentes
+✅ F4    Los 9 componentes
 ⬜ F5    Layout por página (paralelizable)
 ⬜ F6    Impresión
 ⬜ F7    QA, validación W3C, PR a dev, merge a main, tag tp2

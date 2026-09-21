@@ -170,8 +170,10 @@ origin/main ──→ dev ──→ feature/estilados   ← rama de trabajo del 
 - **Fase 3 (Chrome)** cerrada: header y footer con clases `.l-header` / `.l-footer`,
   logotipo SVG oficial (violeta en el header, negativo blanco en el footer),
   `.l-container` + `.l-page` en el `<main>` de las 21 páginas y `.c-skip-link`.
-- **Siguiente: Fase 4 (Componentes)** — incluye envolver las tablas de `carrito.html`
-  y `mi-cuenta.html`, que todavía desbordan a 320px.
+- **Fase 4 (Componentes)** cerrada: ver el inventario en `docs/plan-tp2-estilos.md`.
+  Las 21 páginas sin scroll horizontal a 320px.
+- **Siguiente: Fase 5 (Layout por página)** — sidebar de filtros en catálogo, detalle en
+  dos columnas, hero de inicio, formularios con resumen lateral.
 
 ---
 
