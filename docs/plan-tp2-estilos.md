@@ -31,7 +31,7 @@ Del enunciado del TP2, textual:
 | Manual de identidad elegido | ✅ Violeta |
 | Ramas `dev` / `main` reconciliadas | ✅ **2026-09-19** — gana `main` |
 | Rama de trabajo | ✅ `feature/estilados` (desde el nuevo `dev`) |
-| CSS | 🔨 F1 cerrada: tokens y cascada listos; capas 02–06 pendientes |
+| CSS | 🔨 F1 y F2 cerradas: tokens, cascada, reset, tipografía, elementos y foco; capas 03, 04 y 06 pendientes |
 | Clases en el HTML | ❌ Cero. Semántica pura |
 | Tipografía auto-hospedada | ✅ Montserrat variable en `assets/fonts/` |
 
@@ -325,9 +325,9 @@ y la fase 5 paralelizada:
 ```
 ✅ T-00  Decisión: gana main
 ✅ T-01  dev recreada desde origin/main + feature/estilados
-⬜ F0    T-02 header/footer propagados · T-03 W3C · T-04/T-05 inventario Figma
-⬜ F1    Tokens + tipografía auto-hospedada + link en 21 páginas
-⬜ F2    Reset, tipografía, elementos, foco
+🔨 F0    T-02 ✅ · T-03 ✅ · pendiente: T-04/T-05 inventario Figma
+✅ F1    Tokens + tipografía auto-hospedada + link en 21 páginas
+✅ F2    Reset, tipografía, elementos, foco
 ⬜ F3    Header y footer (clases + propagación + responsive)
 ⬜ F4    Los 9 componentes
 ⬜ F5    Layout por página (paralelizable)
