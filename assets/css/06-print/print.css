@@ -1,1 +1,213 @@
-/* 06-print/print.css — pendiente: se completa en la F6 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   06-print/print.css — Versión de impresión (T-60 a T-63)
+   =========================================================================
+
+   El tercer medio que pide la consigna: mobile, desktop E IMPRESIÓN.
+
+   Criterio: en papel no se navega. Se imprime el contenido de la página y
+   la identificación de la librería; todo lo que es interfaz (menús,
+   buscador, filtros, paginación, botones) desaparece.
+
+   Color: fondo blanco y texto negro, sin superficies violetas. Gastan
+   tinta y el manual prioriza la legibilidad. El logotipo se mantiene en su
+   color corporativo sobre blanco, que es la 1ª preferencia cromática del
+   manual; en una impresora en blanco y negro sale en escala de grises.
+
+   Único archivo donde se admite !important (§3.2 de lineamientos): hace
+   falta para pisar los estilos de pantalla sin replicar su especificidad.
+   ========================================================================= */
+
+@media print {
+
+  @page {
+    margin: 2cm;
+  }
+
+  /* --- T-60: fuera todo lo que es interfaz ------------------------------ */
+
+  .c-skip-link,
+  .l-header__search,
+  .l-header__user,
+  .l-header__nav,
+  .l-footer__nav,
+  .l-footer__logo,
+  .c-breadcrumb,
+  .c-pagination,
+  .c-filters,
+  .c-button,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  input[type="reset"],
+  .c-card-book form {
+    display: none !important;
+  }
+
+  /* --- T-61: blanco y negro --------------------------------------------- */
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: var(--color-ink) !important;
+    box-shadow: none !important;
+  }
+
+  ::marker {
+    color: var(--color-ink);
+  }
+
+  input,
+  progress {
+    accent-color: var(--color-ink);
+  }
+
+  blockquote {
+    border-color: var(--color-ink);
+  }
+
+  /* Portadas acotadas: en papel una imagen de 360px de alto ocupa media
+     hoja. Las miniaturas de la galería repiten la misma portada. */
+  img {
+    max-height: var(--print-img-max);
+    width: auto;
+  }
+
+  ul[aria-label="Más imágenes del libro"] {
+    display: none !important;
+  }
+
+  body {
+    font-size: var(--fs-print);
+    line-height: var(--lh-base);
+  }
+
+  /* Header: solo el logotipo, con un filete que lo separa del contenido */
+  .l-header {
+    border-block-end: var(--border-width) solid var(--color-ink);
+    margin-block-end: var(--sp-5);
+  }
+
+  .l-header__top {
+    display: block;
+    padding: 0 0 var(--sp-3);
+  }
+
+  .l-header__brand {
+    padding: 0;
+  }
+
+  /* Footer: datos de contacto y copyright, sin el negativo violeta */
+  .l-footer {
+    border-block-start: var(--border-width) solid var(--color-ink);
+    margin-block-start: var(--sp-6);
+    font-size: var(--fs-print-sm);
+  }
+
+  .l-footer__inner {
+    display: block;
+    padding-block: var(--sp-4) 0;
+  }
+
+  .l-footer__legal {
+    border: 0;
+    padding-block-start: var(--sp-2);
+  }
+
+  /* Los contenedores de pantalla no aplican en papel */
+  .l-container,
+  .l-page {
+    max-width: none;
+    padding-inline: 0;
+    padding-block: 0;
+  }
+
+  /* --- T-62: los links muestran su destino ------------------------------ */
+
+  /* En papel no se puede hacer clic: la URL externa se imprime al lado. Los
+     links internos no, porque apuntan a este mismo sitio y solo agregarían
+     ruido. */
+  a {
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after,
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: var(--fs-print-sm);
+    word-break: break-all;
+  }
+
+  /* --- T-63: cortes de página ------------------------------------------- */
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    break-after: avoid;
+  }
+
+  /* Solo bloques chicos: un <article> que envuelve toda la ficha del libro
+     no entra en una hoja, y pedirle que no se corte lo empuja entero a la
+     página siguiente dejando la primera en blanco. */
+  article:not(:has(article, section)),
+  figure,
+  blockquote,
+  .c-card,
+  .c-card-book,
+  tr {
+    break-inside: avoid;
+  }
+
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* --- Componentes en papel --------------------------------------------- */
+
+  /* Tarjetas: borde fino en lugar de caja de color; 4 libros por fila
+     para ahorrar hojas */
+  .l-grid,
+  .l-grid--books {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--sp-4);
+  }
+
+  .l-grid:not(.l-grid--books) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .c-card,
+  .c-card-book {
+    border: var(--border-width) solid var(--color-border) !important;
+    padding: var(--sp-2);
+  }
+
+  /* Tablas completas: en papel no hay scroll */
+  .c-table {
+    overflow: visible;
+    border: 0;
+  }
+
+  .c-table :is(th, td) {
+    white-space: normal;
+  }
+
+  th,
+  td {
+    border-block-end: var(--border-width) solid var(--color-ink) !important;
+  }
+
+  /* Etiquetas: pierden el fondo, se conserva la caja para que se lean */
+  .c-badge {
+    border: var(--border-width) solid var(--color-ink);
+  }
+
+  /* Campos de formulario: se imprimen como renglones para completar a mano */
+  input,
+  select,
+  textarea {
+    border: var(--border-width) solid var(--color-ink) !important;
+  }
+}

@@ -67,6 +67,11 @@
   --fs-xl: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
   --fs-2xl: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
 
+  /* Impresión: en papel se mide en puntos, no en rem */
+  --fs-print: 11pt;
+  --fs-print-sm: 9pt;
+  --print-img-max: 6cm;
+
   --lh-tight: 1.2;
   --lh-base: 1.6;
 
