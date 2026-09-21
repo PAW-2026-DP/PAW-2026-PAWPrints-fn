@@ -64,6 +64,12 @@ h6 {
 /* Artículos seguidos (reseñas, noticias) no quedan pegados */
 :where(article + article) { margin-block-start: var(--sp-5); }
 
+/* Secciones seguidas: el título de cada una es su primer hijo, así que no
+   recibe margen; la separación la pone la sección. */
+:where(section, aside, search) + :where(section, aside) {
+  margin-block-start: var(--sp-7);
+}
+
 /* El último hijo no empuja el borde inferior de su contenedor */
 :where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, figure,
        table, address, hgroup, details, fieldset, form):last-child {
