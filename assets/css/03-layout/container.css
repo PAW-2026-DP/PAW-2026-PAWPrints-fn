@@ -1,1 +1,21 @@
-/* 03-layout/container.css — pendiente: se completa en la F3 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   03-layout/container.css — Contenedor de ancho máximo (T-37)
+   =========================================================================
+
+   Centra el contenido y lo limita a --container-max. Las franjas que van
+   a todo el ancho (barra de navegación, footer) llevan el fondo en su
+   propio elemento y el .l-container adentro.
+   ========================================================================= */
+
+.l-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (min-width: 48rem) {
+  .l-container {
+    padding-inline: var(--gutter-lg);
+  }
+}

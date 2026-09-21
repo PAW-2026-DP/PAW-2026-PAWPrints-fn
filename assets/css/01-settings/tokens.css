@@ -89,6 +89,14 @@
   --container-max: 75rem;   /* 1200px */
   --prose-max: 65ch;        /* ancho cómodo de lectura */
   --gutter: var(--sp-4);
+  --gutter-lg: var(--sp-6);
+
+  /* Logotipo: solo se escala por alto, el ancho sale de la proporción del
+     SVG. Nunca se deforma (§2.3 de lineamientos). */
+  --logo-height: 2.25rem;
+  --logo-height-lg: 3rem;
+  --logo-height-footer: 2.5rem;
+  --search-max: 36rem;
 
   --radius-sm: 4px;
   --radius-md: 8px;

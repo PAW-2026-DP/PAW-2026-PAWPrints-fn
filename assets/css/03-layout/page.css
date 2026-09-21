@@ -1,1 +1,19 @@
-/* 03-layout/page.css — pendiente: se completa en la F3 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   03-layout/page.css — Estructura de página (T-37)
+   =========================================================================
+
+   .l-page va en el <main> de las 21 páginas. Crece para ocupar el alto
+   disponible (body es columna flex, ver 02-base/reset.css), así el footer
+   queda abajo aunque la página tenga poco contenido (login, registro).
+   ========================================================================= */
+
+.l-page {
+  flex: 1 0 auto;
+  padding-block: var(--sp-5) var(--sp-7);
+}
+
+@media (min-width: 64rem) {
+  .l-page {
+    padding-block: var(--sp-6) var(--sp-8);
+  }
+}

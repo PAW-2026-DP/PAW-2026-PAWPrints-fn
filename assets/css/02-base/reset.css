@@ -26,7 +26,11 @@ html {
   text-size-adjust: 100%;
 }
 
+/* Columna flex: permite que .l-page (el <main>) crezca y empuje el footer
+   al pie de la ventana en páginas cortas. */
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
