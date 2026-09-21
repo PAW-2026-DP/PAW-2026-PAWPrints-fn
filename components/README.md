@@ -28,9 +28,14 @@ para ubicar rápido dónde está pegada cada copia.
 2. Copiar el bloque nuevo y pegarlo, a mano, en **todas** las páginas de la lista de abajo,
    reemplazando lo que haya entre los dos marcadores.
 
-No hay automatización: en el TP1 la sincronización es manual y a propósito. A partir del TP
-siguiente, cuando entre el lenguaje de servidor, esto pasa a ser un `include` real y la
-duplicación desaparece.
+La copia es manual y a propósito: HTML puro no tiene includes. A partir del TP siguiente,
+cuando entre el lenguaje de servidor, esto pasa a ser un `include` real y la duplicación
+desaparece.
+
+3. **Verificar que no quedó ninguna divergencia.** Copiar a mano en 21 páginas es
+   exactamente el tipo de tarea donde uno se saltea una sin darse cuenta. El script de
+   verificación está en la **§7 de [`docs/lineamientos-desarrollo.md`](../docs/lineamientos-desarrollo.md)**
+   y debe devolver `OK` en las 21.
 
 ## Páginas que usan estos componentes
 

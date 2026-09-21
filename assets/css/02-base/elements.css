@@ -1,0 +1,234 @@
+/* =========================================================================
+   02-base/elements.css — Elementos HTML (T-22, T-23)
+   =========================================================================
+
+   Links, tablas, figuras, formularios y el foco global. Sin clases.
+   Los componentes de F4 (.c-button, .c-field, .c-summary...) refinan esto;
+   acá se garantiza que TODO el sitio ya se vea de la marca y sea usable.
+   ========================================================================= */
+
+/* --- Links ------------------------------------------------------------ */
+
+/* Subrayados siempre, no solo en hover: el violeta y el texto de cuerpo
+   no tienen contraste suficiente entre sí (WCAG 1.4.1), así que el color
+   no puede ser lo único que distingue a un link (§6 de lineamientos). */
+a {
+  color: var(--color-brand);
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--border-width);
+  text-underline-offset: var(--underline-offset);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-brand-dark);
+  text-decoration-thickness: var(--underline-thickness-hover);
+}
+
+/* --- Foco global (T-23) ----------------------------------------------- */
+
+/* Siempre visible. Nunca outline: none sin reemplazo (§6).
+   --color-brand-soft da ~6:1 contra blanco. Sobre superficies violetas
+   (footer, hero) el layout lo reemplaza por blanco. */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-offset);
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: var(--color-white);
+}
+
+/* --- Separadores, figuras, imágenes ----------------------------------- */
+
+hr {
+  border: 0;
+  border-block-start: var(--border-width) solid var(--color-border);
+  margin-block: var(--sp-6);
+}
+
+figcaption {
+  margin-block-start: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+/* --- Tablas ----------------------------------------------------------- */
+
+table {
+  width: 100%;
+  font-size: var(--fs-sm);
+}
+
+caption {
+  padding-block-end: var(--sp-2);
+  font-weight: var(--fw-semibold);
+  color: var(--color-brand);
+  text-align: start;
+}
+
+th,
+td {
+  padding: var(--sp-2) var(--sp-3);
+  border-block-end: var(--border-width) solid var(--color-border);
+  text-align: start;
+  vertical-align: top;
+}
+
+thead th {
+  background-color: var(--color-brand-tint);
+  color: var(--color-brand);
+  font-weight: var(--fw-semibold);
+}
+
+tfoot :where(th, td) {
+  font-weight: var(--fw-semibold);
+  border-block-end: 0;
+}
+
+/* --- Formularios ------------------------------------------------------ */
+
+fieldset {
+  padding: var(--sp-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+legend {
+  padding-inline: var(--sp-2);
+  font-weight: var(--fw-semibold);
+  color: var(--color-brand);
+}
+
+label {
+  font-weight: var(--fw-medium);
+}
+
+/* Campos de texto: a todo el ancho y en su propia línea, que es lo que
+   se lee mejor en mobile. El layout de cada formulario los acomoda en
+   columnas en desktop. */
+input:not([type="checkbox"], [type="radio"], [type="hidden"],
+          [type="submit"], [type="button"], [type="reset"], [type="range"]),
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--tap-min);
+  margin-block-start: var(--sp-1);
+  padding: var(--sp-2) var(--sp-3);
+  background-color: var(--color-white);
+  border: var(--border-width) solid var(--input-border-color);
+  border-radius: var(--radius-sm);
+}
+
+textarea {
+  min-height: calc(var(--tap-min) * 3);
+  resize: vertical;
+}
+
+::placeholder {
+  color: var(--color-ink-muted);
+  opacity: 1;
+}
+
+input:hover:not(:disabled),
+select:hover:not(:disabled),
+textarea:hover:not(:disabled) {
+  border-color: var(--color-brand);
+}
+
+/* Casillas y opciones: el control nativo, teñido con el violeta */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-brand);
+  margin-inline-end: var(--sp-2);
+}
+
+progress,
+input[type="range"] {
+  accent-color: var(--color-brand);
+}
+
+/* Error: solo después de que la persona escribió algo, para no marcar en
+   rojo un formulario recién abierto. El borde es refuerzo; el mensaje de
+   error en texto lo agrega el componente (el color nunca va solo, §6). */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+  border-color: var(--color-danger);
+}
+
+:disabled {
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}
+
+/* Botón base: primario violeta. .c-button (F4) agrega las variantes. */
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--tap-min);
+  padding: var(--sp-2) var(--sp-4);
+  border: var(--border-width) solid var(--color-brand);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand);
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+:where(button, input[type="submit"], input[type="button"],
+       input[type="reset"]):hover:not(:disabled) {
+  background-color: var(--color-brand-dark);
+}
+
+/* Desplegables: una caja con el título siempre visible */
+details {
+  padding: var(--sp-3) var(--sp-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+summary {
+  min-height: var(--tap-min);
+  padding-block: var(--sp-2);
+  cursor: pointer;
+  font-weight: var(--fw-semibold);
+  color: var(--color-brand);
+}
+
+details[open] > summary {
+  margin-block-end: var(--sp-2);
+}
+
+/* Indicador de avance del registro: barra a todo el ancho */
+progress {
+  display: block;
+  width: 100%;
+  height: var(--sp-2);
+  margin-block-start: var(--sp-1);
+}
+
+output {
+  font-weight: var(--fw-semibold);
+}
+
+/* --- Preferencias del usuario ----------------------------------------- */
+
+/* Movimiento reducido (§5.4 de lineamientos). Todas las transiciones del
+   sitio usan el token --transition-fast, así que alcanza con anularlo acá:
+   no hace falta el !important que admite el lineamiento, y el chequeo de
+   scripts/verificar.sh queda limpio. Toda transición nueva DEBE usar el
+   token para que esta regla la alcance. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+  }
+}

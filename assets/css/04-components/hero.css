@@ -1,0 +1,48 @@
+/* =========================================================================
+   04-components/hero.css — Portada de inicio (T-50)
+   =========================================================================
+
+   <section class="c-hero"> de inicio.html. Bloque en negativo: fondo
+   violeta y texto blanco, la estrategia de color del manual ("el color
+   principal es el fondo, el segundo acentúa"). Título en Light 300, el
+   peso de display que marca el manual.
+   ========================================================================= */
+
+.c-hero {
+  --focus-ring-color: var(--color-white);
+  padding: var(--sp-6) var(--sp-5);
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-invert);
+  color: var(--on-surface-invert);
+}
+
+.c-hero :is(h1, h2, p, strong) {
+  color: var(--on-surface-invert);
+}
+
+.c-hero h1 {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-light);
+}
+
+.c-hero hgroup > p {
+  font-size: var(--fs-lg);
+}
+
+/* El botón se invierte: blanco sobre violeta */
+.c-hero .c-button {
+  border-color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-brand);
+}
+
+.c-hero .c-button:hover {
+  background-color: var(--color-brand-tint);
+  color: var(--color-brand-dark);
+}
+
+@media (min-width: 48rem) {
+  .c-hero {
+    padding: var(--sp-8) var(--sp-7);
+  }
+}

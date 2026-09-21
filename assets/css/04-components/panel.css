@@ -1,0 +1,84 @@
+/* =========================================================================
+   04-components/panel.css — Paneles (T-53, T-54, T-57)
+   =========================================================================
+
+   .c-panel     panel de apoyo con fondo de tinte: totales del carrito,
+                resumen del pedido, ayuda de la reserva
+   .c-callout   bloque destacado en negativo (violeta, texto blanco):
+                promoción principal, "Visitanos"
+   ========================================================================= */
+
+/* --- Panel de apoyo --------------------------------------------------- */
+
+.c-panel {
+  padding: var(--sp-5);
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand-tint);
+}
+
+.c-panel h2 {
+  margin-block: 0 var(--sp-4);
+  font-size: var(--fs-md);
+}
+
+/* Totales: concepto a la izquierda, importe a la derecha */
+/* El concepto nunca se achica por debajo de su texto: si el importe es
+   largo ("Se calcula en el siguiente paso"), el que se parte es el importe. */
+.c-panel dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: var(--sp-2) var(--sp-4);
+}
+
+.c-panel dd {
+  margin: 0;
+  text-align: end;
+}
+
+/* El último par es el total: separado y más fuerte */
+.c-panel dt:last-of-type,
+.c-panel dd:last-of-type {
+  padding-block-start: var(--sp-2);
+  border-block-start: var(--border-width) solid var(--color-brand-soft);
+  font-weight: var(--fw-bold);
+}
+
+.c-panel .c-button {
+  width: 100%;
+}
+
+/* La tabla dentro del panel no necesita su propio recuadro */
+.c-panel .c-table {
+  border: 0;
+  background-color: var(--surface);
+}
+
+/* --- Destacado en negativo -------------------------------------------- */
+
+.c-callout {
+  --focus-ring-color: var(--color-white);
+  margin-block-end: var(--sp-5);
+  padding: var(--sp-5);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-invert);
+  color: var(--on-surface-invert);
+}
+
+.c-callout :is(h2, h3, h4, p, a, time, strong) {
+  color: var(--on-surface-invert);
+}
+
+.c-callout :is(h2, h3, h4) {
+  margin-block: 0 var(--sp-3);
+}
+
+.c-callout a:hover {
+  color: var(--on-surface-invert);
+  text-decoration-thickness: var(--underline-thickness-hover);
+}
+
+/* Un <mark> sobre violeta se invierte para seguir leyéndose */
+.c-callout mark {
+  background-color: var(--color-white);
+  color: var(--color-brand);
+}

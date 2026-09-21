@@ -1,0 +1,20 @@
+/* =========================================================================
+   04-components/badge.css — Etiqueta (T-46)
+   =========================================================================
+
+   <mark class="c-badge">Más comprado en Ciencia Ficción</mark>
+   Etiqueta en negativo (blanco sobre violeta, ~11:1). El texto dice qué
+   es: el color solo lo destaca.
+   ========================================================================= */
+
+.c-badge {
+  display: inline-block;
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand);
+  color: var(--color-white);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+}

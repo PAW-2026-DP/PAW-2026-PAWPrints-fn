@@ -1,0 +1,41 @@
+/* =========================================================================
+   04-components/subnav.css — Navegación de secciones (T-56)
+   =========================================================================
+
+   <nav class="c-subnav"> de mi-cuenta.html. En mobile, una fila de
+   pestañas que se puede partir; en desktop, la lista vertical de la barra
+   lateral. La sección actual se marca con aria-current y un filete, no
+   solo con color.
+   ========================================================================= */
+
+.c-subnav {
+  margin-block-end: var(--sp-5);
+}
+
+.c-subnav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.c-subnav a {
+  display: block;
+  min-height: var(--tap-min);
+  padding: var(--sp-2) var(--sp-3);
+  border-inline-start: var(--border-width-accent) solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+}
+
+.c-subnav a:hover,
+.c-subnav a[aria-current] {
+  border-inline-start-color: var(--color-brand);
+  background-color: var(--color-brand-tint);
+}
+
+@media (min-width: 64rem) {
+  .c-subnav ul {
+    flex-direction: column;
+  }
+}

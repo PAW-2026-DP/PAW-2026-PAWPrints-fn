@@ -1,0 +1,197 @@
+/* =========================================================================
+   03-layout/header.css — Header del sitio (T-30 a T-34)
+   =========================================================================
+
+   Markup canónico: components/header.html (copiado en las 21 páginas).
+
+   Estructura, igual que el wireframe desktop del Figma:
+     fila 1 (.l-header__top)  logo · buscador · área de usuario
+     fila 2 (.l-header__nav)  navegación principal, en franja violeta
+
+   El orden del DOM es el mismo que el visual: el recorrido con Tab
+   coincide con lo que se ve (§6 de lineamientos).
+
+   MOBILE: el wireframe muestra un menú hamburguesa, pero sin JavaScript
+   no hay forma accesible de abrirlo y cerrarlo (R2 de AGENTS.md; los hacks
+   con :target o checkbox oculto están descartados en el plan). La
+   navegación queda visible, en una fila con scroll horizontal.
+   ========================================================================= */
+
+.l-header {
+  background-color: var(--surface);
+}
+
+/* --- Fila 1: logo, buscador, usuario ---------------------------------- */
+
+/* Mobile angosto (< 30rem): los tres links de usuario no entran al lado
+   del logo (a 320px faltan ~6px aun con letra chica), así que van en su
+   propia fila, debajo del buscador: mismo orden que en el DOM. */
+.l-header__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "brand"
+    "search"
+    "user";
+  align-items: center;
+  gap: var(--sp-2) var(--sp-4);
+  padding-block: var(--sp-3) var(--sp-1);
+}
+
+@media (min-width: 30rem) {
+  .l-header__top {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "brand  user"
+      "search search";
+    gap: var(--sp-3) var(--sp-4);
+    padding-block: var(--sp-3);
+  }
+}
+
+/* Logotipo (T-33). Área de reserva con padding propio para que no se apoye
+   contra otros elementos. Sin transform, sombras, filtros ni cambios de
+   color: son usos incorrectos según el manual (§2.3 de lineamientos). */
+.l-header__brand {
+  grid-area: brand;
+  display: block;
+  padding: var(--sp-1);
+}
+
+.l-header__brand img {
+  width: auto;
+  height: var(--logo-height);
+}
+
+/* Buscador: el label existe para lectores de pantalla (.u-visually-hidden) */
+.l-header__search {
+  grid-area: search;
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.l-header__search input {
+  flex: 1;
+  min-width: 0;
+  margin-block-start: 0;
+}
+
+/* Área de usuario */
+.l-header__user {
+  grid-area: user;
+  /* En su propia fila, alineado con el texto del buscador */
+  margin-inline-start: calc(var(--sp-2) * -1);
+}
+
+.l-header__user ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 30rem) {
+  .l-header__user {
+    justify-self: end;
+    margin-inline-start: 0;
+  }
+
+  .l-header__user ul {
+    justify-content: flex-end;
+  }
+}
+
+/* --- Links de navegación (usuario y principal) ------------------------ */
+
+/* Sin subrayado: están agrupados en una barra que se reconoce como menú.
+   El subrayado vuelve en hover y marca la página actual. */
+.l-header__user a,
+.l-header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding-inline: var(--sp-2);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.l-header__user a {
+  font-size: var(--fs-sm);
+}
+
+.l-header__user a:hover,
+.l-header__nav a:hover {
+  text-decoration-line: underline;
+}
+
+/* Página actual (T-34): por el atributo que ya pone el HTML, sin clase
+   nueva. Peso + subrayado grueso: el color no va solo (§6). */
+.l-header__user a[aria-current="page"] {
+  font-weight: var(--fw-semibold);
+  text-decoration-line: underline;
+  text-decoration-thickness: var(--underline-thickness-hover);
+}
+
+/* --- Fila 2: navegación principal en negativo ------------------------- */
+
+/* Franja violeta con texto blanco: versión en negativo del manual.
+   El anillo de foco pasa a blanco para que se vea sobre el violeta. */
+.l-header__nav {
+  --focus-ring-color: var(--color-white);
+  background-color: var(--surface-invert);
+}
+
+.l-header__nav ul {
+  display: flex;
+  gap: var(--sp-1);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-soft) transparent;
+}
+
+.l-header__nav a {
+  padding-inline: var(--sp-3);
+  color: var(--on-surface-invert);
+}
+
+.l-header__nav a:hover {
+  color: var(--on-surface-invert);
+}
+
+/* La fila scrollea: un outline hacia afuera se cortaría en los bordes */
+.l-header__nav a:focus-visible {
+  outline-offset: calc(var(--focus-ring-width) * -1);
+}
+
+.l-header__nav a[aria-current="page"] {
+  font-weight: var(--fw-semibold);
+  box-shadow: inset 0 calc(var(--border-width-accent) * -1) 0 var(--color-white);
+}
+
+/* --- Tablet: logo, buscador y usuario en una sola fila ---------------- */
+
+@media (min-width: 48rem) {
+  .l-header__top {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "brand search user";
+    gap: var(--sp-5);
+  }
+
+  .l-header__search {
+    justify-self: center;
+    width: 100%;
+    max-width: var(--search-max);
+  }
+}
+
+/* --- Desktop: logo a tamaño completo y menú centrado ------------------ */
+
+@media (min-width: 64rem) {
+  .l-header__brand img {
+    height: var(--logo-height-lg);
+  }
+
+  .l-header__nav ul {
+    justify-content: center;
+    gap: var(--sp-4);
+  }
+}

@@ -1,0 +1,65 @@
+/* =========================================================================
+   PAWPrints — Hoja de estilos principal
+   =========================================================================
+
+   Este es el ÚNICO archivo CSS enlazado desde el HTML. Cada página lleva
+   exactamente una línea en su <head>:
+
+       <link rel="stylesheet" href="/assets/css/main.css">
+
+   Un solo punto de inserción: el header y el footer se copian a mano en las
+   21 páginas, así que cuantos menos lugares haya donde equivocarse, mejor.
+
+   ORDEN DE LA CASCADA — NO REORDENAR.
+   La especificidad va creciendo de arriba hacia abajo: una utilidad puede
+   pisar un componente, un componente nunca pisa una utilidad. Eso se
+   sostiene por ORDEN, no por !important (prohibido — ver §3.2 de
+   docs/lineamientos-desarrollo.md).
+
+     01-settings   fuentes y design tokens. No emite CSS visible.
+     02-base       reset y elementos HTML. Sin clases.
+     03-layout     estructura: contenedores, header, footer, grillas.   .l-*
+     04-components piezas reutilizables.                                .c-*
+     05-utilities  ayudas de una sola responsabilidad.                  .u-*
+     06-print      @media print. Va último para poder pisar todo.
+
+   REGLA NÚMERO 1: solo CSS vanilla. Cero frameworks, cero librerías,
+   cero preprocesadores. Todo lo de acá está escrito a mano.
+   ========================================================================= */
+
+/* --- 01 · Settings ---------------------------------------------------- */
+@import url("01-settings/fonts.css");
+@import url("01-settings/tokens.css");
+
+/* --- 02 · Base -------------------------------------------------------- */
+@import url("02-base/reset.css");
+@import url("02-base/typography.css");
+@import url("02-base/elements.css");
+
+/* --- 03 · Layout ------------------------------------------------------ */
+@import url("03-layout/container.css");
+@import url("03-layout/page.css");
+@import url("03-layout/header.css");
+@import url("03-layout/footer.css");
+
+/* --- 04 · Componentes ------------------------------------------------- */
+@import url("04-components/skip-link.css");
+@import url("04-components/button.css");
+@import url("04-components/breadcrumb.css");
+@import url("04-components/card-book.css");
+@import url("04-components/form.css");
+@import url("04-components/filters.css");
+@import url("04-components/pagination.css");
+@import url("04-components/badge.css");
+@import url("04-components/rating.css");
+@import url("04-components/table.css");
+@import url("04-components/hero.css");
+@import url("04-components/panel.css");
+@import url("04-components/stats.css");
+@import url("04-components/subnav.css");
+
+/* --- 05 · Utilidades -------------------------------------------------- */
+@import url("05-utilities/utilities.css");
+
+/* --- 06 · Impresión --------------------------------------------------- */
+@import url("06-print/print.css");

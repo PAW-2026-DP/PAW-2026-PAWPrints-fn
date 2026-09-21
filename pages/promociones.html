@@ -5,53 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Promociones y novedades — PAWPrints</title>
   <meta name="description" content="Todas las ofertas vigentes de PAWPrints: descuentos, envíos gratis, novedades y eventos en nuestros locales.">
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
 
-  <a href="#contenido-principal">Saltar al contenido principal</a>
+  <a class="c-skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
   <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
-  <header>
-    <a href="/index.html" aria-label="PAWPrints — Inicio">
-      <strong>PAWPrints</strong>
-    </a>
+  <header class="l-header">
+    <div class="l-header__top l-container">
+      <a class="l-header__brand" href="/index.html" aria-label="PAWPrints — Inicio">
+        <img src="/assets/img/logo/pawprints-violeta.svg" alt="PAWPrints" width="742" height="273">
+      </a>
 
-    <nav aria-label="Navegación principal">
-      <ul>
+      <form class="l-header__search" role="search" action="/pages/catalogo.html" method="get">
+        <label class="u-visually-hidden" for="header-busqueda">Buscar libros</label>
+        <input
+          type="search"
+          id="header-busqueda"
+          name="q"
+          placeholder="Título, autor, ISBN…"
+          autocomplete="off"
+        >
+        <button type="submit">Buscar</button>
+      </form>
+
+      <nav class="l-header__user" aria-label="Área de usuario">
+        <ul>
+          <li><a href="/pages/favoritos.html">Favoritos</a></li>
+          <li><a href="/pages/carrito.html">Carrito</a></li>
+          <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="l-header__nav" aria-label="Navegación principal">
+      <ul class="l-container">
         <li><a href="/index.html">Inicio</a></li>
         <li><a href="/pages/catalogo.html">Catálogo</a></li>
         <li><a href="/pages/categorias.html">Categorías</a></li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
+        <li><a href="/pages/promociones.html" aria-current="page">Promociones</a></li>
         <li><a href="/pages/nosotros.html">Nosotros</a></li>
         <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <form role="search" action="/pages/catalogo.html" method="get">
-      <label for="header-busqueda">Buscar libros</label>
-      <input
-        type="search"
-        id="header-busqueda"
-        name="q"
-        placeholder="Título, autor, ISBN…"
-        autocomplete="off"
-      >
-      <button type="submit">Buscar</button>
-    </form>
-
-    <nav aria-label="Área de usuario">
-      <ul>
-        <li><a href="/pages/favoritos.html">Favoritos</a></li>
-        <li><a href="/pages/carrito.html">Carrito</a></li>
-        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
       </ul>
     </nav>
   </header>
   <!-- #endregion components/header.html -->
 
-  <main id="contenido-principal">
+  <main class="l-page l-container" id="contenido-principal">
 
-    <nav aria-label="Migas de pan">
+    <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
         <li><a href="/pages/inicio.html">Inicio</a></li>
         <li><a href="/pages/promociones.html" aria-current="page">Promociones</a></li>
@@ -64,35 +67,35 @@
     </hgroup>
 
     <section aria-labelledby="vigentes">
-      <h3 id="vigentes">Promociones vigentes</h3>
+      <h2 id="vigentes">Promociones vigentes</h2>
 
       <!-- La promoción principal del mes se destaca con <mark>. -->
-      <article>
-        <h4><mark>2×1 en Narrativa</mark></h4>
+      <article class="c-callout">
+        <h3><mark>2×1 en Narrativa</mark></h3>
         <p>El segundo libro sin cargo.</p>
         <p>Vigente hasta el <time datetime="2026-09-30">30 de septiembre</time>.</p>
         <p><a href="/pages/catalogo.html?genero=narrativa">Ver libros de Narrativa</a></p>
       </article>
 
-      <ul>
+      <ul class="l-grid">
         <li>
-          <article>
-            <h4>15% en Infantiles</h4>
+          <article class="c-card">
+            <h3>15% en Infantiles</h3>
             <p>Toda la colección.</p>
             <p>Pagando con Banco Provincia.</p>
             <p><a href="/pages/catalogo.html?genero=infantil">Ver Infantiles</a></p>
           </article>
         </li>
         <li>
-          <article>
-            <h4>Envíos Gratis</h4>
+          <article class="c-card">
+            <h3>Envíos Gratis</h3>
             <p>A todo el país.</p>
             <p>En compras desde <b>AR$ 45.000</b>.</p>
           </article>
         </li>
         <li>
-          <article>
-            <h4>20% con débito</h4>
+          <article class="c-card">
+            <h3>20% con débito</h3>
             <p>Todos los martes.</p>
             <p>Exclusivo en el local.</p>
           </article>
@@ -103,9 +106,9 @@
     <section aria-labelledby="novedades">
       <h3 id="novedades">Novedades</h3>
 
-      <ul>
+      <ul class="l-grid l-grid--books">
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <a href="/pages/detalle-libro.html">
                 <img src="/img/portada-placeholder.svg" width="240" height="360"
@@ -117,11 +120,11 @@
             <p>Miguel de Cervantes</p>
             <p><small>Editorial Planeta · 1605</small></p>
             <p><b>AR$ 450</b></p>
-            <p><a href="/pages/detalle-libro.html">Ver detalle</a></p>
+            <p><a class="c-button c-button--secondary" href="/pages/detalle-libro.html">Ver detalle</a></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <a href="/pages/detalle-libro-cien-anios-de-soledad.html">
                 <img src="/img/portada-placeholder.svg" width="240" height="360"
@@ -133,11 +136,11 @@
             <p>Gabriel García Márquez</p>
             <p><small>Editorial Sudamericana · 1967</small></p>
             <p><b>AR$ 520</b></p>
-            <p><a href="/pages/detalle-libro-cien-anios-de-soledad.html">Ver detalle</a></p>
+            <p><a class="c-button c-button--secondary" href="/pages/detalle-libro-cien-anios-de-soledad.html">Ver detalle</a></p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card-book">
             <figure>
               <a href="/pages/detalle-libro-la-odisea.html">
                 <img src="/img/portada-placeholder.svg" width="240" height="360"
@@ -149,27 +152,27 @@
             <p>Homero</p>
             <p><small>Editorial Gredos · VIII a. C.</small></p>
             <p><b>AR$ 380</b></p>
-            <p><a href="/pages/detalle-libro-la-odisea.html">Ver detalle</a></p>
+            <p><a class="c-button c-button--secondary" href="/pages/detalle-libro-la-odisea.html">Ver detalle</a></p>
           </article>
         </li>
       </ul>
 
-      <p><a href="/pages/catalogo.html">Ver todo el catálogo</a></p>
+      <p><a class="c-button" href="/pages/catalogo.html">Ver todo el catálogo</a></p>
     </section>
 
     <section aria-labelledby="eventos">
       <h3 id="eventos">Eventos en el Local</h3>
 
-      <ul>
+      <ul class="l-grid">
         <li>
-          <article>
+          <article class="c-card">
             <h4>Club de lectura</h4>
             <p><time datetime="2026-09-12T19:00">12/09 · 19 hs</time></p>
             <p>Sucursal Centro — Av. San Martín 1234, Luján.</p>
           </article>
         </li>
         <li>
-          <article>
+          <article class="c-card">
             <h4>Presentación de libro</h4>
             <p><time datetime="2026-09-26T18:00">26/09 · 18 hs</time></p>
             <p>Entrada libre — Av. San Martín 1234, Luján.</p>
@@ -199,52 +202,55 @@
   </main>
 
   <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
-  <footer>
-    <section aria-labelledby="footer-contacto-h">
-      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
-      <address>
-        <p>PAWPrints Librería</p>
-        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+  <footer class="l-footer">
+    <div class="l-footer__inner l-container">
+      <section class="l-footer__about" aria-labelledby="footer-contacto-h">
+        <img class="l-footer__logo" src="/assets/img/logo/pawprints-blanco.svg" alt="PAWPrints" width="742" height="273">
+        <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+        <address>
+          <p>PAWPrints Librería</p>
+          <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+          <p>
+            <a href="tel:+541112345678">+54 11 1234-5678</a>
+          </p>
+          <p>
+            <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+          </p>
+        </address>
         <p>
-          <a href="tel:+541112345678">+54 11 1234-5678</a>
+          Horario de atención:
+          Lunes a Viernes, 9&nbsp;h a 20&nbsp;h
+          —
+          Sábados, 10&nbsp;h a 18&nbsp;h
         </p>
-        <p>
-          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
-        </p>
-      </address>
-      <p>
-        Horario de atención:
-        <time datetime="Mo-Fr 09:00-20:00">Lunes a Viernes, 9&nbsp;h a 20&nbsp;h</time>
-        —
-        <time datetime="Sa 10:00-18:00">Sábados, 10&nbsp;h a 18&nbsp;h</time>
-      </p>
-    </section>
+      </section>
 
-    <nav aria-label="Redes sociales">
-      <h2>Seguinos</h2>
-      <ul>
-        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
-        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
-        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
-        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
-      </ul>
-    </nav>
+      <nav class="l-footer__nav" aria-label="Redes sociales">
+        <h2>Seguinos</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+          <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+        </ul>
+      </nav>
 
-    <nav aria-label="Mapa del sitio">
-      <h2>Páginas</h2>
-      <ul>
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html">Catálogo</a></li>
-        <li><a href="/pages/categorias.html">Categorías</a></li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Nosotros</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+      <nav class="l-footer__nav" aria-label="Mapa del sitio">
+        <h2>Páginas</h2>
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/pages/catalogo.html">Catálogo</a></li>
+          <li><a href="/pages/categorias.html">Categorías</a></li>
+          <li><a href="/pages/promociones.html">Promociones</a></li>
+          <li><a href="/pages/nosotros.html">Nosotros</a></li>
+          <li><a href="/pages/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
 
-    <small>
-      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
-    </small>
+      <small class="l-footer__legal">
+        &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+      </small>
+    </div>
   </footer>
   <!-- #endregion components/footer.html -->
 

@@ -1,0 +1,87 @@
+/* =========================================================================
+   02-base/reset.css — Reset propio (T-20)
+   =========================================================================
+
+   Escrito a mano. NO es normalize.css ni el reset de Meyer: los resets de
+   terceros están prohibidos por la regla número 1 (§0 de lineamientos).
+
+   Solo neutraliza lo que molesta. El ritmo vertical (márgenes entre
+   bloques) lo define typography.css; acá se lleva todo a cero para partir
+   de un estado conocido.
+   ========================================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  /* Evita que iOS agrande el texto al rotar el teléfono */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Columna flex: permite que .l-page (el <main>) crezca y empuje el footer
+   al pie de la ventana en páginas cortas. */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Medios: en bloque y nunca más anchos que su contenedor (§5.2) */
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Los controles de formulario no heredan la tipografía por defecto */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Palabras largas (ISBN, emails, URLs) no rompen el ancho a 320px */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+dd,
+address,
+figcaption {
+  overflow-wrap: break-word;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* Un fieldset por defecto no achica por debajo de su contenido: a 320px
+   empuja el ancho de la página y genera scroll horizontal. */
+fieldset {
+  min-width: 0;
+}
+
+/* Elementos HTML recientes que algunos navegadores todavía no tratan como bloque */
+search,
+hgroup {
+  display: block;
+}
