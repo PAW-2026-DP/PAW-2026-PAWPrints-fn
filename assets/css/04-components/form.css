@@ -16,8 +16,16 @@
 
 /* El carrito es un formulario que envuelve una tabla: necesita el ancho
    completo o la tabla scrollea aun en desktop. */
-.c-form:has(.c-table) {
+.c-form:has(.c-table),
+.c-form:has(> .l-page__aside) {
   max-width: none;
+}
+
+/* Login y registro: el formulario se presenta como una tarjeta */
+.l-page--narrow .c-form {
+  padding: var(--sp-5);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-lg);
 }
 
 .c-form p {

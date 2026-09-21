@@ -33,10 +33,18 @@
   padding: var(--sp-3) var(--sp-3) var(--sp-2);
 }
 
-/* Las celdas no se parten palabra por palabra: la tabla toma el ancho que
-   necesita y el contenedor scrollea. */
+/* En mobile las celdas no se parten palabra por palabra: la tabla toma el
+   ancho que necesita y el contenedor scrollea. En desktop hay lugar para
+   partir líneas, y así la tabla entra aunque esté en una columna angosta
+   (carrito con panel lateral, resumen del pedido). */
 .c-table :is(th, td) {
   white-space: nowrap;
+}
+
+@media (min-width: 64rem) {
+  .c-table :is(th, td) {
+    white-space: normal;
+  }
 }
 
 .c-table tbody tr:hover {

@@ -53,6 +53,10 @@
 @import url("04-components/badge.css");
 @import url("04-components/rating.css");
 @import url("04-components/table.css");
+@import url("04-components/hero.css");
+@import url("04-components/panel.css");
+@import url("04-components/stats.css");
+@import url("04-components/subnav.css");
 
 /* --- 05 · Utilidades -------------------------------------------------- */
 @import url("05-utilities/utilities.css");
