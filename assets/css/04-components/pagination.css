@@ -1,1 +1,45 @@
-/* 04-components/pagination.css — pendiente: se completa en la F4 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   04-components/pagination.css — Paginación (T-45)
+   =========================================================================
+
+   <nav class="c-pagination"><ol><li><a aria-current="page">1</a>...
+   Cada número es una caja de 44×44 (área táctil mínima). La página actual
+   se marca en negativo; además lleva aria-current, así que no depende
+   solo del color.
+   ========================================================================= */
+
+.c-pagination {
+  margin-block-start: var(--sp-6);
+}
+
+.c-pagination ol {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2);
+}
+
+.c-pagination a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  padding-inline: var(--sp-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-weight: var(--fw-medium);
+  text-decoration: none;
+}
+
+.c-pagination a:hover {
+  border-color: var(--color-brand);
+  background-color: var(--color-brand-tint);
+}
+
+.c-pagination a[aria-current="page"] {
+  border-color: var(--color-brand);
+  background-color: var(--color-brand);
+  color: var(--color-white);
+  font-weight: var(--fw-semibold);
+}
