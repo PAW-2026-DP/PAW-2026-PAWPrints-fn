@@ -52,7 +52,7 @@
   </header>
   <!-- #endregion components/header.html -->
 
-  <main class="l-page l-container" id="contenido-principal">
+  <main class="l-page l-container l-page--sidebar" id="contenido-principal">
 
     <nav class="c-breadcrumb" aria-label="Migas de pan">
       <ol>
@@ -67,7 +67,7 @@
       Los filtros son contenido complementario al listado, por eso van en <aside>.
       Se maquetan como un <form> GET con <fieldset>/<legend> agrupando cada criterio.
     -->
-    <aside class="c-filters" aria-labelledby="filtros">
+    <aside class="c-filters l-page__aside" aria-labelledby="filtros">
       <h2 id="filtros">Ordenar y filtrar</h2>
 
       <form class="c-form" action="catalogo.html" method="get">
