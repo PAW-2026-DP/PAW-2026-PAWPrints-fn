@@ -31,7 +31,7 @@ Del enunciado del TP2, textual:
 | Manual de identidad elegido | ✅ Violeta |
 | Ramas `dev` / `main` reconciliadas | ✅ **2026-09-19** — gana `main` |
 | Rama de trabajo | ✅ `feature/estilados` (desde el nuevo `dev`) |
-| CSS | 🔨 F1 a F4 cerradas: tokens, base, header, footer, contenedores y componentes; F5 (layout por página) y F6 (impresión) pendientes |
+| CSS | 🔨 F1 a F4 y F6 cerradas; F5 (layout por página) y F7 (QA y entrega) pendientes |
 | Clases en el HTML | ❌ Cero. Semántica pura |
 | Tipografía auto-hospedada | ✅ Montserrat variable en `assets/fonts/` |
 
@@ -348,7 +348,7 @@ Cambios respecto del plan original:
 ✅ F3    Header y footer (clases + propagación + responsive)
 ✅ F4    Los 9 componentes
 ⬜ F5    Layout por página (paralelizable)
-⬜ F6    Impresión
+✅ F6    Impresión
 ⬜ F7    QA, validación W3C, PR a dev, merge a main, tag tp2
 ```
 

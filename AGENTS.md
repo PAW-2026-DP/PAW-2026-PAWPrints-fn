@@ -172,6 +172,8 @@ origin/main ──→ dev ──→ feature/estilados   ← rama de trabajo del 
   `.l-container` + `.l-page` en el `<main>` de las 21 páginas y `.c-skip-link`.
 - **Fase 4 (Componentes)** cerrada: ver el inventario en `docs/plan-tp2-estilos.md`.
   Las 21 páginas sin scroll horizontal a 320px.
+- **Fase 6 (Impresión)** cerrada, adelantada a F5 por la fecha de entrega. Verificada
+  con PDFs de Chrome headless de detalle, resumen, reserva, nosotros y catálogo.
 - **Siguiente: Fase 5 (Layout por página)** — sidebar de filtros en catálogo, detalle en
   dos columnas, hero de inicio, formularios con resumen lateral.
 
