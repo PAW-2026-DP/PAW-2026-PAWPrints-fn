@@ -9,16 +9,38 @@
 </head>
 <body>
 
-  <a href="#contenido-principal">Saltar al contenido principal</a>
+  <a class="c-skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
   <!-- #region components/header.html — NO editar aquí, editar el componente y re-copiar -->
-  <header>
-    <a href="/index.html" aria-label="PAWPrints — Inicio">
-      <strong>PAWPrints</strong>
-    </a>
+  <header class="l-header">
+    <div class="l-header__top l-container">
+      <a class="l-header__brand" href="/index.html" aria-label="PAWPrints — Inicio">
+        <img src="/assets/img/logo/pawprints-violeta.svg" alt="PAWPrints" width="742" height="273">
+      </a>
 
-    <nav aria-label="Navegación principal">
-      <ul>
+      <form class="l-header__search" role="search" action="/pages/catalogo.html" method="get">
+        <label class="u-visually-hidden" for="header-busqueda">Buscar libros</label>
+        <input
+          type="search"
+          id="header-busqueda"
+          name="q"
+          placeholder="Título, autor, ISBN…"
+          autocomplete="off"
+        >
+        <button type="submit">Buscar</button>
+      </form>
+
+      <nav class="l-header__user" aria-label="Área de usuario">
+        <ul>
+          <li><a href="/pages/favoritos.html">Favoritos</a></li>
+          <li><a href="/pages/carrito.html">Carrito</a></li>
+          <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="l-header__nav" aria-label="Navegación principal">
+      <ul class="l-container">
         <li><a href="/index.html">Inicio</a></li>
         <li><a href="/pages/catalogo.html">Catálogo</a></li>
         <li><a href="/pages/categorias.html">Categorías</a></li>
@@ -27,30 +49,10 @@
         <li><a href="/pages/contacto.html">Contacto</a></li>
       </ul>
     </nav>
-
-    <form role="search" action="/pages/catalogo.html" method="get">
-      <label for="header-busqueda">Buscar libros</label>
-      <input
-        type="search"
-        id="header-busqueda"
-        name="q"
-        placeholder="Título, autor, ISBN…"
-        autocomplete="off"
-      >
-      <button type="submit">Buscar</button>
-    </form>
-
-    <nav aria-label="Área de usuario">
-      <ul>
-        <li><a href="/pages/favoritos.html">Favoritos</a></li>
-        <li><a href="/pages/carrito.html">Carrito</a></li>
-        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- #endregion components/header.html -->
 
-  <main id="contenido-principal">
+  <main class="l-page l-container" id="contenido-principal">
 
     <nav aria-label="Migas de pan">
       <ol>
@@ -94,52 +96,55 @@
   </main>
 
   <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->
-  <footer>
-    <section aria-labelledby="footer-contacto-h">
-      <h2 id="footer-contacto-h">Contacto y ubicación</h2>
-      <address>
-        <p>PAWPrints Librería</p>
-        <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+  <footer class="l-footer">
+    <div class="l-footer__inner l-container">
+      <section class="l-footer__about" aria-labelledby="footer-contacto-h">
+        <img class="l-footer__logo" src="/assets/img/logo/pawprints-blanco.svg" alt="PAWPrints" width="742" height="273">
+        <h2 id="footer-contacto-h">Contacto y ubicación</h2>
+        <address>
+          <p>PAWPrints Librería</p>
+          <p>Av. Corrientes 1234, Buenos Aires, Argentina</p>
+          <p>
+            <a href="tel:+541112345678">+54 11 1234-5678</a>
+          </p>
+          <p>
+            <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
+          </p>
+        </address>
         <p>
-          <a href="tel:+541112345678">+54 11 1234-5678</a>
+          Horario de atención:
+          Lunes a Viernes, 9&nbsp;h a 20&nbsp;h
+          —
+          Sábados, 10&nbsp;h a 18&nbsp;h
         </p>
-        <p>
-          <a href="mailto:hola@pawprints.com.ar">hola@pawprints.com.ar</a>
-        </p>
-      </address>
-      <p>
-        Horario de atención:
-        Lunes a Viernes, 9&nbsp;h a 20&nbsp;h
-        —
-        Sábados, 10&nbsp;h a 18&nbsp;h
-      </p>
-    </section>
+      </section>
 
-    <nav aria-label="Redes sociales">
-      <h2>Seguinos</h2>
-      <ul>
-        <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
-        <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
-        <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
-        <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
-      </ul>
-    </nav>
+      <nav class="l-footer__nav" aria-label="Redes sociales">
+        <h2>Seguinos</h2>
+        <ul>
+          <li><a href="https://www.instagram.com/pawprints" rel="noopener noreferrer" target="_blank">Instagram</a></li>
+          <li><a href="https://www.facebook.com/pawprints" rel="noopener noreferrer" target="_blank">Facebook</a></li>
+          <li><a href="https://twitter.com/pawprints" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+          <li><a href="https://www.youtube.com/@pawprints" rel="noopener noreferrer" target="_blank">YouTube</a></li>
+        </ul>
+      </nav>
 
-    <nav aria-label="Mapa del sitio">
-      <h2>Páginas</h2>
-      <ul>
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html">Catálogo</a></li>
-        <li><a href="/pages/categorias.html">Categorías</a></li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Nosotros</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+      <nav class="l-footer__nav" aria-label="Mapa del sitio">
+        <h2>Páginas</h2>
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/pages/catalogo.html">Catálogo</a></li>
+          <li><a href="/pages/categorias.html">Categorías</a></li>
+          <li><a href="/pages/promociones.html">Promociones</a></li>
+          <li><a href="/pages/nosotros.html">Nosotros</a></li>
+          <li><a href="/pages/contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
 
-    <small>
-      &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
-    </small>
+      <small class="l-footer__legal">
+        &copy; <time datetime="2026">2026</time> PAWPrints. Todos los derechos reservados.
+      </small>
+    </div>
   </footer>
   <!-- #endregion components/footer.html -->
 
