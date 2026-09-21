@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PAWPrints — Librería online</title>
   <meta name="description" content="PAWPrints, tu librería online y física. Explorá nuestro catálogo, descubrí novedades y reservá tus libros favoritos.">
+  <!--
+    La raíz del sitio lleva al inicio del wireframe (pages/inicio.html).
+    Redirección con meta refresh y demora 0: sin JavaScript (TP2) y
+    admitida por WCAG porque no hay espera que el usuario deba controlar.
+    Si el navegador no la sigue, la página ofrece el link "Ir al inicio".
+    Hasta el TP2 esta página era la lista de links del maquetado del TP1
+    (recuperable en el historial de git).
+  -->
+  <meta http-equiv="refresh" content="0; url=/pages/inicio.html">
+  <link rel="canonical" href="/pages/inicio.html">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
@@ -54,41 +64,8 @@
 
   <main class="l-page l-container" id="contenido-principal">
     <h1>PAWPrints — Librería</h1>
-    <p>
-      Bienvenido a <strong>PAWPrints</strong>, tu librería online y física.
-      Explorá nuestro catálogo, descubrí las últimas novedades y reservá tus próximas lecturas.
-    </p>
-
-    <nav aria-label="Accesos directos">
-      <h2>Páginas del sitio</h2>
-      <ul>
-        <li><a href="/pages/inicio.html">Inicio</a></li>
-        <li><a href="/pages/catalogo.html">Catálogo de libros</a></li>
-        <li><a href="/pages/categorias.html">Categorías</a></li>
-        <li>
-          Detalle de libro:
-          <a href="/pages/detalle-libro.html">El Quijote</a> ·
-          <a href="/pages/detalle-libro-cien-anios-de-soledad.html">Cien Años de Soledad</a> ·
-          <a href="/pages/detalle-libro-la-odisea.html">La Odisea</a>
-        </li>
-        <li><a href="/pages/promociones.html">Promociones</a></li>
-        <li><a href="/pages/nosotros.html">Sobre Nosotros</a></li>
-        <li><a href="/pages/reserva.html">Formulario de reserva</a></li>
-        <li><a href="/pages/contacto.html">Contacto</a></li>
-        <li><a href="/pages/recomendaciones.html">Recomendaciones</a></li>
-        <li><a href="/pages/carrito.html">Carrito</a></li>
-        <li><a href="/pages/resumen.html">Resumen del pedido (checkout)</a></li>
-        <li><a href="/pages/favoritos.html">Favoritos</a></li>
-        <li><a href="/pages/mi-cuenta.html">Mi cuenta</a></li>
-        <li><a href="/pages/login.html">Login</a></li>
-        <li>
-          Registro:
-          <a href="/pages/registro.html">paso 1</a> ·
-          <a href="/pages/registro-paso-2.html">paso 2</a> ·
-          <a href="/pages/registro-paso-3.html">paso 3</a>
-        </li>
-      </ul>
-    </nav>
+    <p>Te estamos llevando a la página de inicio.</p>
+    <p><a class="c-button" href="/pages/inicio.html">Ir al inicio</a></p>
   </main>
 
   <!-- #region components/footer.html — NO editar aquí, editar el componente y re-copiar -->

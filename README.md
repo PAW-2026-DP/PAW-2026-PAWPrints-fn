@@ -11,7 +11,7 @@ Las páginas demuestran el uso correcto de las etiquetas semánticas de HTML5 y 
 
 ```
 /
-├── index.html               # Stub de navegación (links a todas las páginas)
+├── index.html               # Redirige a pages/inicio.html (inicio del wireframe)
 ├── components/
 │   ├── README.md            # Guía de uso de componentes compartidos
 │   ├── header.html          # Fragmento canónico del <header>
