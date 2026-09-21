@@ -1,1 +1,109 @@
-/* 04-components/card-book.css — pendiente: se completa en la F4 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   04-components/card-book.css — Tarjeta de libro y tarjeta genérica (T-42)
+   =========================================================================
+
+   El marcado de las tarjetas viene del TP1 y varía entre páginas (el
+   título puede ser h2, h3 o h4; la acción, un link o un formulario). Por
+   eso la clase va SOLO en el <article> raíz y los hijos se estilan por
+   elemento dentro de su alcance (§3.3 de lineamientos).
+
+   .c-card-book   libro: portada, título, autor, precio, acción
+   .c-card        bloque genérico: promociones, sucursales
+   ========================================================================= */
+
+/* --- Tarjeta de libro ------------------------------------------------- */
+
+.c-card-book {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  height: 100%;
+  padding: var(--sp-3);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+}
+
+.c-card-book > * {
+  margin-block: 0;
+}
+
+.c-card-book img {
+  width: 100%;
+  aspect-ratio: var(--cover-ratio);
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand-tint);
+}
+
+/* El figcaption repite el título que está justo debajo: se oculta a la
+   vista sin sacarlo del árbol de accesibilidad (mismo patrón que
+   .u-visually-hidden). */
+.c-card-book figcaption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.c-card-book :is(h2, h3, h4) {
+  font-size: var(--fs-base);
+}
+
+.c-card-book :is(h2, h3, h4) a {
+  text-decoration: none;
+}
+
+.c-card-book :is(h2, h3, h4) a:hover {
+  text-decoration-line: underline;
+}
+
+/* Autor, editorial y reseña en segundo plano */
+.c-card-book p {
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+/* Precio: Bold, el único uso de 700 que admiten los lineamientos (§2.2) */
+.c-card-book b {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--on-surface);
+}
+
+/* La acción queda siempre al pie, aunque las tarjetas de una fila tengan
+   textos de distinto largo. */
+.c-card-book > :last-child {
+  margin-block-start: auto;
+}
+
+.c-card-book form {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.c-card-book :is(form button, .c-button) {
+  width: 100%;
+}
+
+/* --- Tarjeta genérica ------------------------------------------------- */
+
+.c-card {
+  height: 100%;
+  padding: var(--sp-4);
+  border: var(--border-width) solid var(--color-border);
+  border-inline-start: var(--border-width-accent) solid var(--color-brand);
+  border-radius: var(--radius-md);
+  background-color: var(--surface);
+}
+
+.c-card :is(h2, h3, h4) {
+  margin-block: 0 var(--sp-2);
+  font-size: var(--fs-md);
+}
+
+.c-card p {
+  margin-block-end: var(--sp-2);
+}
