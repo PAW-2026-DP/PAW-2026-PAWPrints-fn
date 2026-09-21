@@ -1,1 +1,154 @@
-/* 02-base/typography.css — pendiente: se completa en la F2 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   02-base/typography.css — Tipografía base (T-21)
+   =========================================================================
+
+   Todo por selector de elemento, sin clases (§3.4 de lineamientos).
+
+   Pesos según el manual (§2.2): títulos en SemiBold 600 ("Semibold is the
+   new Bold"), cuerpo en Regular 400, display en Light 300 ("Light is the
+   new Regular"), énfasis en Medium 500.
+
+   Color: el violeta ACENTÚA — títulos, links, estados. El cuerpo va en
+   --on-surface para no gastar el acento en todo el texto.
+
+   Ritmo vertical: los márgenes se declaran con :where() para que tengan
+   especificidad cero. Así cualquier regla de layout o componente los pisa
+   sin pelear, y sin recurrir a !important.
+   ========================================================================= */
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-base);
+  color: var(--on-surface);
+  background-color: var(--surface);
+}
+
+/* --- Títulos ---------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  color: var(--color-brand);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-xl); }
+h2 { font-size: var(--fs-lg); }
+h3 { font-size: var(--fs-md); }
+h4 { font-size: var(--fs-base); }
+
+h5,
+h6 {
+  font-size: var(--fs-sm);
+}
+
+/* --- Ritmo vertical --------------------------------------------------- */
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, figure,
+       table, address, hgroup, details, fieldset, form) {
+  margin-block-end: var(--sp-4);
+}
+
+/* Un título que sigue a contenido se separa más de lo anterior que de lo
+   que titula: así se lee a qué bloque pertenece. */
+:where(* + h2) { margin-block-start: var(--sp-6); }
+:where(* + h3, * + h4) { margin-block-start: var(--sp-5); }
+
+/* El último hijo no empuja el borde inferior de su contenedor */
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl, blockquote, figure,
+       table, address, hgroup, details, fieldset, form):last-child {
+  margin-block-end: 0;
+}
+
+/* --- Texto ------------------------------------------------------------ */
+
+p {
+  max-width: var(--prose-max);
+}
+
+strong,
+b {
+  font-weight: var(--fw-semibold);
+}
+
+small {
+  font-size: var(--fs-sm);
+}
+
+mark {
+  background-color: var(--color-brand-tint);
+  color: var(--color-brand-dark);
+  padding-inline: var(--sp-1);
+}
+
+address {
+  font-style: normal;
+}
+
+cite {
+  font-style: normal;
+  font-weight: var(--fw-medium);
+}
+
+/* hgroup: título + bajada. La bajada queda en segundo plano. */
+hgroup > p {
+  color: var(--color-ink-muted);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-light);
+}
+
+hgroup > :where(h1, h2, h3, h4, h5, h6) {
+  margin-block-end: var(--sp-2);
+}
+
+/* Cita destacada: Light en tamaño grande, como pide el manual para display.
+   Sin itálica: la fuente auto-hospedada no la incluye y el navegador la
+   inventaría inclinando las letras (una deformación que el manual prohíbe). */
+blockquote {
+  border-inline-start: var(--border-width-accent) solid var(--color-brand);
+  padding-inline-start: var(--sp-4);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-light);
+}
+
+/* --- Listas ----------------------------------------------------------- */
+
+ul,
+ol {
+  padding-inline-start: var(--sp-5);
+}
+
+li + li {
+  margin-block-start: var(--sp-1);
+}
+
+li::marker {
+  color: var(--color-brand);
+}
+
+dt {
+  font-weight: var(--fw-semibold);
+}
+
+dd {
+  margin-block-end: var(--sp-2);
+}
+
+/* Las listas de navegación no son listas de lectura: sin viñetas ni
+   sangría. Su distribución la define cada layout/componente. */
+nav :where(ul, ol) {
+  list-style: none;
+  padding-inline-start: 0;
+  margin-block-end: 0;
+}
+
+nav li + li {
+  margin-block-start: 0;
+}
