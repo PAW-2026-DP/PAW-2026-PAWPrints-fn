@@ -175,7 +175,10 @@ origin/main ──→ dev ──→ feature/estilados   ← rama de trabajo del 
 - **Fase 6 (Impresión)** cerrada, adelantada a F5 por la fecha de entrega. Verificada
   con PDFs de Chrome headless de detalle, resumen, reserva, nosotros y catálogo.
 - **Fase 5 (Layout por página)** cerrada: ver la tabla de F5 en `docs/plan-tp2-estilos.md`.
-- **Siguiente: Fase 7 (QA y entrega)** — validación W3C de HTML y CSS, PR de
+- **Fase 7 — T-71 cerrada (2026-09-21):** W3C con 0 errores en las 21 páginas (Nu HTML
+  Checker) y en los 26 CSS (Jigsaw, perfil css3svg). Quedan 6 avisos informativos del
+  TP1 en los detalles (`h1` dentro de `<article>` sin título propio).
+- **Siguiente: Fase 7 (entrega)** — PR de
   `feature/estilados` a `dev` (lo abre y aprueba el equipo), `dev → test → main`, tag `tp2`.
 
 ---
