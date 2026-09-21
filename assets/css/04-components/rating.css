@@ -1,1 +1,30 @@
-/* 04-components/rating.css — pendiente: se completa en la F4 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   04-components/rating.css — Valoración por estrellas (T-47)
+   =========================================================================
+
+   <data class="c-rating" value="4">4 de 5 estrellas</data>
+
+   Las estrellas se dibujan a partir del atributo value, sin tocar el
+   texto: "4 de 5 estrellas" sigue siendo lo que lee el lector de pantalla
+   y lo que queda si el CSS no carga. Las estrellas son el refuerzo visual.
+   ========================================================================= */
+
+.c-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+.c-rating::before {
+  color: var(--color-brand);
+  font-size: var(--fs-md);
+  letter-spacing: var(--sp-1);
+}
+
+.c-rating[value="1"]::before { content: "★☆☆☆☆"; }
+.c-rating[value="2"]::before { content: "★★☆☆☆"; }
+.c-rating[value="3"]::before { content: "★★★☆☆"; }
+.c-rating[value="4"]::before { content: "★★★★☆"; }
+.c-rating[value="5"]::before { content: "★★★★★"; }
