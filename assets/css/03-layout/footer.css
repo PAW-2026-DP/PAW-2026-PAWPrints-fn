@@ -1,1 +1,78 @@
-/* 03-layout/footer.css — pendiente: se completa en la F3 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   03-layout/footer.css — Footer del sitio (T-35, T-36)
+   =========================================================================
+
+   Markup canónico: components/footer.html (copiado en las 21 páginas).
+
+   En negativo: fondo violeta, texto y logotipo blancos. Es la versión en
+   negativo que admite el manual; blanco sobre el violeta corporativo da ~11:1.
+
+   Grilla: 1 columna en mobile → 3 columnas en tablet/desktop (contacto,
+   redes, páginas), con la línea legal a todo el ancho abajo, como el
+   wireframe del Figma.
+   ========================================================================= */
+
+.l-footer {
+  --focus-ring-color: var(--color-white);
+  background-color: var(--surface-invert);
+  color: var(--on-surface-invert);
+}
+
+.l-footer__inner {
+  display: grid;
+  gap: var(--sp-6);
+  padding-block: var(--sp-7) var(--sp-5);
+}
+
+/* Versión blanca del logotipo, solo escalada por alto */
+.l-footer__logo {
+  width: auto;
+  height: var(--logo-height-footer);
+  margin-block-end: var(--sp-5);
+}
+
+.l-footer h2 {
+  margin-block: 0 var(--sp-3);
+  font-size: var(--fs-md);
+  color: var(--on-surface-invert);
+}
+
+.l-footer a {
+  color: var(--on-surface-invert);
+}
+
+.l-footer a:hover {
+  color: var(--on-surface-invert);
+  text-decoration-thickness: var(--underline-thickness-hover);
+}
+
+.l-footer address p {
+  margin-block-end: var(--sp-1);
+}
+
+.l-footer address {
+  margin-block-end: var(--sp-4);
+}
+
+/* Links de las listas con alto cómodo para tocar */
+.l-footer__nav a {
+  display: inline-block;
+  padding-block: var(--sp-1);
+}
+
+.l-footer__legal {
+  display: block;
+  padding-block-start: var(--sp-5);
+  border-block-start: var(--border-width) solid var(--color-brand-soft);
+}
+
+@media (min-width: 48rem) {
+  .l-footer__inner {
+    grid-template-columns: 2fr 1fr 1fr;
+    column-gap: var(--sp-7);
+  }
+
+  .l-footer__legal {
+    grid-column: 1 / -1;
+  }
+}
