@@ -19,6 +19,126 @@
 }
 
 /* -------------------------------------------------------------------------
+   Variantes de página (F5)
+
+   .l-page--split     contenido + panel a la derecha (carrito, reserva,
+                      checkout). El panel queda fijo al scrollear.
+   .l-page--sidebar   barra a la izquierda + contenido (catálogo, mi cuenta)
+   .l-page__aside     marca cuál de los hijos es la columna lateral
+   .l-page--narrow    columna angosta centrada (login, registro)
+
+   En mobile todo se apila en el orden del HTML. En desktop la columna
+   lateral ocupa su carril desde arriba: grid-auto-flow dense la sube a la
+   primera fila libre y "span 20" la deja abarcar el alto del contenido
+   (las filas implícitas vacías miden cero).
+   ------------------------------------------------------------------------- */
+
+.l-page--narrow {
+  max-width: calc(var(--form-max) + 2 * var(--gutter-lg));
+}
+
+@media (min-width: 64rem) {
+  .l-page--split,
+  .l-page--sidebar {
+    display: grid;
+    grid-auto-flow: row dense;
+    align-items: start;
+    column-gap: var(--sp-7);
+  }
+
+  .l-page--split {
+    grid-template-columns: minmax(0, 1fr) var(--aside-w);
+  }
+
+  .l-page--split > * {
+    grid-column: 1;
+  }
+
+  /* El panel acompaña el scroll: los totales siempre a la vista */
+  .l-page--split > .l-page__aside {
+    position: sticky;
+    top: var(--sp-5);
+    grid-column: 2;
+    grid-row: span 20;
+    margin-block-start: 0;
+  }
+
+  .l-page--sidebar {
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
+  }
+
+  .l-page--sidebar > * {
+    grid-column: 2;
+  }
+
+  .l-page--sidebar > .l-page__aside {
+    grid-column: 1;
+    grid-row: span 20;
+    margin-block-start: 0;
+  }
+
+  /* Con la barra de filtros al lado, entran 3 libros por fila y no 4 */
+  .l-page--sidebar .l-grid--books {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* -------------------------------------------------------------------------
+   .l-detail — ficha del libro (T-52)
+   Portada y galería a la izquierda, datos y compra a la derecha. Se usa
+   float y no grid: la ficha tiene una cantidad variable de párrafos y el
+   texto simplemente fluye al lado de la portada.
+   ------------------------------------------------------------------------- */
+
+.l-detail > figure img {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+/* Galería de miniaturas */
+.l-detail > ul {
+  display: flex;
+  gap: var(--sp-2);
+  margin-block: var(--sp-2) var(--sp-5);
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.l-detail > ul li + li {
+  margin-block-start: 0;
+}
+
+.l-detail > ul img {
+  width: var(--thumb-w);
+  border-radius: var(--radius-sm);
+}
+
+/* Un campo a width: 100% no entra al lado de la portada flotante y el
+   navegador lo baja debajo de ella: la cantidad lleva un ancho acotado. */
+.l-detail input[type="number"] {
+  width: var(--field-short);
+}
+
+.l-detail > p > b {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+}
+
+@media (min-width: 48rem) {
+  .l-detail {
+    display: flow-root;
+  }
+
+  .l-detail > figure,
+  .l-detail > ul {
+    float: left;
+    clear: left;
+    width: var(--cover-col);
+    margin-inline-end: var(--sp-7);
+  }
+}
+
+/* -------------------------------------------------------------------------
    .l-grid — grilla de tarjetas
    Va en la <ul> que agrupa tarjetas. La lista pierde viñetas y sangría:
    es una grilla, pero sigue siendo una lista para el lector de pantalla
