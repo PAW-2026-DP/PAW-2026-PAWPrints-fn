@@ -1,1 +1,35 @@
-/* 05-utilities/utilities.css — pendiente: se completa en la F2 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   05-utilities/utilities.css — Utilidades (T-24)
+   =========================================================================
+
+   Una sola responsabilidad cada una. Van después de los componentes en la
+   cascada, así que pueden pisarlos por ORDEN, sin !important (§3.2).
+
+   El contenedor de ancho máximo NO está acá: es layout y vive en
+   03-layout/container.css como .l-container (F3, T-37).
+   ========================================================================= */
+
+/* Oculta a la vista pero NO al lector de pantalla. Para labels que el
+   diseño esconde: nunca display: none ni visibility: hidden, que los
+   sacan del árbol de accesibilidad (§6 de lineamientos). */
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Separación vertical uniforme entre los hijos directos de un bloque.
+   El espacio se ajusta por bloque con --flow-space. */
+.u-flow > * + * {
+  margin-block-start: var(--flow-space, var(--sp-4));
+}
+
+.u-text-center {
+  text-align: center;
+}
