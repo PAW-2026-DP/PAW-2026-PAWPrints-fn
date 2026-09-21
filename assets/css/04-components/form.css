@@ -1,1 +1,59 @@
-/* 04-components/form.css — pendiente: se completa en la F4 del plan (docs/plan-tp2-estilos.md) */
+/* =========================================================================
+   04-components/form.css — Formularios (T-43)
+   =========================================================================
+
+   .c-form va en los formularios que tienen campos (login, registro,
+   contacto, reserva, checkout, mi cuenta). Los formularios de las
+   tarjetas, que son solo botones, no la llevan.
+
+   Los campos ya se ven de la marca desde 02-base/elements.css; acá se
+   resuelve el ritmo entre campos, las casillas y los estados.
+   ========================================================================= */
+
+.c-form {
+  max-width: var(--form-max);
+}
+
+/* El carrito es un formulario que envuelve una tabla: necesita el ancho
+   completo o la tabla scrollea aun en desktop. */
+.c-form:has(.c-table) {
+  max-width: none;
+}
+
+.c-form p {
+  margin-block-end: var(--sp-4);
+}
+
+.c-form fieldset {
+  margin-block-end: var(--sp-5);
+}
+
+/* Campo obligatorio: se marca con TEXTO, no con un asterisco ni solo con
+   color (§6 de lineamientos). Se deriva del atributo required, así que la
+   marca y la validación no pueden contradecirse. */
+.c-form label:has(+ :required, + br + :required)::after {
+  content: " (obligatorio)";
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  color: var(--color-ink-muted);
+}
+
+/* Casillas y opciones: control y texto en una misma fila, con área
+   táctil completa. */
+.c-form label:has(> :is([type="checkbox"], [type="radio"])) {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  font-weight: var(--fw-regular);
+}
+
+/* Fila de botones al pie */
+.c-form p:has(> button) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.c-form small {
+  color: var(--color-ink-muted);
+}
