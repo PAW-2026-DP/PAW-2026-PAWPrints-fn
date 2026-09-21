@@ -1,0 +1,164 @@
+/* =========================================================================
+   01-settings/tokens.css — Design tokens
+   =========================================================================
+
+   FUENTE ÚNICA DE VERDAD de todo valor visual del sitio.
+
+   Ningún otro archivo CSS puede escribir un color hexadecimal, un espaciado
+   literal ni un tamaño de fuente literal. Si hace falta un valor nuevo,
+   se agrega acá primero. Ver §4 de docs/lineamientos-desarrollo.md.
+
+   Base: Manual básico de Identidad Corporativa PAWPrints — opción Violeta.
+   ========================================================================= */
+
+:root {
+
+  /* -----------------------------------------------------------------------
+     COLOR DE MARCA — definido por el manual. NO MODIFICAR.
+     Violeta: PANTONE 2597 C · CMYK 82/100/0/0 · RGB 87/6/140
+     ----------------------------------------------------------------------- */
+  --color-brand: #5c068c;
+  --color-white: #ffffff;
+
+  /* -----------------------------------------------------------------------
+     DERIVADOS DE INTERFAZ — NO son colores corporativos.
+     Existen solo por legibilidad y jerarquía. El manual define dos colores;
+     estos son tintes y neutros de trabajo, y nunca se aplican al logotipo.
+     ----------------------------------------------------------------------- */
+  --color-brand-dark: #3d045e;   /* hover / pressed */
+  --color-brand-soft: #8b3fb8;   /* bordes y estados sutiles, anillo de foco */
+  --color-brand-tint: #f4eef9;   /* fondos suaves */
+
+  --color-ink: #1c1020;          /* texto de cuerpo */
+  --color-ink-muted: #5b4b66;    /* texto secundario */
+  --color-border: #e3d8ec;
+
+  --color-danger: #a4133c;       /* validación de formularios */
+  --color-success: #1b5e3f;
+
+  /* -----------------------------------------------------------------------
+     SUPERFICIES SEMÁNTICAS
+     El manual: "El color principal es el fondo —tanto si es el Blanco como
+     el Violeta—, que es el espacio sobre el que se sitúa la información."
+     ----------------------------------------------------------------------- */
+  --surface: var(--color-white);
+  --surface-invert: var(--color-brand);
+  --on-surface: var(--color-ink);
+  --on-surface-invert: var(--color-white);
+
+  /* -----------------------------------------------------------------------
+     TIPOGRAFÍA
+     Pesos corporativos del manual. Los principales son Light (300) y
+     SemiBold (600); Regular, Medium y Bold también son corporativos.
+     ----------------------------------------------------------------------- */
+  --font-base: "Montserrat", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --fs-lg: clamp(1.375rem, 1.1rem + 1vw, 1.75rem);
+  --fs-xl: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+  --fs-2xl: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+
+  /* Impresión: en papel se mide en puntos, no en rem */
+  --fs-print: 11pt;
+  --fs-print-sm: 9pt;
+  --print-img-max: 6cm;
+
+  --lh-tight: 1.2;
+  --lh-base: 1.6;
+
+  /* -----------------------------------------------------------------------
+     ESPACIADO — escala de base 4px
+     ----------------------------------------------------------------------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* -----------------------------------------------------------------------
+     LAYOUT
+     ----------------------------------------------------------------------- */
+  --container-max: 75rem;   /* 1200px */
+  --prose-max: 65ch;        /* ancho cómodo de lectura */
+  --gutter: var(--sp-4);
+  --gutter-lg: var(--sp-6);
+
+  /* Logotipo: solo se escala por alto, el ancho sale de la proporción del
+     SVG. Nunca se deforma (§2.3 de lineamientos). */
+  --logo-height: 2.25rem;
+  --logo-height-lg: 3rem;
+  --logo-height-footer: 2.5rem;
+  --search-max: 36rem;
+  --form-max: 40rem;          /* formularios: una columna cómoda de leer */
+  --cover-ratio: 2 / 3;       /* proporción de las portadas (240×360) */
+  --field-short: 12rem;       /* campos numéricos cortos (precio, cantidad) */
+  --aside-w: 20rem;           /* panel lateral derecho (totales, resumen) */
+  --sidebar-w: 16rem;         /* barra lateral izquierda (filtros, secciones) */
+  --cover-col: 15rem;         /* columna de la portada en el detalle */
+  --thumb-w: 4rem;            /* miniaturas de la galería del detalle */
+  --thumb-col: 6rem;          /* portada de la tarjeta horizontal */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* -----------------------------------------------------------------------
+     BORDES Y FOCO
+     El foco SIEMPRE visible. Ver §6 de lineamientos.
+     ----------------------------------------------------------------------- */
+  --border-width: 1px;
+  --border-width-accent: 4px;    /* filete de blockquote y acentos */
+  --focus-ring-width: 3px;
+  --focus-ring-color: var(--color-brand-soft);
+  --focus-offset: 2px;
+
+  /* Borde de campos de formulario: WCAG 1.4.11 pide 3:1 contra el fondo.
+     --color-border (#e3d8ec) no llega; --color-ink-muted da ~7.9:1. */
+  --input-border-color: var(--color-ink-muted);
+
+  /* Área táctil mínima de controles: 44×44px. Ver §5.2 de lineamientos. */
+  --tap-min: 2.75rem;
+
+  /* Subrayado de links: separado del texto para que no pise los descendentes */
+  --underline-offset: 0.18em;
+  --underline-thickness-hover: 2px;
+
+  /* Controles deshabilitados: atenuados, pero se siguen leyendo */
+  --opacity-disabled: 0.6;
+
+  /* -----------------------------------------------------------------------
+     TRANSICIONES
+     Se anulan bajo prefers-reduced-motion (ver 02-base/elements.css).
+     ----------------------------------------------------------------------- */
+  --transition-fast: 120ms ease;
+}
+
+/* -------------------------------------------------------------------------
+   BREAKPOINTS — referencia, NO son custom properties utilizables.
+
+   Las custom properties NO funcionan dentro de @media: escribir
+   @media (min-width: var(--bp-md)) no hace nada. Los valores van literales
+   en cada media query. Se documentan acá para que sean uno solo en todo
+   el proyecto:
+
+     sm   30rem   480px   ajustes de mobile grande
+     md   48rem   768px   tablet — el layout empieza a abrirse
+     lg   64rem  1024px   desktop — sidebar + contenido
+     xl   80rem  1280px   desktop ancho
+
+   Estrategia mobile-first: los estilos base son los de mobile y se sube
+   con min-width. Ver §5 de docs/lineamientos-desarrollo.md.
+   ------------------------------------------------------------------------- */

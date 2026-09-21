@@ -1,0 +1,52 @@
+/* =========================================================================
+   04-components/table.css — Contenedor de tabla (T-48)
+   =========================================================================
+
+   <div class="c-table" role="region" aria-label="…" tabindex="0">
+     <table>…</table>
+   </div>
+
+   Una tabla de varias columnas no puede achicarse a 320px sin romperse.
+   En vez de desbordar la página (el <body> nunca scrollea en horizontal,
+   §5.2), scrollea solo la tabla dentro de su contenedor.
+
+   El contenedor es enfocable (tabindex="0") para poder desplazarlo con el
+   teclado, y tiene nombre accesible (el texto del <caption>).
+
+   Reemplaza a .c-summary del plan: el mismo contenedor sirve para el
+   carrito, el resumen, el historial de pedidos y la ficha técnica.
+   ========================================================================= */
+
+.c-table {
+  max-width: 100%;
+  margin-block-end: var(--sp-4);
+  overflow-x: auto;
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.c-table table {
+  margin-block-end: 0;
+}
+
+.c-table caption {
+  padding: var(--sp-3) var(--sp-3) var(--sp-2);
+}
+
+/* En mobile las celdas no se parten palabra por palabra: la tabla toma el
+   ancho que necesita y el contenedor scrollea. En desktop hay lugar para
+   partir líneas, y así la tabla entra aunque esté en una columna angosta
+   (carrito con panel lateral, resumen del pedido). */
+.c-table :is(th, td) {
+  white-space: nowrap;
+}
+
+@media (min-width: 64rem) {
+  .c-table :is(th, td) {
+    white-space: normal;
+  }
+}
+
+.c-table tbody tr:hover {
+  background-color: var(--color-brand-tint);
+}
