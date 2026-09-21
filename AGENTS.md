@@ -166,8 +166,12 @@ origin/main ──→ dev ──→ feature/estilados   ← rama de trabajo del 
   del Figma), que no bloquean el CSS pero sí afinan los tokens.
 - **Fase 1 (Cimientos)** cerrada: `assets/css/` con la cascada de 6 capas,
   Montserrat variable auto-hospedada, `tokens.css`, y el `<link>` en las 21 páginas.
-- **Siguiente: Fase 2 (Base)** — reset, tipografía, elementos, foco. Todo por selector
-  de elemento, sin una sola clase.
+- **Fase 2 (Base)** cerrada: reset, tipografía, elementos, foco y utilidades.
+- **Fase 3 (Chrome)** cerrada: header y footer con clases `.l-header` / `.l-footer`,
+  logotipo SVG oficial (violeta en el header, negativo blanco en el footer),
+  `.l-container` + `.l-page` en el `<main>` de las 21 páginas y `.c-skip-link`.
+- **Siguiente: Fase 4 (Componentes)** — incluye envolver las tablas de `carrito.html`
+  y `mi-cuenta.html`, que todavía desbordan a 320px.
 
 ---
 

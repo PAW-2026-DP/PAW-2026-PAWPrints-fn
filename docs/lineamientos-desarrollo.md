@@ -216,7 +216,7 @@ El manual prohíbe expresamente sobre la **marca**:
 
 Consecuencias directas para nuestro CSS:
 
-- El logotipo (`header > a > strong`) **nunca** recibe `transform`, `text-shadow`,
+- El logotipo (`.l-header__brand img`, SVG oficial en `assets/img/logo/`) **nunca** recibe `transform`, `text-shadow`,
   `filter`, ni cambio de color fuera de las versiones oficiales (violeta sobre blanco /
   blanco sobre violeta).
 - El logotipo respeta un **área de reserva**: padding mínimo alrededor, no se apoya contra
