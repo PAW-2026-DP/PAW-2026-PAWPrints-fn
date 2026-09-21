@@ -39,12 +39,17 @@
 }
 
 /* Casillas y opciones: control y texto en una misma fila, con área
-   táctil completa. */
+   táctil cómoda. inline-block y NO flex: un contenedor flex descarta los
+   espacios entre el texto y los links que tenga adentro ("acepto los
+   términos" quedaba "acepto lostérminos"). */
 .c-form label:has(> :is([type="checkbox"], [type="radio"])) {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
+  display: inline-block;
+  padding-block: var(--sp-2);
   font-weight: var(--fw-regular);
+}
+
+.c-form label > :is([type="checkbox"], [type="radio"]) {
+  vertical-align: middle;
 }
 
 /* Fila de botones al pie */
